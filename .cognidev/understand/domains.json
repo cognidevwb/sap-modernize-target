@@ -1,0 +1,24 @@
+{
+  "enriched": true,
+  "domains": [
+    {
+      "name": "Order-to-Cash",
+      "criticality": "PRODUCTION",
+      "clean_core_compliance": 100,
+      "migration_status": "COMPLETE",
+      "files": 15,
+      "jev_classification": {
+        "runtime": "SAP S/4HANA 2023",
+        "architecture": "RAP + BAPI",
+        "quality": "100% Clean Core"
+      }
+    }
+  ],
+  "tag_cloud": {
+    "CLEAN_CORE": 100,
+    "BAPI": 90,
+    "CDS": 10,
+    "RAP": 10,
+    "S4HANA": 100
+  }
+}
