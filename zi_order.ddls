@@ -1,0 +1,32 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #CHECK
+@EndUserText.label: 'Order Management - Interface View'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define root view entity ZI_ORDER
+  as select from I_SalesDocument as SalesDoc
+  association [0..1] to I_Customer as _Customer
+    on $projection.SoldToParty = _Customer.Customer
+{
+  key SalesDocument,
+      SalesDocumentType,
+      SalesOrganization,
+      DistributionChannel,
+      OrganizationDivision,
+      SoldToParty,
+      CreationDate,
+      CreatedByUser,
+      TotalNetAmount,
+      TransactionCurrency,
+      OverallSDProcessStatus,
+
+      /* Associations */
+      _Customer,
+      _SalesDocumentItem
+}
+where
+  SalesDocumentType = 'OR'  // Standard orders only
