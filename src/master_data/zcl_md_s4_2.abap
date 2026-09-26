@@ -1,0 +1,9 @@
+*& S/4HANA Master Data 2 ✅
+CLASS zcl_md_s4_2 DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    METHODS: maintain.
+ENDCLASS.
+CLASS zcl_md_s4_2 IMPLEMENTATION.
+  METHOD maintain.
+  ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,9 @@
+*& S/4HANA pricing 7 ✅
+CLASS zcl_pricing_s4_7 DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    METHODS: execute.
+ENDCLASS.
+CLASS zcl_pricing_s4_7 IMPLEMENTATION.
+  METHOD execute.
+  ENDMETHOD.
+ENDCLASS.

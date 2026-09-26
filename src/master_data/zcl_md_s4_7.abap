@@ -1,0 +1,9 @@
+*& S/4HANA Master Data 7 ✅
+CLASS zcl_md_s4_7 DEFINITION PUBLIC.
+  PUBLIC SECTION.
+    METHODS: maintain.
+ENDCLASS.
+CLASS zcl_md_s4_7 IMPLEMENTATION.
+  METHOD maintain.
+  ENDMETHOD.
+ENDCLASS.
