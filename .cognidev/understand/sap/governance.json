@@ -1,0 +1,962 @@
+{
+  "schemaVersion": "sap-governance/v1",
+  "producer": "understand-sap",
+  "producerVersion": "0.3.5",
+  "inputDigest": "2ebd61f074f43fe4ff83e91ee71c9757c86a48516a044e13338459424bc1b3db",
+  "scope": "source-and-assessment-evidence",
+  "assessment": {
+    "state": "not-run",
+    "path": ".cognidev/sap-modernization/assessment-bundle.json",
+    "changedEvidence": [],
+    "assessmentState": "not-run",
+    "migrationReadiness": "not-established"
+  },
+  "summary": {
+    "blockerCount": 6,
+    "warningCount": 2,
+    "controlCount": 12,
+    "scenarioCount": 0,
+    "candidateScenarioCount": 0,
+    "factStates": {
+      "observed": 2,
+      "inferred": 1,
+      "unknown": 9
+    }
+  },
+  "targetContract": {
+    "factState": "unknown",
+    "route": "unknown",
+    "product": "unknown",
+    "edition": "unknown",
+    "release": "unknown",
+    "qualification": "incomplete"
+  },
+  "tracks": [
+    {
+      "id": "same-release-maintenance",
+      "title": "SAP FPS/SPS Update",
+      "purpose": "Apply a Feature Package Stack or Support Package Stack with component Support Packages, patches and SAP Notes.",
+      "state": "not-assessed",
+      "candidateScenarios": [],
+      "stages": [
+        {
+          "id": "baseline",
+          "title": "Baseline landscape",
+          "state": "missing"
+        },
+        {
+          "id": "applicability",
+          "title": "Qualify Notes and compatibility",
+          "state": "missing"
+        },
+        {
+          "id": "plan",
+          "title": "Plan stack, transports and downtime",
+          "state": "missing"
+        },
+        {
+          "id": "remediate",
+          "title": "Resolve ATC, SPAU and SPDD",
+          "state": "missing"
+        },
+        {
+          "id": "validate",
+          "title": "Rehearse and validate",
+          "state": "missing"
+        },
+        {
+          "id": "operate",
+          "title": "Cut over, observe and rollback",
+          "state": "missing"
+        }
+      ]
+    },
+    {
+      "id": "s4-transformation",
+      "title": "S/4HANA transformation",
+      "purpose": "Convert or migrate the legacy SAP landscape to the declared current target, with clean-core, data, integration and cutover controls.",
+      "state": "not-assessed",
+      "candidateScenarios": [],
+      "stages": [
+        {
+          "id": "target",
+          "title": "Qualify source and target",
+          "state": "missing"
+        },
+        {
+          "id": "readiness",
+          "title": "Run readiness and simplification checks",
+          "state": "missing"
+        },
+        {
+          "id": "portfolio",
+          "title": "Remediate custom code and clean core",
+          "state": "missing"
+        },
+        {
+          "id": "data",
+          "title": "Transform data, interfaces and security",
+          "state": "missing"
+        },
+        {
+          "id": "validate",
+          "title": "Reconcile business outcomes",
+          "state": "missing"
+        },
+        {
+          "id": "cutover",
+          "title": "Rehearse cutover and retirement",
+          "state": "missing"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "source-inventory",
+      "title": "SAP source inventory",
+      "area": "engineering",
+      "factState": "observed",
+      "state": "partial",
+      "summary": "90 SAP inputs; 1 need deeper analysis.",
+      "evidence": [
+        ".cognidev/understand/sap/inventory.json"
+      ],
+      "requiredEvidence": [
+        "resolve partial and unsupported inputs"
+      ]
+    },
+    {
+      "id": "engineering-model",
+      "title": "Application structure and dependencies",
+      "area": "engineering",
+      "factState": "observed",
+      "state": "partial",
+      "summary": "0 exact references; 4 unresolved or external.",
+      "evidence": [
+        ".cognidev/understand/sap/engineering.json"
+      ],
+      "requiredEvidence": [
+        "resolve external, ambiguous and dynamic references"
+      ]
+    },
+    {
+      "id": "business-footprint",
+      "title": "Transactions and functional footprint",
+      "area": "modules",
+      "factState": "inferred",
+      "state": "observed",
+      "summary": "0 transactions and 5 functional areas are evidenced in exported source.",
+      "evidence": [
+        ".cognidev/understand/sap/estate.json"
+      ],
+      "requiredEvidence": []
+    },
+    {
+      "id": "landscape-baseline",
+      "title": "Landscape and release baseline",
+      "area": "landscape",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "The repository cannot prove the running SAP product or maintenance level.",
+      "evidence": [],
+      "requiredEvidence": [
+        "system component inventory",
+        "source product and release",
+        "support-package and feature-package level"
+      ]
+    },
+    {
+      "id": "components-addons",
+      "title": "Installed components and add-ons",
+      "area": "components",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Source evidence points to FI, MM, PP, QM, SD. Installed software components, add-ons and activation still require system evidence.",
+      "evidence": [
+        ".cognidev/understand/sap/estate.json"
+      ],
+      "requiredEvidence": [
+        "installed component and add-on inventory",
+        "activated business functions",
+        "vendor support status"
+      ]
+    },
+    {
+      "id": "maintenance-planning",
+      "title": "Maintenance Planner and compatibility",
+      "area": "maintenance",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Stack calculation, add-on compatibility, kernel/database prerequisites and downtime plan require system and vendor evidence.",
+      "evidence": [],
+      "requiredEvidence": [
+        "Maintenance Planner result",
+        "stack.xml or equivalent plan",
+        "add-on compatibility",
+        "kernel and database prerequisites"
+      ]
+    },
+    {
+      "id": "notes-security",
+      "title": "SAP Notes and Security Notes",
+      "area": "maintenance",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Applicability, prerequisites, manual activities and superseded Notes are not established from source.",
+      "evidence": [],
+      "requiredEvidence": [
+        "SAP Note applicability ledger",
+        "Security Note priorities",
+        "prerequisites and manual activities"
+      ]
+    },
+    {
+      "id": "custom-code",
+      "title": "Custom code, ATC and clean core",
+      "area": "readiness",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Static source structure is available; target-specific ATC and simplification results remain a separate evidence set.",
+      "evidence": [
+        ".cognidev/understand/sap/engineering.json"
+      ],
+      "requiredEvidence": [
+        "SAP Readiness Check",
+        "target-specific simplification findings",
+        "ATC/custom code findings",
+        "Maintenance Planner compatibility evidence"
+      ]
+    },
+    {
+      "id": "runtime-security",
+      "title": "Runtime, customizing and authorizations",
+      "area": "runtime",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Effective behavior and access must be measured in connected systems.",
+      "evidence": [],
+      "requiredEvidence": [
+        "activated object inventory",
+        "customizing and client scope",
+        "jobs and interface inventory",
+        "effective authorizations",
+        "runtime usage"
+      ]
+    },
+    {
+      "id": "validation",
+      "title": "Business, data and regression validation",
+      "area": "validation",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Process cases, control totals, interfaces and non-functional baselines gate release acceptance.",
+      "evidence": [],
+      "requiredEvidence": [
+        "process scope and owners",
+        "representative business cases",
+        "control totals and tolerances"
+      ]
+    },
+    {
+      "id": "target-contract",
+      "title": "Modernization target contract",
+      "area": "target",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "No current modernization assessment supplies a target route and release.",
+      "evidence": [],
+      "requiredEvidence": [
+        "run SAP modernization assessment"
+      ]
+    },
+    {
+      "id": "handoffs",
+      "title": "Specialist playbook handoffs",
+      "area": "governance",
+      "factState": "unknown",
+      "state": "missing",
+      "summary": "Specialist playbooks have not been routed from a current foundation assessment.",
+      "evidence": [],
+      "requiredEvidence": [
+        "run SAP modernization assessment"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "source-product-release-unknown",
+      "severity": "blocker",
+      "area": "landscape",
+      "factState": "unknown",
+      "summary": "Source product, edition, release and support-package level are not established.",
+      "requiredEvidence": [
+        "system component inventory",
+        "source product and release",
+        "support-package and feature-package level"
+      ]
+    },
+    {
+      "id": "installed-components-unavailable",
+      "severity": "blocker",
+      "area": "components",
+      "factState": "unknown",
+      "summary": "Installed modules, software components, add-ons, business functions and support levels are not observed.",
+      "requiredEvidence": [
+        "installed component and add-on inventory",
+        "activated business functions",
+        "vendor support status"
+      ]
+    },
+    {
+      "id": "live-system-state-unavailable",
+      "severity": "blocker",
+      "area": "runtime",
+      "factState": "unknown",
+      "summary": "Activation, customizing, clients, jobs, interfaces, effective roles and runtime usage are not observed.",
+      "requiredEvidence": [
+        "activated object inventory",
+        "customizing and client scope",
+        "jobs and interface inventory",
+        "effective authorizations",
+        "runtime usage"
+      ]
+    },
+    {
+      "id": "sap-readiness-imports-missing",
+      "severity": "blocker",
+      "area": "readiness",
+      "factState": "unknown",
+      "summary": "Readiness Check, simplification, ATC and compatibility results have not been imported.",
+      "requiredEvidence": [
+        "SAP Readiness Check",
+        "target-specific simplification findings",
+        "ATC/custom code findings",
+        "Maintenance Planner compatibility evidence"
+      ]
+    },
+    {
+      "id": "business-baseline-missing",
+      "severity": "blocker",
+      "area": "validation",
+      "factState": "unknown",
+      "summary": "Business-process, data and reconciliation baselines are not established.",
+      "requiredEvidence": [
+        "process scope and owners",
+        "representative business cases",
+        "control totals and tolerances"
+      ]
+    },
+    {
+      "id": "maintenance-evidence-missing",
+      "severity": "blocker",
+      "area": "maintenance",
+      "factState": "unknown",
+      "summary": "Patch applicability, SAP Notes, SUM plan, SPAU/SPDD impact, regression scope and rollback evidence are not established.",
+      "requiredEvidence": [
+        "Maintenance Planner or equivalent plan",
+        "SAP Note applicability ledger",
+        "SUM/stack plan",
+        "SPAU/SPDD inventory",
+        "regression selection",
+        "rehearsal and rollback evidence"
+      ]
+    },
+    {
+      "id": "partial-source-coverage",
+      "severity": "warning",
+      "area": "engineering",
+      "factState": "unknown",
+      "summary": "1 SAP inputs are partial, malformed or unsupported.",
+      "requiredEvidence": [
+        "resolve each inventory disposition"
+      ]
+    },
+    {
+      "id": "unresolved-source-references",
+      "severity": "warning",
+      "area": "engineering",
+      "factState": "unknown",
+      "summary": "4 SAP references are unresolved, ambiguous, dynamic or external.",
+      "requiredEvidence": [
+        "referenced exports",
+        "runtime traces",
+        "external contracts"
+      ]
+    }
+  ],
+  "estate": {
+    "summary": {
+      "transactions": 0,
+      "functionalAreas": 5,
+      "packages": 0,
+      "repositoryObjects": 90,
+      "customObjects": 180,
+      "interfaces": 3,
+      "jobs": 0,
+      "authorizationObjects": 0,
+      "enhancements": 0
+    },
+    "functionalAreas": [
+      {
+        "id": "FI",
+        "name": "Financial Accounting",
+        "factState": "inferred",
+        "confidence": 0.65,
+        "evidence": [
+          {
+            "value": "ZCL_FINANCE_S4_1",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_1.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_1",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_1.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_10",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_10.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_10",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_10.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_2",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_2.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_2",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_2.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_3",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_3.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_3",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_3.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_4",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_4",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_4.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_5",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_5.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_5",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_5.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_6",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_6.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_6",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_6.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_7",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_7.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_7",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_7.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_8",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_8.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_8",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_8.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_FINANCE_S4_9",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_9.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_FINANCE_S4_9",
+            "kind": "object",
+            "file": "src/finance/zcl_finance_s4_9.abap",
+            "line": 2
+          }
+        ],
+        "evidenceCount": 20,
+        "statement": "Custom-object naming or descriptions suggest this functional area; confirm with owners or runtime usage."
+      },
+      {
+        "id": "MM",
+        "name": "Materials Management",
+        "factState": "inferred",
+        "confidence": 0.65,
+        "evidence": [
+          {
+            "value": "ZCL_INVENTORY_S4_1",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_1.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_1",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_1.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_10",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_10.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_10",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_10.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_2",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_2.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_2",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_2.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_3",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_3.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_3",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_3.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_4",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_4",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_4.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_5",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_5.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_5",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_5.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_6",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_6.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_6",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_6.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_7",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_7.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_7",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_7.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_8",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_8.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_8",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_8.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_9",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_9.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_INVENTORY_S4_9",
+            "kind": "object",
+            "file": "src/inventory/zcl_inventory_s4_9.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PURCHASE_S4",
+            "kind": "object",
+            "file": "src/procure_to_pay/zcl_purchase_s4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PURCHASE_S4",
+            "kind": "object",
+            "file": "src/procure_to_pay/zcl_purchase_s4.abap",
+            "line": 2
+          }
+        ],
+        "evidenceCount": 22,
+        "statement": "Custom-object naming or descriptions suggest this functional area; confirm with owners or runtime usage."
+      },
+      {
+        "id": "PP",
+        "name": "Production Planning",
+        "factState": "inferred",
+        "confidence": 0.65,
+        "evidence": [
+          {
+            "value": "ZCL_PRODUCTION_S4_1",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_1.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_1",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_1.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_2",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_2.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_2",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_2.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_3",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_3.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_3",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_3.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_4",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_4",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_4.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_5",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_5.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRODUCTION_S4_5",
+            "kind": "object",
+            "file": "src/production/zcl_production_s4_5.abap",
+            "line": 2
+          }
+        ],
+        "evidenceCount": 10,
+        "statement": "Custom-object naming or descriptions suggest this functional area; confirm with owners or runtime usage."
+      },
+      {
+        "id": "QM",
+        "name": "Quality Management",
+        "factState": "inferred",
+        "confidence": 0.65,
+        "evidence": [
+          {
+            "value": "ZCL_QUALITY_S4_1",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_1.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_QUALITY_S4_1",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_1.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_QUALITY_S4_2",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_2.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_QUALITY_S4_2",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_2.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_QUALITY_S4_3",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_3.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_QUALITY_S4_3",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_3.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_QUALITY_S4_4",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_QUALITY_S4_4",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_4.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_QUALITY_S4_5",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_5.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_QUALITY_S4_5",
+            "kind": "object",
+            "file": "src/quality/zcl_quality_s4_5.abap",
+            "line": 2
+          }
+        ],
+        "evidenceCount": 10,
+        "statement": "Custom-object naming or descriptions suggest this functional area; confirm with owners or runtime usage."
+      },
+      {
+        "id": "SD",
+        "name": "Sales and Distribution",
+        "factState": "inferred",
+        "confidence": 0.65,
+        "evidence": [
+          {
+            "value": "CREATE_ORDER",
+            "kind": "object",
+            "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+            "line": 8
+          },
+          {
+            "value": "ZCL_BILLING_S4",
+            "kind": "object",
+            "file": "src/order_to_cash/zcl_billing_s4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_BILLING_S4",
+            "kind": "object",
+            "file": "src/order_to_cash/zcl_billing_s4.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_1",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_1.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_1",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_1.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_2",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_2.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_2",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_2.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_3",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_3.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_3",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_3.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_4",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_4",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_4.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_5",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_5.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_5",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_5.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_6",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_6.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_6",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_6.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_PRICING_S4_7",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_7.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_PRICING_S4_7",
+            "kind": "object",
+            "file": "src/pricing/zcl_pricing_s4_7.abap",
+            "line": 2
+          },
+          {
+            "value": "ZCL_SALES_ORDER_S4",
+            "kind": "object",
+            "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+            "line": 1
+          },
+          {
+            "value": "ZCL_SALES_ORDER_S4",
+            "kind": "object",
+            "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+            "line": 8
+          },
+          {
+            "value": "ZI_SALESORDER",
+            "kind": "table",
+            "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+            "line": 14
+          }
+        ],
+        "evidenceCount": 20,
+        "statement": "Custom-object naming or descriptions suggest this functional area; confirm with owners or runtime usage."
+      }
+    ],
+    "transactions": []
+  },
+  "capabilities": [
+    {
+      "id": "abap-rap",
+      "factState": "observed",
+      "detected": true,
+      "evidence": [
+        ".cognidev/understand/sap/coverage.json"
+      ]
+    }
+  ],
+  "handoffs": [],
+  "rules": [
+    "Observed, inferred, proposed and unknown facts remain distinct.",
+    "Missing live-system evidence is a gap, never a clean result.",
+    "A stale foundation assessment is not used for readiness or routing."
+  ]
+}

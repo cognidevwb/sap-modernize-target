@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "sap-understand/v1",
+  "producer": "understand-sap",
+  "producerVersion": "0.4.0",
+  "parser": "@abaplint/core@2.120.54",
+  "scope": "export-only",
+  "productRelease": "unknown",
+  "targetReadiness": "not-assessed",
+  "supportMatrixVersion": "sap-export-0.4",
+  "inputDigest": "2ebd61f074f43fe4ff83e91ee71c9757c86a48516a044e13338459424bc1b3db",
+  "callsites": [
+    {
+      "node": "sap:src/order_to_cash:ABAP:ZCL_SALES_ORDER_S4:Class:ZCL_SALES_ORDER_S4:Method:GET_STATUS",
+      "kind": "raw-sql",
+      "operation": "select",
+      "target": "ZI_SALESORDER",
+      "library": "ABAP SQL",
+      "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+      "line": 14,
+      "object": "sap:src/order_to_cash:ABAP:ZCL_SALES_ORDER_S4",
+      "dynamic": false,
+      "snippet": "SELECT FROM ZI_SalesOrder WHERE SalesDocument = @iv_order."
+    }
+  ]
+}

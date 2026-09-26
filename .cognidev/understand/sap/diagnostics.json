@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "sap-understand/v1",
+  "producer": "understand-sap",
+  "producerVersion": "0.4.0",
+  "parser": "@abaplint/core@2.120.54",
+  "scope": "export-only",
+  "productRelease": "unknown",
+  "targetReadiness": "not-assessed",
+  "supportMatrixVersion": "sap-export-0.4",
+  "inputDigest": "2ebd61f074f43fe4ff83e91ee71c9757c86a48516a044e13338459424bc1b3db",
+  "diagnostics": [
+    {
+      "code": "ABAP_STRUCTURE_INCOMPLETE",
+      "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+      "line": 1,
+      "message": "Parser could not assemble a complete structure"
+    }
+  ]
+}

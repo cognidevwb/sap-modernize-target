@@ -1,0 +1,824 @@
+{
+  "schemaVersion": "sap-understand/v1",
+  "producer": "understand-sap",
+  "producerVersion": "0.4.0",
+  "parser": "@abaplint/core@2.120.54",
+  "scope": "export-only",
+  "productRelease": "unknown",
+  "targetReadiness": "not-assessed",
+  "supportMatrixVersion": "sap-export-0.4",
+  "inputDigest": "2ebd61f074f43fe4ff83e91ee71c9757c86a48516a044e13338459424bc1b3db",
+  "objects": [
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_1",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_2",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_3",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_4",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_5",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_6",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_7",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/cross_cutting:ABAP:ZCL_UTIL_S4_8",
+      "type": "ABAP",
+      "name": "ZCL_UTIL_S4_8",
+      "scope": "src/cross_cutting",
+      "files": [
+        "src/cross_cutting/zcl_util_s4_8.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_1",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_10",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_10",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_10.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_2",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_3",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_4",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_5",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_6",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_7",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_8",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_8",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_8.abap"
+      ]
+    },
+    {
+      "id": "sap:src/finance:ABAP:ZCL_FINANCE_S4_9",
+      "type": "ABAP",
+      "name": "ZCL_FINANCE_S4_9",
+      "scope": "src/finance",
+      "files": [
+        "src/finance/zcl_finance_s4_9.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_1",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_10",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_10",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_10.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_2",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_3",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_4",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_5",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_6",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_7",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_8",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_8",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_8.abap"
+      ]
+    },
+    {
+      "id": "sap:src/inventory:ABAP:ZCL_INVENTORY_S4_9",
+      "type": "ABAP",
+      "name": "ZCL_INVENTORY_S4_9",
+      "scope": "src/inventory",
+      "files": [
+        "src/inventory/zcl_inventory_s4_9.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_1",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_2",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_3",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_4",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_5",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_6",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/logistics:ABAP:ZCL_LOGISTICS_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_LOGISTICS_S4_7",
+      "scope": "src/logistics",
+      "files": [
+        "src/logistics/zcl_logistics_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_1",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_2",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_3",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_4",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_5",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_6",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_7",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/master_data:ABAP:ZCL_MD_S4_8",
+      "type": "ABAP",
+      "name": "ZCL_MD_S4_8",
+      "scope": "src/master_data",
+      "files": [
+        "src/master_data/zcl_md_s4_8.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_BILLING_S4",
+      "type": "ABAP",
+      "name": "ZCL_BILLING_S4",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_billing_s4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_1",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_10",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_10",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_10.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_11",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_11",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_11.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_12",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_12",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_12.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_13",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_13",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_13.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_2",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_3",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_4",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_5",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_6",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_7",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_8",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_8",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_8.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_O2C_S4_9",
+      "type": "ABAP",
+      "name": "ZCL_O2C_S4_9",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_o2c_s4_9.abap"
+      ]
+    },
+    {
+      "id": "sap:src/order_to_cash:ABAP:ZCL_SALES_ORDER_S4",
+      "type": "ABAP",
+      "name": "ZCL_SALES_ORDER_S4",
+      "scope": "src/order_to_cash",
+      "files": [
+        "src/order_to_cash/zcl_sales_order_s4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_1",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_2",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_3",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_4",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_5",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_6",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/pricing:ABAP:ZCL_PRICING_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_PRICING_S4_7",
+      "scope": "src/pricing",
+      "files": [
+        "src/pricing/zcl_pricing_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_1",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_10",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_10",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_10.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_11",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_11",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_11.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_12",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_12",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_12.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_13",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_13",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_13.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_14",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_14",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_14.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_2",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_3",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_4",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_5",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_6",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_6",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_6.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_7",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_7",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_7.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_8",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_8",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_8.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_P2P_S4_9",
+      "type": "ABAP",
+      "name": "ZCL_P2P_S4_9",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_9.abap"
+      ]
+    },
+    {
+      "id": "sap:src/procure_to_pay:ABAP:ZCL_PURCHASE_S4",
+      "type": "ABAP",
+      "name": "ZCL_PURCHASE_S4",
+      "scope": "src/procure_to_pay",
+      "files": [
+        "src/procure_to_pay/zcl_purchase_s4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/production:ABAP:ZCL_PRODUCTION_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_PRODUCTION_S4_1",
+      "scope": "src/production",
+      "files": [
+        "src/production/zcl_production_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/production:ABAP:ZCL_PRODUCTION_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_PRODUCTION_S4_2",
+      "scope": "src/production",
+      "files": [
+        "src/production/zcl_production_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/production:ABAP:ZCL_PRODUCTION_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_PRODUCTION_S4_3",
+      "scope": "src/production",
+      "files": [
+        "src/production/zcl_production_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/production:ABAP:ZCL_PRODUCTION_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_PRODUCTION_S4_4",
+      "scope": "src/production",
+      "files": [
+        "src/production/zcl_production_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/production:ABAP:ZCL_PRODUCTION_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_PRODUCTION_S4_5",
+      "scope": "src/production",
+      "files": [
+        "src/production/zcl_production_s4_5.abap"
+      ]
+    },
+    {
+      "id": "sap:src/quality:ABAP:ZCL_QUALITY_S4_1",
+      "type": "ABAP",
+      "name": "ZCL_QUALITY_S4_1",
+      "scope": "src/quality",
+      "files": [
+        "src/quality/zcl_quality_s4_1.abap"
+      ]
+    },
+    {
+      "id": "sap:src/quality:ABAP:ZCL_QUALITY_S4_2",
+      "type": "ABAP",
+      "name": "ZCL_QUALITY_S4_2",
+      "scope": "src/quality",
+      "files": [
+        "src/quality/zcl_quality_s4_2.abap"
+      ]
+    },
+    {
+      "id": "sap:src/quality:ABAP:ZCL_QUALITY_S4_3",
+      "type": "ABAP",
+      "name": "ZCL_QUALITY_S4_3",
+      "scope": "src/quality",
+      "files": [
+        "src/quality/zcl_quality_s4_3.abap"
+      ]
+    },
+    {
+      "id": "sap:src/quality:ABAP:ZCL_QUALITY_S4_4",
+      "type": "ABAP",
+      "name": "ZCL_QUALITY_S4_4",
+      "scope": "src/quality",
+      "files": [
+        "src/quality/zcl_quality_s4_4.abap"
+      ]
+    },
+    {
+      "id": "sap:src/quality:ABAP:ZCL_QUALITY_S4_5",
+      "type": "ABAP",
+      "name": "ZCL_QUALITY_S4_5",
+      "scope": "src/quality",
+      "files": [
+        "src/quality/zcl_quality_s4_5.abap"
+      ]
+    }
+  ],
+  "metadata": []
+}

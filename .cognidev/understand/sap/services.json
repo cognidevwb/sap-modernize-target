@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "sap-understand/v1",
+  "producer": "understand-sap",
+  "producerVersion": "0.4.0",
+  "parser": "@abaplint/core@2.120.54",
+  "scope": "export-only",
+  "productRelease": "unknown",
+  "targetReadiness": "not-assessed",
+  "supportMatrixVersion": "sap-export-0.4",
+  "inputDigest": "2ebd61f074f43fe4ff83e91ee71c9757c86a48516a044e13338459424bc1b3db",
+  "services": [],
+  "behaviors": [],
+  "integrations": [
+    {
+      "node": "sap:src/order_to_cash:ABAP:ZCL_BILLING_S4:Class:ZCL_BILLING_S4:Method:CREATE_INVOICE",
+      "direction": "outbound",
+      "protocol": "BAPI",
+      "name": "BAPI_BILLINGDOC_CREATEFROMDATA",
+      "dynamic": false,
+      "file": "src/order_to_cash/zcl_billing_s4.abap",
+      "line": 9,
+      "object": "sap:src/order_to_cash:ABAP:ZCL_BILLING_S4"
+    },
+    {
+      "node": "sap:src/order_to_cash:ABAP:ZCL_SALES_ORDER_S4:Class:ZCL_SALES_ORDER_S4:Method:CREATE_ORDER",
+      "direction": "outbound",
+      "protocol": "BAPI",
+      "name": "BAPI_SALESORDER_CREATEFROMDAT2",
+      "dynamic": false,
+      "file": "src/order_to_cash/zcl_sales_order_s4.abap",
+      "line": 10,
+      "object": "sap:src/order_to_cash:ABAP:ZCL_SALES_ORDER_S4"
+    },
+    {
+      "node": "sap:src/procure_to_pay:ABAP:ZCL_PURCHASE_S4:Class:ZCL_PURCHASE_S4:Method:CREATE_PO",
+      "direction": "outbound",
+      "protocol": "BAPI",
+      "name": "BAPI_PO_CREATE1",
+      "dynamic": false,
+      "file": "src/procure_to_pay/zcl_purchase_s4.abap",
+      "line": 9,
+      "object": "sap:src/procure_to_pay:ABAP:ZCL_PURCHASE_S4"
+    }
+  ]
+}

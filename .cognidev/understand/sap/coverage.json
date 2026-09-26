@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "sap-understand/v1",
+  "producer": "understand-sap",
+  "producerVersion": "0.4.0",
+  "parser": "@abaplint/core@2.120.54",
+  "scope": "export-only",
+  "productRelease": "unknown",
+  "targetReadiness": "not-assessed",
+  "supportMatrixVersion": "sap-export-0.4",
+  "inputDigest": "2ebd61f074f43fe4ff83e91ee71c9757c86a48516a044e13338459424bc1b3db",
+  "status": "partial",
+  "enumeratedFiles": 102,
+  "sapInputs": 90,
+  "dispositions": {
+    "excluded": 12,
+    "analyzed": 89,
+    "partial": 1
+  },
+  "inventoryAccountability": {
+    "accounted": 102,
+    "enumerated": 102
+  },
+  "families": [
+    "abap-rap"
+  ],
+  "referenceResolution": {
+    "unresolved": 4
+  },
+  "statementKinds": {
+    "Comment": 127,
+    "ClassDefinition": 90,
+    "Public": 90,
+    "MethodDef": 91,
+    "EndClass": 180,
+    "ClassImplementation": 90,
+    "MethodImplementation": 91,
+    "EndMethod": 91,
+    "CallFunction": 3,
+    "SelectLoop": 1
+  },
+  "excludedSubtrees": [
+    ".git",
+    ".cognidev",
+    "node_modules",
+    "target",
+    "dist",
+    ".cache"
+  ],
+  "limits": {
+    "maxFileBytes": 8388608,
+    "encoding": "UTF-8",
+    "followsSymlinks": false
+  },
+  "limitations": [
+    "No connected system inventory, activation, effective roles or runtime observations",
+    "Product edition/release and ABAP language-version semantics are not inferred from syntax",
+    "RAP/service extraction is a bounded token adapter; not full semantic validation",
+    "ABAP call resolution handles explicit static/current-class receivers and local forms; other receiver types remain unresolved",
+    "Parsing success does not establish type correctness, business completeness or migration readiness",
+    "HANA SQLScript extraction is lexical, not full SQL parsing or field lineage; calculation views expose declared nodes and sources only",
+    "CAP CDS uses bounded declaration extraction and CSN import; imports, generated SQL names and runtime handlers are not fully linked",
+    "BTP configuration reports declarations and version constraints, not installed versions or deployment status",
+    "Integration Suite captures BPMN steps and connections; mappings and scripts are referenced, not executed or semantically interpreted",
+    "Object scope is the export directory; cross-system identity requires future system metadata"
+  ],
+  "support": [
+    {
+      "id": "inventory",
+      "status": "implemented",
+      "scope": "UTF-8 directory/export intake, abapGit naming and envelopes, hashes and dispositions"
+    },
+    {
+      "id": "abap",
+      "status": "implemented",
+      "scope": "abaplint 2.120.54 grammar; classes, interfaces, methods, forms, function modules, includes"
+    },
+    {
+      "id": "abap-resolution",
+      "status": "partial",
+      "scope": "static/current-class methods, local forms and literal local functions; dynamic/remote/ambiguous references retained"
+    },
+    {
+      "id": "abap-sql",
+      "status": "partial",
+      "scope": "AST-derived static table reads/writes; no dynamic SQL interpretation or field lineage"
+    },
+    {
+      "id": "abap-effects",
+      "status": "partial",
+      "scope": "authorization checks, commits/rollback and selected EML effects"
+    },
+    {
+      "id": "ddic",
+      "status": "partial",
+      "scope": "abapGit fields, keys, element/domain chains, fixed values, search helps, lock objects and exported foreign-key/check-table evidence"
+    },
+    {
+      "id": "cds",
+      "status": "partial",
+      "scope": "abaplint CDS definitions, VDM/analytics annotations, sources, projections, associations, compositions, keys and metadata-extension targets"
+    },
+    {
+      "id": "rap",
+      "status": "partial",
+      "scope": "tokenized mode/draft/entities/implementation/persistence/operation declarations"
+    },
+    {
+      "id": "services",
+      "status": "partial",
+      "scope": "SRVD exposures, SRVB bindings, classic Gateway/ICF object inventory, UI5 consumers, CAP services and symbolic inbound HTTP route facts; activation requires runtime evidence"
+    },
+    {
+      "id": "ui5",
+      "status": "partial",
+      "scope": "manifest app/model/routes/data-source inventory only"
+    },
+    {
+      "id": "configuration",
+      "status": "partial",
+      "scope": "MTA modules/resources, CF service names, approuter routing, XSUAA scope/role declarations; no effective tenant configuration"
+    },
+    {
+      "id": "enhancements",
+      "status": "partial",
+      "scope": "Enhancement implementation/spot repository inventory; implementation semantics remain partial"
+    },
+    {
+      "id": "integration-pi-po-cpi-idoc",
+      "status": "partial",
+      "scope": "Integration Suite BPMN steps/connections/endpoints plus ABAP RFC, BAPI, IDoc/ALE and HTTP call-site evidence; deployed configuration and mappings not executed"
+    },
+    {
+      "id": "runtime-usage",
+      "status": "planned"
+    },
+    {
+      "id": "connected-system",
+      "status": "planned"
+    },
+    {
+      "id": "roles-transports",
+      "status": "planned"
+    },
+    {
+      "id": "hana-bw-analytics",
+      "status": "partial",
+      "scope": "Native HANA/HDI models and lexical SQLScript; ABAP CDS analytical roles; BW InfoObject/DataSource/transformation/DTP/ADSO/Open ODS/CompositeProvider inventory when exported"
+    },
+    {
+      "id": "workflow-jobs",
+      "status": "partial",
+      "scope": "ABAP job scheduling and Business Workflow API call sites plus workflow object inventory; schedules and workflow customizing require system exports"
+    },
+    {
+      "id": "cap-btp",
+      "status": "partial",
+      "scope": "Bounded CDS declarations and CSN models, entities/associations/projections/services, dependency version declarations, CAP Java/Node evidence; runtime handlers not linked"
+    },
+    {
+      "id": "saas-industry",
+      "status": "planned"
+    },
+    {
+      "id": "business-usecases",
+      "status": "planned"
+    },
+    {
+      "id": "target-readiness",
+      "status": "planned"
+    },
+    {
+      "id": "application-map",
+      "status": "implemented",
+      "scope": "data-model families, RAP business objects, inbound/outbound interfaces, static process slices and evidence-level boundaries"
+    },
+    {
+      "id": "http-connectivity",
+      "status": "partial",
+      "scope": "RAP/OData/Gateway/ICF/CAP/UI5/approuter/Integration Suite declarations and ABAP HTTP clients; runtime URLs, activation and reachability not observed"
+    },
+    {
+      "id": "dcl-security",
+      "status": "partial",
+      "scope": "ABAP DCL protected entities and literal PFCG authorization-object references plus AUTHORITY-CHECK sites"
+    }
+  ]
+}
