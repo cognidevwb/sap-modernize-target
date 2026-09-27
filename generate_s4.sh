@@ -167,7 +167,7 @@ done
 
 # CDS Views - 10 files
 for i in {1..10}; do
-  cat > "cds/zi_entity_${i}.ddls" << EOF
+  cat > "cds/zi_entity_${i}.ddls.asddls" << EOF
 @EndUserText.label: 'Entity View ${i}'
 @AccessControl.authorizationCheck: #CHECK
 define view entity ZI_ENTITY_${i}
