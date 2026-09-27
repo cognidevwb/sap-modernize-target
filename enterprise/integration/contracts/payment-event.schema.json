@@ -1,0 +1,14 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "$id":"urn:enterprise:payment.received:v1",
+ "type":"object","required":["specversion","id","source","type","datacontenttype","data"],
+ "properties":{
+  "specversion":{"const":"1.0"},"id":{"type":"string","minLength":1,"maxLength":100},
+  "source":{"type":"string","minLength":1,"maxLength":40},
+  "type":{"const":"enterprise.payment.received.v1"},"datacontenttype":{"const":"application/json"},
+  "data":{"type":"object","required":["companyCode","invoiceNumber","amount","currency","bankReference"],"properties":{
+   "companyCode":{"type":"string","pattern":"^[A-Z0-9]{4}$"},"invoiceNumber":{"type":"string","minLength":1,"maxLength":80},
+   "amount":{"type":"string","pattern":"^[0-9]{1,13}(\\.[0-9]{1,2})?$"},"currency":{"type":"string","pattern":"^[A-Z]{3}$"},"bankReference":{"type":"string","minLength":1,"maxLength":80}
+  }}
+ }
+}

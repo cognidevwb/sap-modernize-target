@@ -1,538 +1,630 @@
 {
- "README.md": {
-  "sha": "10f562423547263a85dfa35968594fc88e23d88249b03c67336ccf29ac634f2f",
+ "enterprise/srv/lib/errors.js": {
+  "sha": "663d636d6c60a9844abc48c487031e307084d59c5bb420b828b11ceffc608755",
   "pv": 1,
   "tag": {
-   "role": "entry",
-   "one_liner": "SAP S/4HANA modernization demo fixture - 90 ABAP files + 10 CDS views across ten business areas",
+   "role": "util",
+   "one_liner": "Shared helper functions for throwing HTTP errors and enforcing role/company authorization checks.",
    "teaches": [
-    "CogniDev Understand workflow for SAP structural analysis",
-    "Clean Core migration target structure with CDS views and BAPI patterns",
-    "Demo fixture scope boundaries - static analysis vs runtime compliance"
+    "how to reject requests with status codes",
+    "role-based access control pattern",
+    "company-scoped authorization pattern"
+   ],
+   "read_before": [],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/order-workflow.js": {
+  "sha": "4d7017289cea26c969f2dbd905d8fbbe84f16087e894f30b7736b12a36536ffd",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Implements the transactional order-release workflow: validation, idempotency, credit check, stock allocation, and event/audit logging.",
+   "teaches": [
+    "idempotent command handling via request ID",
+    "optimistic concurrency with atomic conditional updates",
+    "credit limit enforcement pattern",
+    "outbox/audit event emission within a single transaction"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 5
+  }
+ },
+ "enterprise/srv/lib/business/transaction.js": {
+  "sha": "53215fd5a22a8aafdf229dcefc49366c71802b8575ee6522f134eb667a0fb345",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Shared business-transaction primitives: ownership, state transitions, audit, idempotent commands, and validation helpers.",
+   "teaches": [
+    "Idempotent command pattern with request-ID deduplication and fingerprint comparison",
+    "Optimistic locking for state transitions via status-predicate UPDATE",
+    "Dual-write audit + outbox pattern for domain events",
+    "Canonical value digests for change detection"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 5
+  }
+ },
+ "enterprise/srv/lib/finance.js": {
+  "sha": "0fc8582ccce6a9a7b4760ccdcb3831646d3af00036656e32fbcd9fcfd622d030",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Business logic for posting balanced accounting journal entries with integer-cent math and audit logging",
+   "teaches": [
+    "converting decimal amounts to safe integer minor units",
+    "double-entry journal validation rules",
+    "role/company authorization checks before mutation",
+    "audit event recording pattern"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/integration/runtime/xml.js": {
+  "sha": "bebd9c4e8ed3715af63d9a32e63c4888e4fb6064453ea55276e2fa5c11a44257",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Safe XML parsing utility with DTD/entity injection guards and type coercion helpers",
+   "teaches": [
+    "XML security: blocking DTD and ENTITY attacks before parsing",
+    "Defensive validation pattern: XMLValidator \u2192 parse \u2192 scalar checks",
+    "Type normalization: list() forces arrays, scalar() enforces strings with length caps"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/lib/outbox.js": {
+  "sha": "e473ec89216bbd3b4bc21f8e3a905c5f90d6853d346c4d0b8f8896a1632374da",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "At-least-once outbox delivery engine with lease-based concurrency and exponential backoff retry logic",
+   "teaches": [
+    "Lease-based distributed locking to prevent double-delivery (leaseToken + leaseExpiresAt)",
+    "Exponential backoff retry with budget (attempts < maxAttempts, delay = 2^attempts)",
+    "Optimistic concurrency via claim-check UPDATE (match status+attempts+leaseToken before pro",
+    "Dead-letter queue pattern when retry budget exhausted"
+   ],
+   "read_before": [],
+   "centrality": 4
+  }
+ },
+ "validation/abap/lib/execute.mjs": {
+  "sha": "7a38a0e2371d018d85113028cdac16df4719cdfcf56d3e0210a87118ee951540",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Runtime bridge that loads transpiled ABAP classes via abap-runtime, instantiates their typed parameters from JSON rows/parameters, and executes the CALCULATE method",
+   "teaches": [
+    "ABAP-to-JS runtime contract: dynamically resolve ZCL_ENT_* classes and their method signat",
+    "Type marshalling: map JSON inputs to ABAP runtime primitives (Character, table types) usin",
+    "Table construction: iterate rows, clone row types, set fields, append to ABAP table instan"
+   ],
+   "read_before": [],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/monitoring.js": {
+  "sha": "afafb59178fc2122ed626686b0fb05841853fc1524147424863c57bac7ca8a83",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Ingests normalized monitoring events into incidents and handles incident acknowledgement with auth/validation checks.",
+   "teaches": [
+    "turning external monitoring events into internal incidents",
+    "idempotent ingestion via externalEventID dedup",
+    "role/company authorization checks before mutations",
+    "audit trail logging on state changes"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/lib/business/validation.js": {
+  "sha": "b23eaf68ffca4fe52ff4c694ba1b317d65ceebe0545e4ebe5e2024260dc4eb84",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "ISO 8601 date validation with strict calendar-date checking",
+   "teaches": [
+    "Regex pre-flight before Date parse (fail fast)",
+    "Round-trip ISO slice comparison to catch Feb 30 / leap year lies",
+    "Throwing custom 422 errors via imported reject helper"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 2
+  }
+ },
+ "enterprise/integration/runtime/identifiers.js": {
+  "sha": "eb24480e0476669f0a55ed2e2108a7698136b1e86e6b2b61e48776c7f510fc3b",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Bidirectional identifier mapping service bridging external system IDs to internal entity keys",
+   "teaches": [
+    "CDS query builder patterns (SELECT.one.from, INSERT.into.entries)",
+    "External system integration contract (companyCode+sourceSystem+objectType+externalID \u2192 int",
+    "Idempotent registration with conflict detection (409 on mismatch, silent on duplicate)"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/integration/runtime/inbound.js": {
+  "sha": "9dd2c0484b6296d2dc97490dbfbe2e30c638853c6b244d79a897a7bb71cee0e2",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Unified inbound integration router that verifies envelopes, validates source systems, and dispatches to channel-specific handlers (IDoc/SOAP/EventMesh).",
+   "teaches": [
+    "envelope-based message routing pattern",
+    "security verification at integration boundary",
+    "channel-agnostic inbound orchestration"
+   ],
+   "read_before": [
+    "enterprise/integration/runtime/security.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/integration/runtime/security.js": {
+  "sha": "4701c1e0d980c0148412a9faa3d2a10f2e9f4bc92bfce3f11204f5bfde7cd3d4",
+  "pv": 1,
+  "tag": {
+   "role": "wiring",
+   "one_liner": "HMAC-SHA256 envelope verification for integration messages with timestamp window validation and role-based access control",
+   "teaches": [
+    "Timing-safe HMAC signature verification for webhook-style integrations",
+    "Combining role-based and company-scoped authorization checks",
+    "Rejection pattern for configuration/payload/timing/signature failures"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/lib/business/billing.js": {
+  "sha": "67c2bf2d7244c80c7254122737979c197c4261213975e40f37abfb1225b35405",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Orchestrates invoice creation from shipped orders and payment settlement with double-entry journal postings",
+   "teaches": [
+    "command pattern wrapping business transactions",
+    "multi-currency tax calculation from policy basis points",
+    "double-entry accounting journal generation",
+    "optimistic-lock concurrency guards on invoice payment"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/finance.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/logistics.js": {
+  "sha": "e55253bc4c4bfb3c3d3505e6d3bb577fdb565a3027aa44a97506912c21a0ef44",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Warehouse shipping orchestration with reservation-to-delivery promotion and atomic stock adjustment",
+   "teaches": [
+    "multi-entity transaction pattern (order \u2192 reservations \u2192 stock \u2192 delivery)",
+    "command/transition domain wrappers for audit",
+    "quantity-match validation across entities before state change",
+    "pessimistic concurrency (revision counter + range check)"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/sales.js": {
+  "sha": "1404a0645395055d7a15cef95c2755d3693f472e23a5345225a1b1f3d012de94",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Sales order creation and cancellation orchestration with inventory reservation and credit exposure management",
+   "teaches": [
+    "Command pattern for business transactions with event sourcing",
+    "Optimistic concurrency via revision counter and exposure consistency checks",
+    "Reversing reserved stock and credit exposure on order cancellation"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/order-workflow.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/integration/runtime/delivery-soap.js": {
+  "sha": "c8d0d34e7a5c886d432d6ebcfe438d43c70a229785f33383dc1aff2b6564a937",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "SOAP endpoint handler that parses ConfirmDelivery XML requests, validates scoping, resolves order IDs, and orchestrates shipment confirmation",
+   "teaches": [
+    "SOAP envelope parsing and validation for delivery confirmation",
+    "Cross-system order ID resolution via runtime identifiers",
+    "Request deduplication using SHA-256 hashing of source+company+message",
+    "Integration layer authentication scoping (companyCode boundary)"
+   ],
+   "read_before": [
+    "enterprise/integration/runtime/xml.js",
+    "enterprise/integration/runtime/identifiers.js",
+    "enterprise/srv/lib/business/logistics.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/integration/runtime/orders05.js": {
+  "sha": "ef7b8c3b9f53d02590138fb61aae3607cb76039b009d9152dccc0b40a7c1f1f4",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "SAP ORDERS05 IDoc inbound parser and sales-order creation orchestrator with identity resolution",
+   "teaches": [
+    "How SAP EDI_DC40 control-record validation gates IDoc acceptance",
+    "Bi-directional ID mapping (IDoc partner/material numbers \u2194 internal UUIDs)",
+    "Idempotency via requestID hashing (sender:company:docnum)",
+    "XML\u2192domain transformation with strict position/quantity/partner cardinality"
+   ],
+   "read_before": [
+    "enterprise/integration/runtime/xml.js",
+    "enterprise/srv/lib/business/sales.js",
+    "enterprise/srv/lib/business/validation.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/integration/runtime/payment-event.js": {
+  "sha": "e854cbee9d2219bfa539db3d63769502d757a4973faebc1824bb7199d49ba667",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "CloudEvents 1.0 payment-received webhook \u2192 resolve external invoice \u2192 settlePayment call, with strict validation and idempotency key",
+   "teaches": [
+    "CloudEvents 1.0 contract enforcement (spec version, type, source)",
+    "Cross-system identifier resolution (invoice number \u2192 internal ID)",
+    "Idempotency key generation from event source/company/ID digest"
+   ],
+   "read_before": [
+    "enterprise/integration/runtime/identifiers.js",
+    "enterprise/srv/lib/business/billing.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/billing.js": {
+  "sha": "275f1e3cb7e5991c4147e9e4897399c9f1f5d66e4d74866bd1d7153766905a25",
+  "pv": 1,
+  "tag": {
+   "role": "wiring",
+   "one_liner": "CAP service registration that wires invoiceOrder and settlePayment operations to the Billing ApplicationService",
+   "teaches": [
+    "CAP ApplicationService lifecycle hook pattern",
+    "Event handler registration with this.on()",
+    "Transaction context forwarding via cds.tx(req)"
+   ],
+   "read_before": [],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/control-tower.js": {
+  "sha": "2dbd71993254946d6f6678d2d1933118d73da51cfc3325f95d0fcdd7425143fd",
+  "pv": 1,
+  "tag": {
+   "role": "api",
+   "one_liner": "CAP application service exposing order release and monitoring/incident event handlers.",
+   "teaches": [
+    "CDS ApplicationService event wiring",
+    "delegating request handling to lib workflow/monitoring modules",
+    "using cds.tx for transactional context"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/order-workflow.js",
+    "enterprise/srv/lib/monitoring.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/inventory.js": {
+  "sha": "de0b96fb0d3f3ae7417e96dea7c1d4931adbf8597c5ac4bfbb486baad5dff647",
+  "pv": 1,
+  "tag": {
+   "role": "api",
+   "one_liner": "CAP ApplicationService registering OData actions for inventory stock transfer and counting",
+   "teaches": [
+    "CAP service class extension pattern",
+    "OData custom action handlers",
+    "Transaction propagation via cds.tx(req)"
+   ],
+   "read_before": [],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/inventory.js": {
+  "sha": "a61934fda20cac91fda85483e9ba56c5030e7217621a7c18509005643b751b84",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Stock transfer and physical count operations with optimistic locking and cross-plant validation",
+   "teaches": [
+    "Optimistic concurrency control using revision counters",
+    "Multi-step database transactions with rollback semantics via command wrapper",
+    "Cross-plant stock movement audit trail through StockMovements entity"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/manufacturing.js": {
+  "sha": "48df65b5e11f646569075d33306bdfc81c2759d09a9a1f7f50e002531a8dc42f",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Manufacturing production-order lifecycle: schedule with BOM expansion, component reservation, completion reconciliation with scrap/good split",
+   "teaches": [
+    "Production orders consume materials via bill-of-material explosion and stock reservation",
+    "Integral component quantity enforcement (no fractional BOM rounding)",
+    "Two-phase production: SCHEDULED \u2192 COMPLETED with good/scrap reconciliation",
+    "Transactional stock movements (available \u2194 reserved) for component locking"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/master-data.js": {
+  "sha": "9755cf2083a408f7438d08b338222ef07993ef11d39811c44fb6eb4425d4d82e",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Master data orchestration for partner registration, credit limit management, and blocking workflow",
+   "teaches": [
+    "command-based master data mutations with role gates",
+    "optimistic concurrency control via WHERE predicates on exposure + limit",
+    "partner entity lifecycle: REGISTERED \u2192 ACTIVE/BLOCKED with credit guard rails"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js",
+    "enterprise/srv/lib/finance.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/lib/business/pricing.js": {
+  "sha": "a43ec80e758b0ae4514c880d474ad44a313a3c4d8a94c53dd8ff9ee53e643afc",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Price-condition lifecycle: validate intervals, enforce exclusivity, quote unit + total pricing for orders",
+   "teaches": [
+    "Temporal non-overlap constraint (interval intersection check)",
+    "Bigint-based money arithmetic (unit \u00d7 quantity)",
+    "Command-pattern audit trail for pricing changes"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/finance.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/procurement.js": {
+  "sha": "0766aaae6b5bcfec0807297b91f67e77ee6af0e9e689b006a53a0dff402d9c1a",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Purchase order lifecycle: creation, approval, and goods receipt orchestration with state transitions and multi-step validation",
+   "teaches": [
+    "Purchase order creation with line-item validation and cost aggregation",
+    "Approval workflow with separation-of-duty checks",
+    "Goods receipt posting with quality inspection lot creation",
+    "Event-sourced state transitions (DRAFT\u2192APPROVED\u2192RECEIVED)"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js",
+    "enterprise/srv/lib/finance.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/quality.js": {
+  "sha": "0e434cb4b2b7554f659be8be19501b8732922c7952ea8f48faa9f5df4c7aa26c",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Quality inspection workflow: validates sampled lots against policies, records characteristics, and updates stock for accepted goods",
+   "teaches": [
+    "Multi-level validation (sample bounds, policy thresholds, characteristic ranges)",
+    "Event-sourced state transition (OPEN \u2192 ACCEPTED/REJECTED) with disposition routing",
+    "Conditional stock availability unlock only after quality approval"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
+   "centrality": 4
+  }
+ },
+ "enterprise/srv/lib/business/returns.js": {
+  "sha": "71c1c40ef6b555604433828992394b5ac8a57fe4afeae10b553f341e59663e70",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Business logic for customer returns: authorization against invoices, quantity tracking, refund calculation, and warehouse disposition (restock/scrap)",
+   "teaches": [
+    "Return authorization validates invoice status and calculates prorated credit using bigint ",
+    "Optimistic concurrency on invoice credited amounts prevents double-crediting",
+    "Disposition routing (RESTOCK updates stock, SCRAP does not) and credit note generation"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/finance.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/lib/business/warehouse.js": {
+  "sha": "50c1458878184fed2293c326d551805a05d56dfc623a030ff0d4a03e3072b983",
+  "pv": 1,
+  "tag": {
+   "role": "service",
+   "one_liner": "Warehouse picking workflow: assigns tasks to pickers and confirms completed picks against reserved inventory.",
+   "teaches": [
+    "command pattern with owned() for multi-tenant warehouse actions",
+    "reservation \u2192 warehouse task lifecycle (ASSIGNED \u2192 CONFIRMED)",
+    "role-based authorization (WarehouseSupervisor assigns, Warehouse confirms)"
+   ],
+   "read_before": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/manufacturing.js": {
+  "sha": "f7f7d91477119c3a16f327f039b0425633b5aaac91e396f938bdf97284245133",
+  "pv": 1,
+  "tag": {
+   "role": "api",
+   "one_liner": "CDS service endpoint that exposes scheduleProduction and completeProduction manufacturing operations",
+   "teaches": [
+    "CDS ApplicationService subclass pattern",
+    "Event handler registration with this.on()",
+    "Transaction context passing with cds.tx(req)"
+   ],
+   "read_before": [],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/master-data.js": {
+  "sha": "6871ffaab79e16ecb17baa9e1289f9839a580c9db65eeedc7c293146160e76cb",
+  "pv": 1,
+  "tag": {
+   "role": "wiring",
+   "one_liner": "CAP service handler binding master-data CDS actions to business operations with transaction context",
+   "teaches": [
+    "CAP ApplicationService extension pattern",
+    "Action handler registration with cds.tx for managed transactions",
+    "Separation of service wiring from business logic"
+   ],
+   "read_before": [],
+   "centrality": 3
+  }
+ },
+ "enterprise/srv/pricing.js": {
+  "sha": "29f371443bcc622d92fb32b4fb4e6808df0fa384bb22ebb0855ada011e2aaa5f",
+  "pv": 1,
+  "tag": {
+   "role": "wiring",
+   "one_liner": "SAP CAP service binding that wires pricing operations (maintainPrice, quotePrice) to the CDS runtime event bus",
+   "teaches": [
+    "CAP ApplicationService subclass pattern for domain event handlers",
+    "Transaction propagation via cds.tx(req) into business operations",
+    "Separation: routing layer (this) vs business logic (./lib/business/pricing)"
+   ],
+   "read_before": [],
+   "centrality": 3
+  }
+ },
+ "external/settlement/src/SapSettlement.Batch/Domain/Reconciler.cs": {
+  "sha": "50b67f621cc4e25b471ccb6f4836d807618e5cf1c428ea222a68b5cbb5bb4411",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Core reconciliation engine matching ledger invoices against bank payments within a scope",
+   "teaches": [
+    "Three-way reconciliation logic (ledger \u00d7 bank \u00d7 tolerance)",
+    "Scope validation and boundary enforcement (company/currency/date filters)",
+    "Outcome classification (MATCHED, UNDERPAID, OVERPAID, UNMATCHED_BANK, MISSING_PAYMENT)"
    ],
    "read_before": [],
    "centrality": 5
   }
  },
- "cds/zi_entity_1.ddls.asddls": {
-  "sha": "ebf535198b181c0d7f65827c191c04ab1ac166c47692796a51ac9d350c2fb829",
+ "external/settlement/src/SapSettlement.Batch/Operations/ReportStore.cs": {
+  "sha": "3e285e3e50d5f74b1a2afb87b3326ae152064f563db3baafd202a4dbbb8b127a",
   "pv": 1,
   "tag": {
-   "role": "data",
-   "one_liner": "CDS view exposing Entity 1 with authorization check, selecting key and two fields from standard table",
+   "role": "service",
+   "one_liner": "Content-addressed storage for immutable reconciliation reports with SHA256 collision detection",
    "teaches": [
-    "CDS view entity syntax with @AccessControl annotation",
-    "Projection from SAP standard table I_StandardTable1",
-    "Key field and additional field selection pattern"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_10.ddls.asddls": {
-  "sha": "35b30ae399cb18636c26418ad9966bb7f58278cc23dbff307f1e5ec3a35fa527",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS entity view wrapping I_StandardTable10 with access control enabled",
-   "teaches": [
-    "CDS view entity syntax for SAP Clean Core",
-    "Authorization check enforcement via @AccessControl",
-    "Standard table projection pattern"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_2.ddls.asddls": {
-  "sha": "55f02683efb11eff2e79225b7322ee03d79daf75607196412d3cb89d987b91bc",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS entity view exposing selected fields from I_StandardTable2 with authorization checks",
-   "teaches": [
-    "CDS view entity syntax",
-    "Field projection from standard SAP table",
-    "Authorization check enforcement"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_3.ddls.asddls": {
-  "sha": "07f12109642cca49d2dbfcfdd1a81d0a1d848d915fbadcedcbaac9bf4dc682d6",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS view ZI_ENTITY_3 exposing three fields from I_StandardTable3 with authorization checks enabled",
-   "teaches": [
-    "CDS entity view definition syntax",
-    "Authorization check annotation usage",
-    "Projection pattern from standard table"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_4.ddls.asddls": {
-  "sha": "eee5176a67d6979fd27f368f50ac7c5495fc7ea36b1301f56c25585542a63946",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS entity view exposing fields from I_StandardTable4 with authorization check enabled",
-   "teaches": [
-    "CDS view entity syntax",
-    "Access control annotation usage",
-    "Standard table consumption pattern"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_5.ddls.asddls": {
-  "sha": "1a4038c6fb9ff23da03416aa85e99a7b4f40cbb242045cd417a8f652392fa862",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS entity view exposing selected fields from I_StandardTable5 with authorization check",
-   "teaches": [
-    "CDS view entity syntax and projection pattern",
-    "SAP authorization check integration (#CHECK)",
-    "Standard table wrapper view structure"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_6.ddls.asddls": {
-  "sha": "81c365fb7762bfc3111248e220235c12440652f5ae11905aa2912e344e5b3e2e",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS view entity wrapping I_StandardTable6 with access control for EntityKey and two fields",
-   "teaches": [
-    "CDS view entity definition with #CHECK authorization",
-    "Direct pass-through projection from SAP standard table",
-    "Key field and simple field selection pattern"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_7.ddls.asddls": {
-  "sha": "035899932a39e9ee27f186e4ad70c4683467d45179e0f795d35c456899b960cc",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS view exposing three fields from I_StandardTable7 with authorization check enabled",
-   "teaches": [
-    "Basic CDS view projection pattern",
-    "Standard table access with key field selection",
-    "Authorization check declaration at view level"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_8.ddls.asddls": {
-  "sha": "e215246e0df015ed3fe504fdee63330924b5085ccd2f981c696542cfaf90e5dc",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS view exposing a simplified projection of I_StandardTable8 with key field and two entity attributes",
-   "teaches": [
-    "CDS entity view definition with authorization check",
-    "Direct projection from SAP standard table",
-    "Clean Core pattern: consuming released SAP APIs (I_* views)"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "cds/zi_entity_9.ddls.asddls": {
-  "sha": "778aa600cee517849ffa6a3c51ed045bb715c253984251c9aaaf04dc74b2d13e",
-  "pv": 1,
-  "tag": {
-   "role": "data",
-   "one_liner": "CDS view ZI_ENTITY_9 exposing entity fields from I_StandardTable9 with authorization check enabled",
-   "teaches": [
-    "CDS view entity syntax for direct table projection",
-    "SAP authorization check integration pattern",
-    "Key field and attribute selection from standard table"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "generate_s4.sh": {
-  "sha": "52999fb6df93e1df4b8071fa32232c95199c624f2bc7eb4fffe502f90ea8fea8",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Shell script that generates 100 S/4HANA Clean Core compliant ABAP class files across multiple business domains",
-   "teaches": [
-    "S/4HANA Clean Core compliance patterns (BAPI usage, CDS views)",
-    "Mass file generation via bash heredocs",
-    "SAP business domain structure (O2C, P2P, Finance, Inventory)"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/cross_cutting/zcl_util_s4_1.abap": {
-  "sha": "8c59b15fbb4929f6649386d4817d089c934f7c6db8b6ca037fec0ff4bac27714",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Empty utility class scaffolded for S/4HANA Clean Core cross-cutting concerns",
-   "teaches": [
-    "Clean Core utility placeholder pattern",
-    "ABAP OO class boilerplate structure"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_2.abap": {
-  "sha": "befba80f911b2ce3ccb661a51b8ecf8217ee80bcb7be335d5eb54f5b08e96d85",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Empty helper utility class with no implemented behavior",
-   "teaches": [
-    "Class definition and implementation skeleton",
-    "Public method declaration pattern"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_3.abap": {
-  "sha": "913a22ad1da9e74626efce8ac477262eb66d956d52d95761ddea3743c7060ef8",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Stub utility class providing a single helper method placeholder",
-   "teaches": [
-    "Minimal ABAP class structure",
-    "Clean Core utility pattern",
-    "Public helper method placeholder"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_4.abap": {
-  "sha": "638e3a80cf2eb65a89fc3af6f915bb2825b9ec8bc6ef251dc493aa1a1312f5a2",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Stub utility class providing a single helper method placeholder with no implementation",
-   "teaches": [
-    "S/4HANA utility class structure",
-    "ABAP class definition and implementation skeleton",
-    "Clean Core compliance marker (\u2705)"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_5.abap": {
-  "sha": "9138a86c3fbc86ef752ae77cc05d68761c6e8fb62a04f25083df8191a26a1066",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Utility class 5 placeholder \u2013 empty helper method, no current business logic",
-   "teaches": [
-    "Template utility class structure",
-    "Clean Core compliant utility naming (ZCL_ namespace)",
-    "Minimal ABAP OO class skeleton"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_6.abap": {
-  "sha": "9ca228ac349268119a4d2efb95ef08eda22013f3bb16932cd7499e9bc920a475",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Minimal utility class 6 with single empty helper method, placeholder or deprecated",
-   "teaches": [
-    "Empty utility pattern",
-    "Clean Core class skeleton"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_7.abap": {
-  "sha": "07b634b18991cdd1e4d5c40522ec792b39d02e7c3f1418500e532f35456454e5",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Empty placeholder utility class with no implementation",
-   "teaches": [
-    "S/4HANA utility naming convention (zcl_util_s4_*)",
-    "Minimal ABAP class structure (definition + implementation)",
-    "Clean Core compliance marker (\u2705)"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/cross_cutting/zcl_util_s4_8.abap": {
-  "sha": "b5e78ea26c0e47e5360c831a32953de2b55a728c1ca00488505b45b7d415f5cc",
-  "pv": 1,
-  "tag": {
-   "role": "util",
-   "one_liner": "Minimal utility helper class (S/4HANA utility 8) with no defined behavior",
-   "teaches": [
-    "Empty helper method pattern",
-    "Minimal Clean Core utility structure"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/finance/zcl_finance_s4_1.abap": {
-  "sha": "678f383f5191b6c3f727f439582060d89cc2a393ca8a65dda9256777e48d0740",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance domain class placeholder with Clean Core compliant structure",
-   "teaches": [
-    "S/4HANA Clean Core finance module skeleton",
-    "Basic ABAP OO class definition and implementation pattern",
-    "Empty process method as extension point"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_10.abap": {
-  "sha": "f27a672629920041c18594b3ea04b83be698db1df19c82d51a8878bae2dddd8b",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Clean Core finance business logic placeholder \u2013 S/4HANA compliant processing hook for finance operations",
-   "teaches": [
-    "S/4HANA Clean Core compliance pattern",
-    "Domain-driven finance processing boundary",
-    "Minimal class template for extensible finance logic"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_2.abap": {
-  "sha": "aa1a33ad8264d0e042eb4beeb75d3041979c1ab4e896d7459d16e4915321e7bd",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance domain processor stub with Clean Core placeholder logic",
-   "teaches": [
-    "S/4HANA Clean Core finance domain pattern",
-    "Empty process method template for extension",
-    "Class-based domain service structure"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_3.abap": {
-  "sha": "feca5209aa273c491198444905ee2c3c3d4742e10b0df1855e93f82c4e985fcc",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance domain logic placeholder implementing Clean Core SAP S/4HANA standards",
-   "teaches": [
-    "Clean Core compliance pattern in finance module",
-    "Minimal ABAP class structure for S/4HANA",
-    "Domain layer separation for financial processing"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_4.abap": {
-  "sha": "ffa2f6686a0904673d4bafd8ea9ed79b2a1235b52c4400b4d0db76f5862a2119",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance domain class 4 - Clean Core compliant processing logic placeholder",
-   "teaches": [
-    "Clean Core finance processing pattern",
-    "Minimal ABAP OO class structure",
-    "S/4HANA domain layer separation"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_5.abap": {
-  "sha": "c38c28a1e40960f0a7463283236d5ebdcf391627f33c5bf1aee55f446347db71",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance business logic processor #5 in S/4HANA Clean Core compliant implementation",
-   "teaches": [
-    "Clean Core finance domain pattern",
-    "Minimal ABAP class structure for business rules",
-    "S/4HANA finance module organization"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_6.abap": {
-  "sha": "3b8fc453bf2f98111a330ca0f2c7861c787a1f085e630c44976508c01f40beaa",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance domain class #6 implementing Clean Core-compliant business logic",
-   "teaches": [
-    "Clean Core design pattern in finance domain",
-    "S/4HANA finance processing structure",
-    "Minimal domain class skeleton"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/finance/zcl_finance_s4_7.abap": {
-  "sha": "eef21b6b363486b1f7c162ea0084b437e772bda894ab4e2781e72abd4de3e959",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Finance domain class 7 \u2014 Clean Core compliant business logic placeholder",
-   "teaches": [
-    "S/4HANA Clean Core compliance marker",
-    "Finance domain object pattern",
-    "Minimal method stub structure"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/finance/zcl_finance_s4_8.abap": {
-  "sha": "eb79a3f13b824a5b07312ec8dc2625d6b1c6546d5f265729b1f583cccfda0ed1",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Clean Core finance domain class (S/4HANA module 8) with process method stub",
-   "teaches": [
-    "S/4HANA Clean Core class structure",
-    "Empty finance process method pattern",
-    "Minimal ABAP OO class definition"
-   ],
-   "read_before": [],
-   "centrality": 1
-  }
- },
- "src/finance/zcl_finance_s4_9.abap": {
-  "sha": "14ced0208b7679f246821bcfcb106023cba23079762537351da782b9bc700973",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Clean Core finance domain class for S/4HANA migration - minimal process method stub",
-   "teaches": [
-    "S/4HANA Clean Core compliance pattern",
-    "Domain layer class structure in ABAP OO",
-    "Placeholder method implementation for future finance logic"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/inventory/zcl_inventory_s4_1.abap": {
-  "sha": "bf80f60c94b39d20e21867e6f71386a2915073255eb768dc038dc5c3bf8d922c",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Clean Core inventory processing class - domain logic for S/4HANA inventory management",
-   "teaches": [
-    "S/4HANA Clean Core compliant class structure",
-    "Domain-driven inventory processing pattern",
-    "Minimal public interface design"
+    "Content-addressed file naming (SHA256 digest prevents silent overwrites)",
+    "Atomic file writes via temp-then-move pattern",
+    "Custom JSON converter for decimal money formatting"
    ],
    "read_before": [],
    "centrality": 3
   }
  },
- "src/inventory/zcl_inventory_s4_10.abap": {
-  "sha": "0ff707f105e0f5361a6780906bda83974437763170d458ee97296d803baeb464",
+ "external/settlement/src/SapSettlement.Batch/Operations/SettlementJob.cs": {
+  "sha": "7d2bab066b23c08c031e68f22fb59ac5554c22acd93a0d272d2ddd4c43ef6fef",
   "pv": 1,
   "tag": {
-   "role": "domain",
-   "one_liner": "Inventory processing domain logic implementing Clean Core S/4HANA compliance pattern",
+   "role": "entry",
+   "one_liner": "Orchestrates the monthly settlement reconciliation workflow from bank statement upload to mismatch report",
    "teaches": [
-    "Clean Core architectural compliance in ABAP OO",
-    "Domain-driven inventory processing method structure",
-    "S/4HANA class definition and implementation pattern"
+    "settlement batch job entry point",
+    "reconciliation scope validation (company code + currency)",
+    "CSV bank statement parsing + ledger invoice matching",
+    "cancellation token propagation in async workflows"
    ],
-   "read_before": [],
-   "centrality": 3
+   "read_before": [
+    "external/settlement/src/SapSettlement.Batch/Domain/Reconciler.cs"
+   ],
+   "centrality": 5
   }
  },
- "src/inventory/zcl_inventory_s4_2.abap": {
-  "sha": "4833b2bf3a4d7e881d85a361ca3bf3f46f3611fcc82f8a084f3a32941d86c626",
+ "external/settlement/src/SapSettlement.Batch/Connectors/OAuthTokenProvider.cs": {
+  "sha": "c248b4769e4d98f641036eb5b1d937317fdc11168397d5e194620e71237e7c42",
   "pv": 1,
   "tag": {
-   "role": "domain",
-   "one_liner": "S/4HANA Clean Core inventory processing class - secondary inventory handler",
+   "role": "service",
+   "one_liner": "Thread-safe OAuth 2.0 client-credentials token provider with automatic refresh and in-memory caching.",
    "teaches": [
-    "Clean Core compliant inventory domain logic",
-    "S/4HANA inventory processing pattern",
-    "Minimal single-method service structure"
+    "OAuth 2.0 client credentials flow with Basic auth",
+    "Thread-safe token caching with SemaphoreSlim to prevent concurrent refresh storms",
+    "Defensive token endpoint validation (HTTPS-only, no embedded secrets in URI)",
+    "30-second expiry buffer to avoid race conditions near token expiration"
    ],
    "read_before": [],
-   "centrality": 2
-  }
- },
- "src/inventory/zcl_inventory_s4_3.abap": {
-  "sha": "d8d0b803c3a7e018c17cbb1649dc0eb0136304b513af1b8ff029c433b5799fa4",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Inventory processing service implementing Clean Core logic (variant 3)",
-   "teaches": [
-    "Clean Core compliant inventory processing",
-    "S/4HANA domain service pattern",
-    "Minimal implementation placeholder"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/inventory/zcl_inventory_s4_4.abap": {
-  "sha": "5fc1b27953115e69905e664f0fb1648370c3d7bb3078b3ac565b18619e8d3ed7",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Inventory processing domain class #4, part of S/4HANA Clean Core compliant inventory layer",
-   "teaches": [
-    "Clean Core inventory processing pattern",
-    "Domain method structure for inventory operations",
-    "S/4HANA compliant class design"
-   ],
-   "read_before": [],
-   "centrality": 2
-  }
- },
- "src/inventory/zcl_inventory_s4_5.abap": {
-  "sha": "650669446566078286d7a8a1ebb3838e43eb00377a1e696a4ec8e62a87b31378",
-  "pv": 1,
-  "tag": {
-   "role": "domain",
-   "one_liner": "Inventory processing domain class (S/4HANA Clean Core stub #5)",
-   "teaches": [
-    "S/4HANA Clean Core class structure",
-    "Inventory domain processing entry point",
-    "ABAP OO minimal implementation pattern"
-   ],
-   "read_before": [],
-   "centrality": 2
+   "centrality": 4
   }
  }
 }

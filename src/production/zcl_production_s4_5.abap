@@ -1,9 +1,0 @@
-*& S/4HANA production 5 ✅
-CLASS zcl_production_s4_5 DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS: run.
-ENDCLASS.
-CLASS zcl_production_s4_5 IMPLEMENTATION.
-  METHOD run.
-  ENDMETHOD.
-ENDCLASS.

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "sap-abap-reducer/v1",
+  "className": "zcl_ent_invoice_overdue",
+  "artifactName": "INVOICE_OVERDUE",
+  "sourceSha256": "8380d101da62294d9947125ecd024645981264d09b8c2193bf9949d301bdf563",
+  "fields": [
+    {
+      "name": "company",
+      "abapType": "c length 4",
+      "sqlType": "NVARCHAR(4)"
+    },
+    {
+      "name": "currency",
+      "abapType": "c length 3",
+      "sqlType": "NVARCHAR(3)"
+    },
+    {
+      "name": "due_date",
+      "abapType": "d",
+      "sqlType": "NVARCHAR(8)"
+    },
+    {
+      "name": "status",
+      "abapType": "c length 12",
+      "sqlType": "NVARCHAR(12)"
+    },
+    {
+      "name": "amount_minor",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    },
+    {
+      "name": "paid_minor",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "company",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    },
+    {
+      "name": "currency",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    },
+    {
+      "name": "as_of",
+      "abapType": "d",
+      "sqlType": "NVARCHAR(8)"
+    }
+  ],
+  "output": "amount_minor",
+  "query": "SELECT COALESCE(SUM(CASE WHEN (((r.\"DUE_DATE\" < :p_as_of) AND (RTRIM(r.\"STATUS\") <> 'CANCELLED')) AND (RTRIM(r.\"STATUS\") <> 'PAID')) AND (r.\"AMOUNT_MINOR\" > r.\"PAID_MINOR\") THEN ((0 + r.\"AMOUNT_MINOR\") - r.\"PAID_MINOR\") ELSE 0 END), 0) AS \"VALUE\"\nFROM :rows AS r\nWHERE ((RTRIM(r.\"COMPANY\") = RTRIM(:p_company)) AND (RTRIM(r.\"CURRENCY\") = RTRIM(:p_currency)))",
+  "hana": "PROCEDURE \"enterprise::INVOICE_OVERDUE\" (\n  IN rows TABLE (\"COMPANY\" NVARCHAR(4), \"CURRENCY\" NVARCHAR(3), \"DUE_DATE\" NVARCHAR(8), \"STATUS\" NVARCHAR(12), \"AMOUNT_MINOR\" BIGINT, \"PAID_MINOR\" BIGINT),\n  IN p_company NVARCHAR(255),\n  IN p_currency NVARCHAR(255),\n  IN p_as_of NVARCHAR(8),\n  OUT result BIGINT\n)\nLANGUAGE SQLSCRIPT\nSQL SECURITY INVOKER\nREADS SQL DATA\nAS\nBEGIN\n  SELECT COALESCE(SUM(CASE WHEN (((r.\"DUE_DATE\" < :p_as_of) AND (RTRIM(r.\"STATUS\") <> 'CANCELLED')) AND (RTRIM(r.\"STATUS\") <> 'PAID')) AND (r.\"AMOUNT_MINOR\" > r.\"PAID_MINOR\") THEN ((0 + r.\"AMOUNT_MINOR\") - r.\"PAID_MINOR\") ELSE 0 END), 0) INTO result\nFROM :rows AS r\nWHERE ((RTRIM(r.\"COMPANY\") = RTRIM(:p_company)) AND (RTRIM(r.\"CURRENCY\") = RTRIM(:p_currency)));\nEND;\n",
+  "semantics": {
+    "sourceIntegerBits": 32,
+    "targetIntegerBits": 64,
+    "characterComparison": "RTRIM preserves ABAP fixed-character trailing-space comparison",
+    "numericBoundary": "Source inputs and every intermediate arithmetic value must fit signed ABAP 32-bit integers; target BIGINT extends capacity only after separate qualification",
+    "nativeHanaExecution": "not-performed"
+  },
+  "source": "enterprise/abap/analytics/zcl_ent_invoice_overdue.clas.abap",
+  "baseline": ".cognidev/modernization-baseline/abap/zcl_ent_invoice_overdue.clas.abap",
+  "hanaSha256": "7863325c92a4131b34e89d2621051ce9bae489a7292591e7d56642c2cac31d04",
+  "nativeActivation": "not-performed"
+}

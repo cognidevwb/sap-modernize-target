@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized monitoring input (application-owned contract)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "eventID",
+    "companyCode",
+    "service",
+    "severity",
+    "summary"
+  ],
+  "properties": {
+    "eventID": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]{1,100}$"
+    },
+    "companyCode": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4
+    },
+    "service": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "CRITICAL"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300
+    },
+    "correlationID": {
+      "type": "string",
+      "maxLength": 100
+    }
+  }
+}

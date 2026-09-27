@@ -1,9 +1,0 @@
-*& S/4HANA quality 3 ✅
-CLASS zcl_quality_s4_3 DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS: run.
-ENDCLASS.
-CLASS zcl_quality_s4_3 IMPLEMENTATION.
-  METHOD run.
-  ENDMETHOD.
-ENDCLASS.

@@ -1,0 +1,42 @@
+{
+  "role": {
+    "name": "enterprise.analytics::Analyst",
+    "object_privileges": [
+      {
+        "name": "ORDER_MARGIN",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
+      },
+      {
+        "name": "CREDIT_AT_RISK",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
+      },
+      {
+        "name": "FULFILLMENT_EXCEPTIONS",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
+      },
+      {
+        "name": "QUALITY_EXPOSURE",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
+      },
+      {
+        "name": "SERVICE_HEALTH",
+        "type": "VIEW",
+        "privileges": [
+          "SELECT"
+        ]
+      }
+    ]
+  }
+}

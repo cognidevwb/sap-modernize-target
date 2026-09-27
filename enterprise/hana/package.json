@@ -1,0 +1,11 @@
+{
+  "name": "enterprise-hana-analytics",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+  },
+  "dependencies": {
+    "@sap/hdi-deploy": "5.7.0"
+  }
+}

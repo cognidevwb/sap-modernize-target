@@ -1,23 +1,9 @@
-# SAP modernization target — structural-analysis demo
+# SAP enterprise modernization target
 
-A synthetic ABAP example illustrating a possible modernization direction. This repository is a demo fixture, not a deployed or certified S/4HANA system.
+Open this folder in CogniDev → Understand it → SAP. Source-to-target changes, validation gates and external job cards show the generated repository evidence.
 
-## Explore in CogniDev
+The target preserves the business services, integration adapters and domain policies. Ten qualified pure ABAP reducers become read-only HANA SQLScript plus AMDP entry points; source reducers remain validation-only references. The real settlement worker moves from .NET 9 direct SQL to .NET 10 OAuth/OData with scoped pagination, retries and exact-decimal reconciliation.
 
-Open this folder and choose **Understand**. Structural analysis runs automatically; no separate SAP playbook needs to be started. Open the **SAP** subsection for smaller cards covering classes, data entities, dependencies, database access, functional areas, transactions, and coverage. **Source files & tags** retains source-folder groups and parsed symbol types; functional-area inferences are labeled separately from observed facts.
+See migration/TARGET-CHANGES.md, migration/comparison.json and migration/validation.json. The SAP Validation and Cutover playbook reruns business tests, ABAP reference tests, worker tests, 620 equivalence cases, maintenance scenarios and Understand. Native ABAP activation, native HANA execution, exact release/API compatibility and operational acceptance remain unrun gates.
 
-- 90 ABAP source files across ten business areas.
-- 10 CDS view definitions, using the abapGit `.ddls.asddls` filename convention.
-- Examples of BAPI calls and CDS-based reads, for comparison with `sap-modernize-source`.
-
-Inspect classes, routines, database accesses, and source links. SAP APIs and placeholder standard entities are external dependencies and may remain unresolved in this export.
-
-Structural analysis is generated locally. The model-generated use cases and guided tour are included for the demo.
-
-## Scope
-
-Static source analysis does not establish Clean Core compliance, release compatibility, deployment status, test coverage, migration completion, or runtime behavior. No SAP runtime test results are included. RAP services and Fiori applications are not implemented by this fixture.
-
-## Model-generated demo reports
-
-The existing **Use Cases** and **Guided Tour** cycles were run with Claude Sonnet. Open Understand to load the saved views; structural analysis rebuilds locally. See [.cognidev/DEMO_ANALYSIS.md](.cognidev/DEMO_ANALYSIS.md) for provenance, validation and interpretation limits. These are source-inferred reports, not proof of deployed functionality.
+Build commands and business scope are preserved in migration/SOURCE-README.md; use .NET 10 for the target worker. Run `npm ci` in enterprise and validation/abap before local checks on a fresh clone. Production configuration requires actual SAP/HANA/XSUAA resources.

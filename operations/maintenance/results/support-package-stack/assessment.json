@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "sap-maintenance-assessment/v2",
+  "producer": "sap-maintenance-cycle",
+  "producerVersion": "1.2.0",
+  "scope": "simulation-fixture",
+  "syntheticEvidence": true,
+  "sourceMutation": "none",
+  "sapSystemMutation": "not-performed",
+  "foundation": {
+    "path": ".cognidev/sap-modernization/assessment-bundle.json",
+    "state": "consumed",
+    "schemaVersion": "sap-modernization-assessment/v1",
+    "inputDigest": "e59fc4ce3739e795ac96fab2faa639d436cbc898c3d57b826ed67f1f771d3d0a"
+  },
+  "event": {
+    "type": "fps-sps-update",
+    "source": {
+      "systemId": "DEMO",
+      "product": "SAP S/4HANA",
+      "release": "2023",
+      "stack": "FPS01"
+    },
+    "target": {
+      "product": "SAP S/4HANA",
+      "release": "2023",
+      "stack": "SPS03"
+    }
+  },
+  "readiness": {
+    "state": "simulation-ready",
+    "passedGates": 10,
+    "failedGates": 0,
+    "unknownGates": 0,
+    "boundary": "Synthetic demonstration inputs support local simulation only, never connected execution approval."
+  },
+  "evidence": [
+    {
+      "id": "baseline",
+      "path": ".cognidev/sap-maintenance/evidence/system-baseline.json",
+      "state": "observed",
+      "sha256": "5df6cc026b4ce83d5e1e409d7e3bbee2aed856013861f4fa0d460a47be4fea05",
+      "bytes": 499
+    },
+    {
+      "id": "target",
+      "path": ".cognidev/sap-maintenance/evidence/target-stack.json",
+      "state": "observed",
+      "sha256": "1f1716654725cc6333bc93e29c918bdb0eda199f9a0213c453bf59b1e0189213",
+      "bytes": 298
+    },
+    {
+      "id": "stack_xml",
+      "path": ".cognidev/sap-maintenance/evidence/stack.xml",
+      "state": "missing"
+    },
+    {
+      "id": "addons",
+      "path": ".cognidev/sap-maintenance/evidence/add-ons.json",
+      "state": "observed",
+      "sha256": "c387e1803009b27a6eecae089cc113c95b5f9863988783afcbed065bddcf03e5",
+      "bytes": 229
+    },
+    {
+      "id": "notes",
+      "path": ".cognidev/sap-maintenance/evidence/sap-notes.json",
+      "state": "observed",
+      "sha256": "15d6402bb3a959a88af16fd86cb61d30c06d7b4c47b73c7c6925b869fd4e393d",
+      "bytes": 268
+    },
+    {
+      "id": "adjustments",
+      "path": ".cognidev/sap-maintenance/evidence/adjustments.json",
+      "state": "observed",
+      "sha256": "b1f56d25db857bef8ca4a61d851925652b2963a0c921d023397545a3b57b5e86",
+      "bytes": 204
+    },
+    {
+      "id": "tests",
+      "path": ".cognidev/sap-maintenance/evidence/regression-results.json",
+      "state": "observed",
+      "sha256": "8bc4e55e2bb5813fcd3edf4d66e1263cea85fe263f13b6b4403c04982cf6cabf",
+      "bytes": 372
+    },
+    {
+      "id": "rehearsal",
+      "path": ".cognidev/sap-maintenance/evidence/rehearsal.json",
+      "state": "observed",
+      "sha256": "65b4ee361f4ac7ee8805911c2774ce4033830880f22ea49709647fb872baa86c",
+      "bytes": 177
+    },
+    {
+      "id": "sum_log",
+      "path": ".cognidev/sap-maintenance/evidence/sum-log.txt",
+      "state": "observed",
+      "sha256": "5fe78a1c0a3709ebab9942e167ad7a3b0207a31d2c93922ef4056b7f4c376685",
+      "bytes": 61
+    }
+  ],
+  "componentMatrix": [
+    {
+      "component": "S4CORE",
+      "current": "108 / 01",
+      "target": "108 / 03",
+      "disposition": "update"
+    },
+    {
+      "component": "SAP_BASIS",
+      "current": "758 / 01",
+      "target": "758 / 03",
+      "disposition": "update"
+    }
+  ],
+  "addons": [
+    {
+      "name": "Demo supplier connector",
+      "target": "SPS03",
+      "compatibility": "supported",
+      "evidence": "Synthetic compatibility case; no vendor attestation"
+    }
+  ],
+  "notes": [
+    {
+      "id": "DEMO-CORRECTION-01",
+      "title": "Demonstration correction, not an SAP Note number",
+      "severity": "high",
+      "applicable": true,
+      "status": "planned",
+      "owner": "Demo Basis Owner"
+    }
+  ],
+  "adjustments": [
+    {
+      "object": "ZENT_ORDER",
+      "type": "SPDD",
+      "disposition": "adopt",
+      "owner": "Demo Data Owner",
+      "transport": "DEMO-K900001"
+    }
+  ],
+  "gates": [
+    {
+      "id": "G00",
+      "title": "Shared SAP foundation is current",
+      "state": "pass",
+      "detail": "The sap-modernization-assessment/v1 bundle is available.",
+      "evidence": [
+        ".cognidev/sap-modernization/assessment-bundle.json"
+      ]
+    },
+    {
+      "id": "G01",
+      "title": "Installed baseline is authoritative",
+      "state": "pass",
+      "detail": "Product, release, stack, components, add-ons, kernel, database and operating system were supplied.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/system-baseline.json"
+      ]
+    },
+    {
+      "id": "G02",
+      "title": "Target stack is exact",
+      "state": "pass",
+      "detail": "A target stack definition is available.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/target-stack.json",
+        ".cognidev/sap-maintenance/evidence/stack.xml"
+      ]
+    },
+    {
+      "id": "G03",
+      "title": "Change is an FPS/SPS update",
+      "state": "pass",
+      "detail": "Source release 2023; target release 2023. The release is unchanged.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/system-baseline.json",
+        ".cognidev/sap-maintenance/evidence/target-stack.json"
+      ]
+    },
+    {
+      "id": "G04",
+      "title": "Component stack is complete",
+      "state": "pass",
+      "detail": "Compared 2 component entries without an omitted installed component.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/system-baseline.json",
+        ".cognidev/sap-maintenance/evidence/target-stack.json"
+      ]
+    },
+    {
+      "id": "G05",
+      "title": "Add-ons are qualified",
+      "state": "pass",
+      "detail": "All 1 supplied add-on decisions are supported or approved.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/add-ons.json"
+      ]
+    },
+    {
+      "id": "G06",
+      "title": "SAP Notes are dispositioned",
+      "state": "pass",
+      "detail": "All 1 applicable Note(s) have a disposition.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/sap-notes.json"
+      ]
+    },
+    {
+      "id": "G07",
+      "title": "SPAU/SPDD and transports are owned",
+      "state": "pass",
+      "detail": "All 1 supplied adjustment(s) are dispositioned.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/adjustments.json"
+      ]
+    },
+    {
+      "id": "G08",
+      "title": "Regression and reconciliation pass",
+      "state": "pass",
+      "detail": "62 test(s): 0 failed and 0 blocked.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/regression-results.json"
+      ]
+    },
+    {
+      "id": "G09",
+      "title": "Rehearsal, backup and rollback are proven",
+      "state": "pass",
+      "detail": "Rehearsal status=passed; backup proven=True; rollback proven=True.",
+      "evidence": [
+        ".cognidev/sap-maintenance/evidence/rehearsal.json"
+      ]
+    }
+  ],
+  "findings": [],
+  "testSelection": [
+    {
+      "id": "business-process",
+      "objective": "Critical order-to-cash, procure-to-pay, record-to-report and customer-specific processes",
+      "selectedBy": "always",
+      "status": "required"
+    },
+    {
+      "id": "authorizations",
+      "objective": "Business roles, technical users, emergency access and privileged operations",
+      "selectedBy": "always",
+      "status": "required"
+    },
+    {
+      "id": "background-processing",
+      "objective": "Scheduled jobs, variants, spool, batch input, queues and restart behavior",
+      "selectedBy": "always",
+      "status": "required"
+    },
+    {
+      "id": "reconciliation",
+      "objective": "Financial, inventory, document-count and interface control totals",
+      "selectedBy": "always",
+      "status": "required"
+    },
+    {
+      "id": "performance",
+      "objective": "Dialog, batch, database, RFC and interface workload against the accepted baseline",
+      "selectedBy": "always",
+      "status": "required"
+    },
+    {
+      "id": "integrations",
+      "objective": "RFC, IDoc, SOAP, OData, file, event and message-contract regression",
+      "selectedBy": "capability:integration-suite",
+      "status": "required"
+    },
+    {
+      "id": "hana",
+      "objective": "HANA revision compatibility, SQLScript, HDI/native artifacts and performance",
+      "selectedBy": "capability:hana",
+      "status": "required"
+    },
+    {
+      "id": "connected-applications",
+      "objective": "Java, .NET and JavaScript consumers of SAP contracts",
+      "selectedBy": "capability:polyglot",
+      "status": "required"
+    },
+    {
+      "id": "security",
+      "objective": "Exploit-focused regression and control validation for high-impact Notes",
+      "selectedBy": "high-impact-note",
+      "status": "required"
+    }
+  ],
+  "runbook": [
+    {
+      "id": "P01",
+      "name": "Qualify and approve the maintenance transaction",
+      "actions": [
+        "Verify the shared SAP modernization foundation against the current Understand evidence.",
+        "Freeze the authoritative installed baseline and landscape scope.",
+        "Generate or attach the Maintenance Planner target and stack.xml.",
+        "Resolve component, add-on, kernel, database, OS, Note and legal-change dependencies.",
+        "Approve the target only after G00-G06 pass."
+      ],
+      "exitGates": [
+        "G00",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06"
+      ]
+    },
+    {
+      "id": "P02",
+      "name": "Prepare adjustments, transports and test data",
+      "actions": [
+        "Disposition SPAU/SPDD and custom-code findings with named owners.",
+        "Sequence prerequisite, maintenance, adjustment and follow-up transports.",
+        "Prepare production-like test data with protected sensitive values.",
+        "Baseline interfaces, jobs, authorizations, control totals and performance."
+      ],
+      "exitGates": [
+        "G07"
+      ]
+    },
+    {
+      "id": "P03",
+      "name": "Rehearse SUM and recovery",
+      "actions": [
+        "Run the update in an isolated rehearsal system with the production procedure.",
+        "Capture SUM phases, errors, manual actions, elapsed time and technical downtime.",
+        "Prove backup consistency, restore and the documented rollback decision points.",
+        "Update the operator runbook from measured rehearsal evidence."
+      ],
+      "exitGates": [
+        "G09"
+      ]
+    },
+    {
+      "id": "P04",
+      "name": "Validate business and technical behavior",
+      "actions": [
+        "Execute required suite: business-process.",
+        "Execute required suite: authorizations.",
+        "Execute required suite: background-processing.",
+        "Execute required suite: reconciliation.",
+        "Execute required suite: performance.",
+        "Execute required suite: integrations.",
+        "Execute required suite: hana.",
+        "Execute required suite: connected-applications.",
+        "Execute required suite: security.",
+        "Reconcile business control totals and obtain accountable-owner acceptance."
+      ],
+      "exitGates": [
+        "G08"
+      ]
+    },
+    {
+      "id": "P05",
+      "name": "Execute controlled landscape deployment",
+      "actions": [
+        "Repeat the accepted procedure through development, quality and production waves.",
+        "Stop when an approved gate, threshold or rollback trigger fails.",
+        "Retain Maintenance Planner, SUM, transport, test, reconciliation and approval evidence.",
+        "Run hypercare monitoring and close residual risks with owners and dates."
+      ],
+      "exitGates": [
+        "G00",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09"
+      ]
+    }
+  ],
+  "handoffs": [
+    {
+      "playbookId": "sap-connected-systems",
+      "reason": "Validate SAP-connected Java, .NET and JavaScript applications."
+    },
+    {
+      "playbookId": "sap-hana-modernization",
+      "reason": "Qualify HANA revision, native artifacts and database behavior."
+    },
+    {
+      "playbookId": "sap-integration-modernization",
+      "reason": "Validate and remediate integration contracts."
+    },
+    {
+      "playbookId": "sap-operations-modernization",
+      "reason": "Own SUM operations, monitoring, jobs, performance and stabilization evidence."
+    },
+    {
+      "playbookId": "sap-security-modernization",
+      "reason": "Validate high-impact security Notes and compensating controls."
+    },
+    {
+      "playbookId": "sap-validation-cutover",
+      "reason": "Own regression, reconciliation, cutover and rollback acceptance."
+    }
+  ],
+  "sumLog": {
+    "state": "observed",
+    "errorSignals": 0
+  },
+  "assessmentDigest": "8a1fdc4ddd6ef1017afa9b906e2c4bb9ff03b9411fcc859bdfa71793a504296e"
+}

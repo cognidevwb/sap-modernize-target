@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "sap-abap-reducer/v1",
+  "className": "zcl_ent_delivery_backlog",
+  "artifactName": "DELIVERY_BACKLOG",
+  "sourceSha256": "d6cf9c11460dd787b17b656bc3b0cc39271b0f008d0f628e844d21e0f1289dbd",
+  "fields": [
+    {
+      "name": "company",
+      "abapType": "c length 4",
+      "sqlType": "NVARCHAR(4)"
+    },
+    {
+      "name": "plant",
+      "abapType": "c length 4",
+      "sqlType": "NVARCHAR(4)"
+    },
+    {
+      "name": "status",
+      "abapType": "c length 12",
+      "sqlType": "NVARCHAR(12)"
+    },
+    {
+      "name": "planned_date",
+      "abapType": "d",
+      "sqlType": "NVARCHAR(8)"
+    },
+    {
+      "name": "quantity",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "company",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    },
+    {
+      "name": "plant",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    },
+    {
+      "name": "as_of",
+      "abapType": "d",
+      "sqlType": "NVARCHAR(8)"
+    }
+  ],
+  "output": "quantity",
+  "query": "SELECT COALESCE(SUM(CASE WHEN ((r.\"PLANNED_DATE\" <= :p_as_of) AND ((RTRIM(r.\"STATUS\") = 'RELEASED') OR (RTRIM(r.\"STATUS\") = 'PICKED'))) AND (r.\"QUANTITY\" > 0) THEN (0 + r.\"QUANTITY\") ELSE 0 END), 0) AS \"VALUE\"\nFROM :rows AS r\nWHERE ((RTRIM(r.\"COMPANY\") = RTRIM(:p_company)) AND (RTRIM(r.\"PLANT\") = RTRIM(:p_plant)))",
+  "hana": "PROCEDURE \"enterprise::DELIVERY_BACKLOG\" (\n  IN rows TABLE (\"COMPANY\" NVARCHAR(4), \"PLANT\" NVARCHAR(4), \"STATUS\" NVARCHAR(12), \"PLANNED_DATE\" NVARCHAR(8), \"QUANTITY\" BIGINT),\n  IN p_company NVARCHAR(255),\n  IN p_plant NVARCHAR(255),\n  IN p_as_of NVARCHAR(8),\n  OUT result BIGINT\n)\nLANGUAGE SQLSCRIPT\nSQL SECURITY INVOKER\nREADS SQL DATA\nAS\nBEGIN\n  SELECT COALESCE(SUM(CASE WHEN ((r.\"PLANNED_DATE\" <= :p_as_of) AND ((RTRIM(r.\"STATUS\") = 'RELEASED') OR (RTRIM(r.\"STATUS\") = 'PICKED'))) AND (r.\"QUANTITY\" > 0) THEN (0 + r.\"QUANTITY\") ELSE 0 END), 0) INTO result\nFROM :rows AS r\nWHERE ((RTRIM(r.\"COMPANY\") = RTRIM(:p_company)) AND (RTRIM(r.\"PLANT\") = RTRIM(:p_plant)));\nEND;\n",
+  "semantics": {
+    "sourceIntegerBits": 32,
+    "targetIntegerBits": 64,
+    "characterComparison": "RTRIM preserves ABAP fixed-character trailing-space comparison",
+    "numericBoundary": "Source inputs and every intermediate arithmetic value must fit signed ABAP 32-bit integers; target BIGINT extends capacity only after separate qualification",
+    "nativeHanaExecution": "not-performed"
+  },
+  "source": "enterprise/abap/analytics/zcl_ent_delivery_backlog.clas.abap",
+  "baseline": ".cognidev/modernization-baseline/abap/zcl_ent_delivery_backlog.clas.abap",
+  "hanaSha256": "b122f1a561ada060c0513e107537008d16162aa188f1e19be2126952ab9613b7",
+  "nativeActivation": "not-performed"
+}

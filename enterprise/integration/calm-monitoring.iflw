@@ -1,0 +1,12 @@
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="urn:enterprise:design"><bpmn:process id="calm-monitoring" isExecutable="false"><bpmn:startEvent id="start" name="Cloud ALM webhook"/>
+<bpmn:serviceTask id="normalize" name="Map tenant-specific Cloud ALM event to normalized contract"/>
+<bpmn:exclusiveGateway id="severity" name="Severity decision"/>
+<bpmn:serviceTask id="incident" name="ControlTower ingestMonitoringEvent via OAuth destination"/>
+<bpmn:serviceTask id="archive" name="Archive informational event"/>
+<bpmn:endEvent id="end" name="Acknowledged"/>
+<bpmn:sequenceFlow id="calm-monitoring-0" sourceRef="start" targetRef="normalize"/>
+<bpmn:sequenceFlow id="calm-monitoring-1" sourceRef="normalize" targetRef="severity"/>
+<bpmn:sequenceFlow id="calm-monitoring-2" sourceRef="severity" targetRef="incident"/>
+<bpmn:sequenceFlow id="calm-monitoring-3" sourceRef="severity" targetRef="archive"/>
+<bpmn:sequenceFlow id="calm-monitoring-4" sourceRef="incident" targetRef="end"/>
+<bpmn:sequenceFlow id="calm-monitoring-5" sourceRef="archive" targetRef="end"/></bpmn:process></bpmn:definitions>

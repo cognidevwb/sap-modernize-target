@@ -1,9 +1,0 @@
-*& S/4HANA logistics 1 ✅
-CLASS zcl_logistics_s4_1 DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS: execute.
-ENDCLASS.
-CLASS zcl_logistics_s4_1 IMPLEMENTATION.
-  METHOD execute.
-  ENDMETHOD.
-ENDCLASS.

@@ -1,0 +1,8 @@
+node_modules/
+gen/
+*.sqlite
+*.db
+.env
+default-env.json
+.cognidev/
+dist/

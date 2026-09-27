@@ -1,0 +1,8 @@
+{
+ "schemaVersion":"enterprise-idoc-profile/v1","messageType":"ORDERS","basicType":"ORDERS05","extension":"ZENT_ORDERS05",
+ "identity":["EDI_DC40.SNDPRN","EDI_DC40.DOCNUM","Z1ENT_SCOPE.BUKRS"],
+ "scope":{"company":"Z1ENT_SCOPE.BUKRS","plant":"Z1ENT_SCOPE.WERKS","requestedDate":"Z1ENT_SCOPE.REQUESTED_DATE"},
+ "customer":{"segment":"E1EDKA1","qualifier":{"PARVW":"AG"},"identifier":"PARTN","mappingType":"customer"},
+ "items":{"segment":"E1EDP01","maximum":100,"position":"POSEX","quantity":"MENGE","unit":"MENEE","supportedUnits":["EA"],"unitPrice":"VPREI","material":{"segment":"E1EDP19","qualifier":{"QUALF":"002"},"identifier":"IDTNR","mappingType":"material"}},
+ "validation":"runtime/orders05.js","runtimeEvidence":"../test/business-processes.test.js","nativeIdocActivation":"not-performed"
+}

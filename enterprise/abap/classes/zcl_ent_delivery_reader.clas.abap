@@ -1,0 +1,9 @@
+CLASS zcl_ent_delivery_reader DEFINITION PUBLIC FINAL CREATE PUBLIC.
+ PUBLIC SECTION.
+  CLASS-METHODS count_open RETURNING VALUE(count) TYPE i.
+ENDCLASS.
+CLASS zcl_ent_delivery_reader IMPLEMENTATION.
+ METHOD count_open.
+  SELECT COUNT(*) FROM zent_delivery INTO @count.
+ ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,1 @@
+{"specversion":"1.0","id":"PAYMENT-1001","source":"ECC_DEV","type":"enterprise.payment.received.v1","datacontenttype":"application/json","data":{"companyCode":"1000","invoiceNumber":"INV-1001","amount":"142.80","currency":"EUR","bankReference":"BANK-1001"}}

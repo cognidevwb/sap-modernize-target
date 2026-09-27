@@ -1,0 +1,19 @@
+{
+  "file_suffixes": {
+    "hdbtable": {
+      "plugin_name": "com.sap.hana.di.table"
+    },
+    "hdbview": {
+      "plugin_name": "com.sap.hana.di.view"
+    },
+    "hdbprocedure": {
+      "plugin_name": "com.sap.hana.di.procedure"
+    },
+    "hdbfunction": {
+      "plugin_name": "com.sap.hana.di.function"
+    },
+    "hdbrole": {
+      "plugin_name": "com.sap.hana.di.role"
+    }
+  }
+}

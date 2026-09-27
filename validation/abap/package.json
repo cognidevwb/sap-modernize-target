@@ -1,0 +1,14 @@
+{
+  "name": "sap-abap-contract-validation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "transpile": "abap_transpile abap_transpile.json",
+    "test": "npm run transpile && node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@abaplint/transpiler-cli": "2.13.93",
+    "@abaplint/runtime": "2.13.93"
+  }
+}

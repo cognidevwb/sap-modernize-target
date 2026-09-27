@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "sap-abap-reducer/v1",
+  "className": "zcl_ent_return_liability",
+  "artifactName": "RETURN_LIABILITY",
+  "sourceSha256": "477f772efc434fc9a8766c358dd4999b472e85cf9af0b1b32b7aac09eed6a140",
+  "fields": [
+    {
+      "name": "company",
+      "abapType": "c length 4",
+      "sqlType": "NVARCHAR(4)"
+    },
+    {
+      "name": "currency",
+      "abapType": "c length 3",
+      "sqlType": "NVARCHAR(3)"
+    },
+    {
+      "name": "status",
+      "abapType": "c length 12",
+      "sqlType": "NVARCHAR(12)"
+    },
+    {
+      "name": "credit_minor",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    },
+    {
+      "name": "settled_minor",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "company",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    },
+    {
+      "name": "currency",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    }
+  ],
+  "output": "amount_minor",
+  "query": "SELECT COALESCE(SUM(CASE WHEN ((RTRIM(r.\"STATUS\") = 'APPROVED') OR (RTRIM(r.\"STATUS\") = 'RECEIVED')) AND (r.\"CREDIT_MINOR\" > r.\"SETTLED_MINOR\") THEN ((0 + r.\"CREDIT_MINOR\") - r.\"SETTLED_MINOR\") ELSE 0 END), 0) AS \"VALUE\"\nFROM :rows AS r\nWHERE ((RTRIM(r.\"COMPANY\") = RTRIM(:p_company)) AND (RTRIM(r.\"CURRENCY\") = RTRIM(:p_currency)))",
+  "hana": "PROCEDURE \"enterprise::RETURN_LIABILITY\" (\n  IN rows TABLE (\"COMPANY\" NVARCHAR(4), \"CURRENCY\" NVARCHAR(3), \"STATUS\" NVARCHAR(12), \"CREDIT_MINOR\" BIGINT, \"SETTLED_MINOR\" BIGINT),\n  IN p_company NVARCHAR(255),\n  IN p_currency NVARCHAR(255),\n  OUT result BIGINT\n)\nLANGUAGE SQLSCRIPT\nSQL SECURITY INVOKER\nREADS SQL DATA\nAS\nBEGIN\n  SELECT COALESCE(SUM(CASE WHEN ((RTRIM(r.\"STATUS\") = 'APPROVED') OR (RTRIM(r.\"STATUS\") = 'RECEIVED')) AND (r.\"CREDIT_MINOR\" > r.\"SETTLED_MINOR\") THEN ((0 + r.\"CREDIT_MINOR\") - r.\"SETTLED_MINOR\") ELSE 0 END), 0) INTO result\nFROM :rows AS r\nWHERE ((RTRIM(r.\"COMPANY\") = RTRIM(:p_company)) AND (RTRIM(r.\"CURRENCY\") = RTRIM(:p_currency)));\nEND;\n",
+  "semantics": {
+    "sourceIntegerBits": 32,
+    "targetIntegerBits": 64,
+    "characterComparison": "RTRIM preserves ABAP fixed-character trailing-space comparison",
+    "numericBoundary": "Source inputs and every intermediate arithmetic value must fit signed ABAP 32-bit integers; target BIGINT extends capacity only after separate qualification",
+    "nativeHanaExecution": "not-performed"
+  },
+  "source": "enterprise/abap/analytics/zcl_ent_return_liability.clas.abap",
+  "baseline": ".cognidev/modernization-baseline/abap/zcl_ent_return_liability.clas.abap",
+  "hanaSha256": "dbde077903e149e3f4c3b12894c7036732e9dc88ffde74651ff867356f22d598",
+  "nativeActivation": "not-performed"
+}

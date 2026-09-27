@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "sap-repository-modernization/v1",
+  "description": "Apply qualified pure ABAP reducers to HANA SQLScript/AMDP and move the settlement worker to OAuth OData on .NET 10. Preserve transactional CAP/ABAP domain policies. Native SAP deployment remains a separate evidence gate.",
+  "reducers": [
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_delivery_backlog.clas.abap",
+      "object": "DELIVERY_BACKLOG"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_event_backlog.clas.abap",
+      "object": "EVENT_BACKLOG"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_invoice_overdue.clas.abap",
+      "object": "INVOICE_OVERDUE"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_order_exposure.clas.abap",
+      "object": "ORDER_EXPOSURE"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_po_open_value.clas.abap",
+      "object": "PO_OPEN_VALUE"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_production_good.clas.abap",
+      "object": "PRODUCTION_GOOD"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_quality_defects.clas.abap",
+      "object": "QUALITY_DEFECTS"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_reconcile_delta.clas.abap",
+      "object": "RECONCILE_DELTA"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_return_liability.clas.abap",
+      "object": "RETURN_LIABILITY"
+    },
+    {
+      "source": "enterprise/abap/analytics/zcl_ent_stock_available.clas.abap",
+      "object": "STOCK_AVAILABLE"
+    }
+  ],
+  "worker": {
+    "recipe": "dotnet9-sql-to-dotnet10-odata",
+    "project": "external/settlement"
+  },
+  "targetDirectory": "../sap-modernize-target"
+}

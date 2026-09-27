@@ -1,0 +1,3 @@
+@EndUserText.label: 'Company segregation'
+@MappingRole: true
+define role ZI_EntOrder { grant select on ZI_EntOrder where (CompanyCode) = aspect pfcg_auth(ZENT_COMP, BUKRS, ACTVT = '03'); }

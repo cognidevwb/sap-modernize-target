@@ -1,0 +1,9 @@
+CLASS zcl_ent_quality_reader DEFINITION PUBLIC FINAL CREATE PUBLIC.
+ PUBLIC SECTION.
+  CLASS-METHODS count_open RETURNING VALUE(count) TYPE i.
+ENDCLASS.
+CLASS zcl_ent_quality_reader IMPLEMENTATION.
+ METHOD count_open.
+  SELECT COUNT(*) FROM zent_quality INTO @count.
+ ENDMETHOD.
+ENDCLASS.

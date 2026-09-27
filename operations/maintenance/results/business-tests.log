@@ -1,0 +1,94 @@
+
+> sap-enterprise-control-tower@1.0.0 test
+> node --test test/*.test.js
+
+  > init from db/data/enterprise-Stock.csv 
+  > init from db/data/enterprise-ServiceObjectives.csv 
+  > init from db/data/enterprise-SalesOrders.csv 
+  > init from db/data/enterprise-SalesOrderItems.csv 
+  > init from db/data/enterprise-Plants.csv 
+  > init from db/data/enterprise-Materials.csv 
+  > init from db/data/enterprise-Companies.csv 
+  > init from db/data/enterprise-BusinessPartners.csv 
+/> successfully deployed to in-memory database. 
+
+✔ order-to-cash reconciles invoice, tax, journal, partial payments, stock and credit (267.241291ms)
+✔ idempotent request returns its result and rejects payload or actor changes (8.886041ms)
+✔ all business actions reject an unauthorized role without writing commands (7.361ms)
+✔ order validation rejects missing lines and cross-company customer or plant (7.086708ms)
+✔ cancellation restores reservations and credit exactly once (12.346291ms)
+✔ shipping rejects corrupt reservations and preserves order state (16.991083ms)
+✔ invoice cannot duplicate and payment cannot exceed the balance (13.13325ms)
+✔ purchase-to-stock requires receipt and accepted quality inspection (11.001625ms)
+✔ purchase creator cannot approve the same order (7.119416ms)
+✔ partial receipts reconcile and over-receipts roll back (18.574125ms)
+✔ failed inspection quarantines goods and repeated inspection is rejected (9.839917ms)
+✔ production consumes components and reconciles yield and scrap (7.32525ms)
+✔ insufficient BOM stock rolls back production and expired BOM is rejected (11.856584ms)
+✔ stock transfers conserve total quantities and cannot cross company plants (6.365666ms)
+✔ stock count preserves reservations and detects stale versions (8.233917ms)
+✔ master data credit limits cannot undercut exposure and blocking stops new orders (8.890208ms)
+✔ pricing uses exact minor units and rejects ambiguous effective conditions (6.225875ms)
+✔ only the assigned warehouse operator can confirm a pick (9.0935ms)
+✔ returns restock only once and cannot exceed fulfilled quantity (21.868584ms)
+✔ CAP action dispatch executes the implementation with service authorization (7.719333ms)
+✔ a bank transaction cannot be replayed with a different business request (12.368583ms)
+✔ invalid calendar dates and future tax policies cannot issue invoices (9.698125ms)
+✔ shipping waits for assigned picking tasks to be confirmed (18.037458ms)
+✔ partial returns conserve the original invoice tax down to the last cent (14.375125ms)
+✔ IDoc to SOAP delivery to CloudEvent payment completes a reconciled business flow (15.650291ms)
+✔ IDoc duplicate replay is idempotent while changed payload reusing DOCNUM is rejected (7.343459ms)
+✔ integration signature binds payload source system company and channel (10.654292ms)
+✔ integration rejects expired signatures unauthorized actors and cross-company payloads (4.410125ms)
+✔ integration refuses missing mappings and unsupported IDoc units without partial orders (5.734208ms)
+✔ XML DTD declarations and duplicate document identities cannot enter business logic (4.647084ms)
+✔ integration principal also needs the business action role (4.866125ms)
+✔ message size and signing-key configuration are enforced before parsing (5.274708ms)
+✔ outbox skips delayed rows before applying batch limits (6.647ms)
+✔ outbox lease prevents concurrent delivery of the same pending event (15.547375ms)
+✔ outbox recovers expired leases but never spends beyond retry budget (7.100417ms)
+✔ stale outbox owner cannot acknowledge a replacement lease (5.367667ms)
+✔ every compiled business role can be assigned through XSUAA with company scope (89.366291ms)
+✔ DDIC business exports have explicit keys and valid currency/unit references (12.373791ms)
+  > init from db/data/enterprise-Stock.csv 
+  > init from db/data/enterprise-ServiceObjectives.csv 
+  > init from db/data/enterprise-SalesOrders.csv 
+  > init from db/data/enterprise-SalesOrderItems.csv 
+  > init from db/data/enterprise-Plants.csv 
+  > init from db/data/enterprise-Materials.csv 
+  > init from db/data/enterprise-Companies.csv 
+  > init from db/data/enterprise-BusinessPartners.csv 
+/> successfully deployed to in-memory database. 
+
+✔ release atomically reserves credit, inventory, audit and integration event (256.982ms)
+✔ idempotent retry does not reserve or publish twice (7.639666ms)
+✔ same idempotency key cannot be replayed by another actor (5.162792ms)
+✔ wrong role is rejected before writes (2.721292ms)
+✔ cross-company release is denied (2.850291ms)
+✔ stale revision is rejected (3.005875ms)
+✔ missing order is explicit (2.834375ms)
+✔ invalid quantity is rejected (3.173292ms)
+✔ credit breach rolls back the order state (8.204959ms)
+✔ stock failure rolls back credit and status (4.83075ms)
+✔ later line failure rolls back earlier reservation (5.166084ms)
+✔ Cloud ALM normalized event is deduplicated and can be acknowledged (4.458291ms)
+✔ monitoring rejects invalid severity and another company (2.329459ms)
+✔ outbox delivery preserves event ID for deduplication (5.805083ms)
+✔ failed delivery backs off and dead-letters after retry budget (7.212917ms)
+✔ money calculations use exact minor units (2.481458ms)
+✔ balanced journal posts once with audit evidence (3.905625ms)
+✔ unbalanced journal cannot post (3.27975ms)
+✔ journal posting enforces role and company (3.083959ms)
+✔ stock owned by another company cannot be reserved (3.720792ms)
+✔ CAP service dispatch reaches the transactional order handler (5.871667ms)
+✔ CAP service authorization rejects a viewer invoking release (10.928167ms)
+✔ CAP read restriction hides another company order (3.801583ms)
+✔ XSUAA-style company attribute arrays are accepted only for assigned companies (3.791ms)
+ℹ tests 62
+ℹ suites 0
+ℹ pass 62
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 703.553584

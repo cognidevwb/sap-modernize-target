@@ -1,0 +1,3 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ent="urn:enterprise:logistics">
+ <soap:Body><ent:ConfirmDelivery><MessageID>DELIVERY-1001</MessageID><CompanyCode>1000</CompanyCode><OrderNumber>0000000000001001</OrderNumber><Carrier>DEMO_CARRIER</Carrier><TrackingNumber>TRACK-1001</TrackingNumber></ent:ConfirmDelivery></soap:Body>
+</soap:Envelope>

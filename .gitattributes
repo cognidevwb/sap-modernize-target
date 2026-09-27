@@ -1,0 +1,2 @@
+# This is project-owned integration code, not a vendored dependency.
+external/settlement/** -linguist-vendored

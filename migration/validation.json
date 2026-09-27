@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "sap-repository-validation/v1",
+  "status": "local-validation-passed",
+  "sourceDigest": "f436d80c7fb91a87a05bce9d5cdd840e0a6c29140d96d744736dda8fa53abc7b",
+  "planDigest": "d057e84579768743d243ce54d6a7b8e04511ef56d9cd2aaa414130c69185ba84",
+  "producerDigest": "f07b04f29f18520b5a12bfe02f446cbfc46d9a7dcdad0816c4b7e547a8af0496",
+  "checks": [
+    {
+      "id": "source-cap-install",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 1277,
+      "logSha256": "2180e6be58ad91a72d96095eaf8513597a7ad6ce6c1e83867b06f49d7299520b"
+    },
+    {
+      "id": "source-cap",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 809,
+      "logSha256": "0e8d8596b8e4702208ae0c3d6fcf53ea77dd16e8c7a6a8221ec585c336d48f21"
+    },
+    {
+      "id": "source-cap-build",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 1797,
+      "logSha256": "891914a00977e16a0a517db408b0efa0752e509effd101b5ba6f73196d4d13e8"
+    },
+    {
+      "id": "source-abap-install",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 315,
+      "logSha256": "26d388e3f1eaad7a19252e8fe04ebe8d12f62b3ce9cb673cdf95b0762f8a4f30"
+    },
+    {
+      "id": "source-abap",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 712,
+      "logSha256": "88ed36f8741d5699cd1ccfb0b8642d052ec691332489c5a13fb711467af45d7c"
+    },
+    {
+      "id": "source-dotnet",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 1118,
+      "logSha256": "126491add030e9b1f0f8a1fb7f93dd23577f1a49b28daf0ac1b4de9f437d3158"
+    },
+    {
+      "id": "target-cap-install",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 929,
+      "logSha256": "bb4de49efa40167f63831ba9daa48e9d12bc2119482949114c5ebfbd8c5563ba"
+    },
+    {
+      "id": "target-cap",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 800,
+      "logSha256": "13dd38027d66e8db56029612a2642716f15dcdf6dbe11e8346088c4afeb1f2c4"
+    },
+    {
+      "id": "target-cap-build",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 1698,
+      "logSha256": "287578e52c69be60a2f2beeae22c823274e2deaf585cb2cbb4b1675e1cd35aa3"
+    },
+    {
+      "id": "target-abap-install",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 449,
+      "logSha256": "628df1ebf50934c2ba941eff73cc879fde8b2ebac3bae6d8c6bfc58256f133c2"
+    },
+    {
+      "id": "target-abap-reference",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 619,
+      "logSha256": "0a4f022e431d93cfcf1c17c5847336f64f427b7c56af9cf0645c76c8ad2cb7e4"
+    },
+    {
+      "id": "target-dotnet",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 2157,
+      "logSha256": "596275d9c0f69504e5a6fb3ecefdf7c4ba8bca0e3d7efe9f0bfe3e59b4adf568"
+    },
+    {
+      "id": "maintenance-scenarios",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 2950,
+      "logSha256": "0c027c365c9fb2a8b27ed7fb197c6b2a67fdd9780e63941fce41deb4a0888c5d"
+    },
+    {
+      "id": "behavior-equivalence",
+      "status": "passed",
+      "cases": 620,
+      "calculations": 10,
+      "nativeHanaExecution": "not-performed"
+    },
+    {
+      "id": "target-understand",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 4927,
+      "logSha256": "f1dedf842082fb5f560c56f70de50e806304c8c62e2eb3af9878cfae29f33437"
+    },
+    {
+      "id": "target-sap-verify",
+      "status": "passed",
+      "exitCode": 0,
+      "durationMs": 131,
+      "logSha256": "cd904b654aae1e9e76917b830e87aafa55540a17c284dc0b2c9d7170b53a29d4"
+    }
+  ],
+  "understand": {
+    "status": "completed",
+    "specVersion": 76,
+    "sapInputs": 131
+  },
+  "nativeGates": [
+    {
+      "name": "SAP ABAP activation and ATC",
+      "status": "not-run"
+    },
+    {
+      "name": "Native HANA deployment and SQLScript execution",
+      "status": "not-run"
+    },
+    {
+      "name": "Target SAP release/API compatibility",
+      "status": "not-run"
+    },
+    {
+      "name": "Performance and operational acceptance",
+      "status": "not-run"
+    }
+  ],
+  "productionReadiness": "not-established"
+}

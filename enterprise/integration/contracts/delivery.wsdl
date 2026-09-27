@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:enterprise:logistics" targetNamespace="urn:enterprise:logistics" name="EnterpriseDeliveryContract">
+ <documentation>Document contract consumed by the CAP SOAP-envelope adapter. No SOAP network endpoint is declared or claimed deployed.</documentation>
+ <types><xsd:schema targetNamespace="urn:enterprise:logistics"><xsd:element name="ConfirmDelivery"><xsd:complexType><xsd:sequence>
+  <xsd:element name="MessageID" type="xsd:string"/><xsd:element name="CompanyCode" type="xsd:string"/><xsd:element name="OrderNumber" type="xsd:string"/><xsd:element name="Carrier" type="xsd:string"/><xsd:element name="TrackingNumber" type="xsd:string"/>
+ </xsd:sequence></xsd:complexType></xsd:element></xsd:schema></types>
+ <message name="ConfirmDeliveryRequest"><part name="body" element="tns:ConfirmDelivery"/></message>
+ <portType name="DeliveryPort"><operation name="ConfirmDelivery"><input message="tns:ConfirmDeliveryRequest"/></operation></portType>
+</definitions>

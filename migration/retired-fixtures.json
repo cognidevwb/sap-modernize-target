@@ -1,0 +1,773 @@
+{
+  "baselineCommit": "22986ee3575771850eb8892c01e94a4796d8b358",
+  "files": [
+    {
+      "path": "src/cross_cutting/zcl_util_1.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_2.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_3.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_4.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_5.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_6.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_7.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/cross_cutting/zcl_util_8.abap",
+      "methods": [
+        "utility_function"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_1.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_10.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_2.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_3.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_4.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_5.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_6.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_7.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_8.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/finance/zcl_fi_9.abap",
+      "methods": [
+        "post_document"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_1.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_10.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_2.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_3.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_4.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_5.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_6.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_7.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_8.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/inventory/zcl_inv_9.abap",
+      "methods": [
+        "check_stock"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_1.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_2.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_3.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_4.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_5.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_6.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/logistics/zcl_log_7.abap",
+      "methods": [
+        "ship_goods"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_1.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_2.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_3.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_4.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_5.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_6.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_7.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/master_data/zcl_md_8.abap",
+      "methods": [
+        "maintain_master"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_billing.abap",
+      "methods": [
+        "create_invoice",
+        "post_to_fi"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_1.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_10.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_11.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_12.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_13.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_2.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_3.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_4.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_5.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_6.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_7.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_8.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_o2c_9.abap",
+      "methods": [
+        "process"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/order_to_cash/zcl_sales_order.abap",
+      "methods": [
+        "create_order",
+        "get_order_status",
+        "cancel_order"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_1.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_2.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_3.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_4.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_5.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_6.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/pricing/zcl_price_7.abap",
+      "methods": [
+        "calculate_price"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_1.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_10.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_11.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_12.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_13.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_14.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_2.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_3.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_4.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_5.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_6.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_7.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_8.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_p2p_9.abap",
+      "methods": [
+        "execute"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/procure_to_pay/zcl_purchase_order.abap",
+      "methods": [
+        "create_po",
+        "approve_po"
+      ],
+      "emptyMethods": 0,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/production/zcl_pp_1.abap",
+      "methods": [
+        "plan_production"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/production/zcl_pp_2.abap",
+      "methods": [
+        "plan_production"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/production/zcl_pp_3.abap",
+      "methods": [
+        "plan_production"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/production/zcl_pp_4.abap",
+      "methods": [
+        "plan_production"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/production/zcl_pp_5.abap",
+      "methods": [
+        "plan_production"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/quality/zcl_qm_1.abap",
+      "methods": [
+        "quality_check"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/quality/zcl_qm_2.abap",
+      "methods": [
+        "quality_check"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/quality/zcl_qm_3.abap",
+      "methods": [
+        "quality_check"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/quality/zcl_qm_4.abap",
+      "methods": [
+        "quality_check"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "src/quality/zcl_qm_5.abap",
+      "methods": [
+        "quality_check"
+      ],
+      "emptyMethods": 1,
+      "reason": "Replace untyped/empty synthetic fixture with executable domain contracts and typed CAP transactions; history remains in git."
+    },
+    {
+      "path": "database/ztable_1.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_10.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_2.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_3.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_4.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_5.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_6.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_7.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_8.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "database/ztable_9.ddl",
+      "reason": "Replace generic field1/field2 table fixture with named enterprise business tables and explicit keys/types."
+    },
+    {
+      "path": "generate_demo.sh",
+      "reason": "Obsolete workstation-specific generator recreated the retired empty/repeated fixture and unsupported Clean Core percentages. Use the manifest-bound modernization playbook instead."
+    }
+  ]
+}

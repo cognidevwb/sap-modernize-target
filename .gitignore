@@ -1,3 +1,6 @@
+# Ignore analyzer caches inside independently analyzed modules.
+**/.cognidev/
+!/.cognidev/
 # Keep only portable, explicitly generated model reports. Rebuild structure locally.
 .cognidev/*
 !.cognidev/understand/
@@ -9,3 +12,6 @@
 !.cognidev/understand/reading-tags.json
 .codebase-memory/
 .DS_Store
+
+# Portable source reference for migration equivalence tests only.
+!.cognidev/modernization-baseline/

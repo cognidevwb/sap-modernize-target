@@ -1,0 +1,2 @@
+@EndUserText.label: 'Enterprise order API'
+define service ZENT_ORDERS { expose ZC_EntOrder as Orders; }

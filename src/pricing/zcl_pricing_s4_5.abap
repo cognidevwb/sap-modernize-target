@@ -1,9 +1,0 @@
-*& S/4HANA pricing 5 ✅
-CLASS zcl_pricing_s4_5 DEFINITION PUBLIC.
-  PUBLIC SECTION.
-    METHODS: execute.
-ENDCLASS.
-CLASS zcl_pricing_s4_5 IMPLEMENTATION.
-  METHOD execute.
-  ENDMETHOD.
-ENDCLASS.

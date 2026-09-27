@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "sap-abap-reducer/v1",
+  "className": "zcl_ent_stock_available",
+  "artifactName": "STOCK_AVAILABLE",
+  "sourceSha256": "b5b20f601192ccef868e89b8111a971eb5566897f64629422dff85f1ccff14af",
+  "fields": [
+    {
+      "name": "plant",
+      "abapType": "c length 4",
+      "sqlType": "NVARCHAR(4)"
+    },
+    {
+      "name": "material",
+      "abapType": "c length 20",
+      "sqlType": "NVARCHAR(20)"
+    },
+    {
+      "name": "available",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    },
+    {
+      "name": "blocked",
+      "abapType": "i",
+      "sqlType": "BIGINT"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "plant",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    },
+    {
+      "name": "material",
+      "abapType": "c",
+      "sqlType": "NVARCHAR(255)"
+    }
+  ],
+  "output": "quantity",
+  "query": "SELECT COALESCE(SUM(CASE WHEN ((r.\"BLOCKED\" = 0) AND (r.\"AVAILABLE\" > 0)) THEN (0 + r.\"AVAILABLE\") ELSE 0 END), 0) AS \"VALUE\"\nFROM :rows AS r\nWHERE ((RTRIM(r.\"PLANT\") = RTRIM(:p_plant)) AND (RTRIM(r.\"MATERIAL\") = RTRIM(:p_material)))",
+  "hana": "PROCEDURE \"enterprise::STOCK_AVAILABLE\" (\n  IN rows TABLE (\"PLANT\" NVARCHAR(4), \"MATERIAL\" NVARCHAR(20), \"AVAILABLE\" BIGINT, \"BLOCKED\" BIGINT),\n  IN p_plant NVARCHAR(255),\n  IN p_material NVARCHAR(255),\n  OUT result BIGINT\n)\nLANGUAGE SQLSCRIPT\nSQL SECURITY INVOKER\nREADS SQL DATA\nAS\nBEGIN\n  SELECT COALESCE(SUM(CASE WHEN ((r.\"BLOCKED\" = 0) AND (r.\"AVAILABLE\" > 0)) THEN (0 + r.\"AVAILABLE\") ELSE 0 END), 0) INTO result\nFROM :rows AS r\nWHERE ((RTRIM(r.\"PLANT\") = RTRIM(:p_plant)) AND (RTRIM(r.\"MATERIAL\") = RTRIM(:p_material)));\nEND;\n",
+  "semantics": {
+    "sourceIntegerBits": 32,
+    "targetIntegerBits": 64,
+    "characterComparison": "RTRIM preserves ABAP fixed-character trailing-space comparison",
+    "numericBoundary": "Source inputs and every intermediate arithmetic value must fit signed ABAP 32-bit integers; target BIGINT extends capacity only after separate qualification",
+    "nativeHanaExecution": "not-performed"
+  },
+  "source": "enterprise/abap/analytics/zcl_ent_stock_available.clas.abap",
+  "baseline": ".cognidev/modernization-baseline/abap/zcl_ent_stock_available.clas.abap",
+  "hanaSha256": "c06dd1ab40b27aeb01e274181734793c2e6274e97c8f3b323c5825fc94cbdffa",
+  "nativeActivation": "not-performed"
+}

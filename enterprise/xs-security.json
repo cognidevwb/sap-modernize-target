@@ -1,0 +1,240 @@
+{
+  "xsappname": "enterprise-control-tower",
+  "tenant-mode": "dedicated",
+  "description": "Company-scoped enterprise control tower",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Viewer access"
+    },
+    {
+      "name": "$XSAPPNAME.Planner",
+      "description": "Planner access"
+    },
+    {
+      "name": "$XSAPPNAME.Operator",
+      "description": "Operator access"
+    },
+    {
+      "name": "$XSAPPNAME.Accountant",
+      "description": "Accountant access"
+    },
+    {
+      "name": "$XSAPPNAME.Buyer",
+      "description": "Buyer business access"
+    },
+    {
+      "name": "$XSAPPNAME.CreditManager",
+      "description": "CreditManager business access"
+    },
+    {
+      "name": "$XSAPPNAME.CustomerService",
+      "description": "CustomerService business access"
+    },
+    {
+      "name": "$XSAPPNAME.IntegrationOperator",
+      "description": "IntegrationOperator business access"
+    },
+    {
+      "name": "$XSAPPNAME.InventoryController",
+      "description": "InventoryController business access"
+    },
+    {
+      "name": "$XSAPPNAME.MasterDataAdmin",
+      "description": "MasterDataAdmin business access"
+    },
+    {
+      "name": "$XSAPPNAME.PricingManager",
+      "description": "PricingManager business access"
+    },
+    {
+      "name": "$XSAPPNAME.ProductionPlanner",
+      "description": "ProductionPlanner business access"
+    },
+    {
+      "name": "$XSAPPNAME.PurchasingManager",
+      "description": "PurchasingManager business access"
+    },
+    {
+      "name": "$XSAPPNAME.QualityInspector",
+      "description": "QualityInspector business access"
+    },
+    {
+      "name": "$XSAPPNAME.Warehouse",
+      "description": "Warehouse business access"
+    },
+    {
+      "name": "$XSAPPNAME.WarehouseSupervisor",
+      "description": "WarehouseSupervisor business access"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "companyCode",
+      "description": "Assigned company code",
+      "valueType": "string"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "Viewer",
+      "scope-references": [
+        "$XSAPPNAME.Viewer"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "Planner",
+      "description": "Planner",
+      "scope-references": [
+        "$XSAPPNAME.Planner"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "Operator",
+      "description": "Operator",
+      "scope-references": [
+        "$XSAPPNAME.Operator"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "Accountant",
+      "description": "Accountant",
+      "scope-references": [
+        "$XSAPPNAME.Accountant"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "Buyer",
+      "description": "Buyer",
+      "scope-references": [
+        "$XSAPPNAME.Buyer"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "CreditManager",
+      "description": "CreditManager",
+      "scope-references": [
+        "$XSAPPNAME.CreditManager"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "CustomerService",
+      "description": "CustomerService",
+      "scope-references": [
+        "$XSAPPNAME.CustomerService"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "IntegrationOperator",
+      "description": "IntegrationOperator",
+      "scope-references": [
+        "$XSAPPNAME.IntegrationOperator"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "InventoryController",
+      "description": "InventoryController",
+      "scope-references": [
+        "$XSAPPNAME.InventoryController"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "MasterDataAdmin",
+      "description": "MasterDataAdmin",
+      "scope-references": [
+        "$XSAPPNAME.MasterDataAdmin"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "PricingManager",
+      "description": "PricingManager",
+      "scope-references": [
+        "$XSAPPNAME.PricingManager"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "ProductionPlanner",
+      "description": "ProductionPlanner",
+      "scope-references": [
+        "$XSAPPNAME.ProductionPlanner"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "PurchasingManager",
+      "description": "PurchasingManager",
+      "scope-references": [
+        "$XSAPPNAME.PurchasingManager"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "QualityInspector",
+      "description": "QualityInspector",
+      "scope-references": [
+        "$XSAPPNAME.QualityInspector"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "Warehouse",
+      "description": "Warehouse",
+      "scope-references": [
+        "$XSAPPNAME.Warehouse"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    },
+    {
+      "name": "WarehouseSupervisor",
+      "description": "WarehouseSupervisor",
+      "scope-references": [
+        "$XSAPPNAME.WarehouseSupervisor"
+      ],
+      "attribute-references": [
+        "companyCode"
+      ]
+    }
+  ]
+}

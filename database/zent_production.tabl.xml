@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<abapGit xmlns:asx="http://www.sap.com/abapxml" version="v1.0.0" serializer="LCL_OBJECT_TABL" serializer_version="v1.0.0">
+  <asx:abap version="1.0">
+    <asx:values>
+      <DD02V>
+        <TABNAME>ZENT_PRODUCTION</TABNAME>
+        <DDLANGUAGE>E</DDLANGUAGE>
+        <TABCLASS>TRANSP</TABCLASS>
+        <CLIDEP>X</CLIDEP>
+        <DDTEXT>Manufacturing yield and scrap balance</DDTEXT>
+        <CONTFLAG>A</CONTFLAG>
+        <EXCLASS>1</EXCLASS>
+      </DD02V>
+      <DD03P_TABLE>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>MANDT</FIELDNAME>
+          <POSITION>0001</POSITION>
+          <KEYFLAG>X</KEYFLAG>
+          <DATATYPE>CLNT</DATATYPE>
+          <LENG>000003</LENG>
+          <NOTNULL>X</NOTNULL>
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>ID</FIELDNAME>
+          <POSITION>0002</POSITION>
+          <KEYFLAG>X</KEYFLAG>
+          <DATATYPE>CHAR</DATATYPE>
+          <LENG>000036</LENG>
+          <NOTNULL>X</NOTNULL>
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>COMPANY_CODE</FIELDNAME>
+          <POSITION>0003</POSITION>
+          <KEYFLAG />
+          <DATATYPE>CHAR</DATATYPE>
+          <LENG>000004</LENG>
+          <NOTNULL />
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>MATERIAL_ID</FIELDNAME>
+          <POSITION>0004</POSITION>
+          <KEYFLAG />
+          <DATATYPE>CHAR</DATATYPE>
+          <LENG>000036</LENG>
+          <NOTNULL />
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>PLANT</FIELDNAME>
+          <POSITION>0005</POSITION>
+          <KEYFLAG />
+          <DATATYPE>CHAR</DATATYPE>
+          <LENG>000004</LENG>
+          <NOTNULL />
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>UNIT</FIELDNAME>
+          <POSITION>0006</POSITION>
+          <KEYFLAG />
+          <DATATYPE>UNIT</DATATYPE>
+          <LENG>000003</LENG>
+          <NOTNULL />
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>PLANNED_QTY</FIELDNAME>
+          <POSITION>0007</POSITION>
+          <KEYFLAG />
+          <DATATYPE>QUAN</DATATYPE>
+          <LENG>000013</LENG>
+          <NOTNULL />
+          <DECIMALS>000003</DECIMALS>
+          <REFTABLE>ZENT_PRODUCTION</REFTABLE>
+          <REFFIELD>UNIT</REFFIELD>
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>GOOD_QTY</FIELDNAME>
+          <POSITION>0008</POSITION>
+          <KEYFLAG />
+          <DATATYPE>QUAN</DATATYPE>
+          <LENG>000013</LENG>
+          <NOTNULL />
+          <DECIMALS>000003</DECIMALS>
+          <REFTABLE>ZENT_PRODUCTION</REFTABLE>
+          <REFFIELD>UNIT</REFFIELD>
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>SCRAP_QTY</FIELDNAME>
+          <POSITION>0009</POSITION>
+          <KEYFLAG />
+          <DATATYPE>QUAN</DATATYPE>
+          <LENG>000013</LENG>
+          <NOTNULL />
+          <DECIMALS>000003</DECIMALS>
+          <REFTABLE>ZENT_PRODUCTION</REFTABLE>
+          <REFFIELD>UNIT</REFFIELD>
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>START_DATE</FIELDNAME>
+          <POSITION>0010</POSITION>
+          <KEYFLAG />
+          <DATATYPE>DATS</DATATYPE>
+          <LENG>000008</LENG>
+          <NOTNULL />
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>END_DATE</FIELDNAME>
+          <POSITION>0011</POSITION>
+          <KEYFLAG />
+          <DATATYPE>DATS</DATATYPE>
+          <LENG>000008</LENG>
+          <NOTNULL />
+        </DD03P>
+        <DD03P>
+          <TABNAME>ZENT_PRODUCTION</TABNAME>
+          <FIELDNAME>STATUS</FIELDNAME>
+          <POSITION>0012</POSITION>
+          <KEYFLAG />
+          <DATATYPE>CHAR</DATATYPE>
+          <LENG>000020</LENG>
+          <NOTNULL />
+        </DD03P>
+      </DD03P_TABLE>
+    </asx:values>
+  </asx:abap>
+</abapGit>

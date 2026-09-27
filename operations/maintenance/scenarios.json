@@ -1,0 +1,16 @@
+{
+ "schemaVersion":"sap-maintenance-demo-scenarios/v1",
+ "synthetic":true,
+ "boundary":"These scenarios rehearse the existing playbook against a local JSON system model. They do not install SAP packages or establish product compatibility.",
+ "scenarios":[
+  {"id":"feature-package","description":"Same-release FPS update with full component delta","targetStack":"FPS02","targetSupportPackage":"02","expectedState":"simulated-complete"},
+  {"id":"support-package-stack","description":"Same-release SPS update with full component delta","targetStack":"SPS03","targetSupportPackage":"03","expectedState":"simulated-complete"},
+  {"id":"release-upgrade-handoff","description":"Release change must route to the release-upgrade specialist","targetRelease":"2025","expectedState":"blocked-by-assessment","requiredHandoff":"sap-s4-release-upgrade"},
+  {"id":"incompatible-addon","description":"An incompatible add-on blocks update execution","addonCompatibility":"unsupported","expectedState":"blocked-by-assessment"},
+  {"id":"failed-business-regression","description":"Injected failed acceptance evidence blocks the change","regressionFailure":true,"expectedState":"blocked-by-assessment"},
+  {"id":"unowned-security-note","description":"An applicable correction without an owner is not ready","unownedNote":true,"expectedState":"blocked-by-assessment"},
+  {"id":"failure-after-stack-change","description":"Failure after EXECUTION restores the prior local model","simulateFailureAt":"POSTPROCESSING","expectedState":"failed","expectedRecovery":"simulated-restore-complete"},
+  {"id":"synthetic-evidence-connected-block","description":"Synthetic green fixtures can never authorize a real SAP update","mode":"connected","expectedState":"blocked-by-assessment"},
+  {"id":"stale-assessment-block","description":"Changed inputs invalidate the assessed execution plan","changeEvidenceAfterPlan":true,"expectedError":"stale or modified"}
+ ]
+}

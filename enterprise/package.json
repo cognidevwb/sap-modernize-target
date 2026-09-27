@@ -1,0 +1,73 @@
+{
+  "name": "sap-enterprise-control-tower",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "build": "cds build --production && node scripts/package-ui.js",
+    "test": "node --test test/*.test.js",
+    "check:model": "cds compile db srv --to csn > /dev/null"
+  },
+  "dependencies": {
+    "@cap-js/hana": "3.1.1",
+    "@sap/cds": "10.1.1",
+    "@sap/xssec": "4.15.0",
+    "fast-xml-parser": "5.11.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "3.1.1",
+    "@sap/cds-dk": "10.1.0"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": ":memory:"
+        }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "planner": {
+            "roles": [
+              "Planner",
+              "Viewer"
+            ],
+            "attr": {
+              "companyCode": "1000"
+            }
+          },
+          "operator": {
+            "roles": [
+              "Operator",
+              "Viewer"
+            ],
+            "attr": {
+              "companyCode": "1000"
+            }
+          }
+        }
+      }
+    },
+    "[production]": {
+      "requires": {
+        "db": {
+          "kind": "hana"
+        },
+        "auth": {
+          "kind": "xsuaa"
+        }
+      }
+    },
+    "build": {
+      "target": "dist"
+    }
+  },
+  "overrides": {
+    "xml-naming": "0.3.0"
+  }
+}

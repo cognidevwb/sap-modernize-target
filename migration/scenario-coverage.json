@@ -1,0 +1,1149 @@
+{
+  "schemaVersion": "sap-demo-scenario-coverage/v1",
+  "catalogScenarios": 124,
+  "nativeSapExecution": "not-performed",
+  "scenarios": [
+    {
+      "id": "ERP-01",
+      "name": "Eligible ECC → S/4HANA on-premise or Cloud Private Edition; system conversion",
+      "output": "Conversion assessment, prerequisite dependency plan, custom-code worklist, rehearsal and cutover plan",
+      "acceptance": "Readiness and simplification checks, add-ons, Business Partner/CVI, sizing, supported conversion route and business reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-02",
+      "name": "ECC, another ERP or a mixed estate → new S/4HANA implementation; Public Edition, Private Edition or on-premise as appropriate",
+      "output": "Fit-to-standard assessment, target configuration scope, extension decisions and data migration backlog",
+      "acceptance": "Edition-specific process coverage, localization, integration and migration-object availability; accepted end-to-end processes",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-03",
+      "name": "Existing ERP landscape → selective data transition to an eligible S/4HANA target",
+      "output": "Selection rules for organizations, configuration and history; transformation mappings and reconciliation design",
+      "acceptance": "Method/tool eligibility, historical consistency and cross-company dependencies; prove what is retained and omitted",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-04",
+      "name": "Existing S/4HANA → newer supported release",
+      "output": "Release-impact inventory, regression scope, custom-code and extension changes",
+      "acceptance": "Target simplification items, deprecated APIs, add-on compatibility, activated features and upgrade rehearsal",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-05",
+      "name": "Existing SAP system → different eligible hosting/provider/region",
+      "output": "Hosting comparison, dependency inventory, network/security changes and move runbook",
+      "acceptance": "Supported stack and operating model, residency, connectivity, performance, recovery and service responsibilities",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-06",
+      "name": "Multiple ERP systems → consolidated landscape",
+      "output": "Template comparison, organizational and identifier mappings, conflict register and migration waves",
+      "acceptance": "Charts of accounts, master-data ownership, intercompany processes, localizations and duplicate-resolution rules",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-07",
+      "name": "Shared system → company-code/business-unit carve-out or divestiture",
+      "output": "Separation scope, shared-object impact, data selection and interface split plan",
+      "acceptance": "Cross-client objects, shared master data, historical access, intercompany balances and transition-service dependencies",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ERP-08",
+      "name": "Mixed ERP estate → phased coexistence or two-tier ERP",
+      "output": "Capability allocation, system-of-record map, synchronization contracts and exit criteria",
+      "acceptance": "Ownership of orders, stock, postings and master data; duplicate prevention and cross-system reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-01",
+      "name": "Legacy finance and controlling → target finance model and processes",
+      "output": "Posting, ledger, account, asset, cost-object and reconciliation impact map",
+      "acceptance": "Configured ledgers/currencies, open items, balances, tax and period-end close; accountant-approved reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-02",
+      "name": "Existing order-to-cash → target sales, pricing, fulfillment and billing",
+      "output": "Document lifecycle, pricing/output changes, custom exits and interface impacts",
+      "acceptance": "Representative orders, returns, credit, delivery, billing and accounting postings across organizations",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-03",
+      "name": "Existing procure-to-pay → target sourcing, procurement, inventory and invoice processes",
+      "output": "Supplier/material dependencies, approval rules and purchasing/invoice changes",
+      "acceptance": "Purchase orders, receipts, returns, invoice matching, valuation and payment scenarios",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-04",
+      "name": "Existing planning/manufacturing → target production, MRP and execution design",
+      "output": "Planning ownership, BOM/routing dependencies, shop-floor interface and enhancement plan",
+      "acceptance": "Capacity, batch/serial handling, costing, subcontracting and production reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-05",
+      "name": "Existing inventory/warehouse/transport processes → target logistics design",
+      "output": "Stock and delivery model, warehouse/transport responsibilities and transition sequence",
+      "acceptance": "Stock valuation, handling units, picking, goods movements, freight and downtime-sensitive operations",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-06",
+      "name": "Existing maintenance, service, projects and quality → target capabilities",
+      "output": "Object/process mapping, approvals, mobile/offline needs and integration backlog",
+      "acceptance": "Equipment, notifications, service orders, project costs, inspections and settlement scenarios",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "PROC-07",
+      "name": "Country/industry-specific processes → target localization and industry solution",
+      "output": "Fit-gap register for tax, statutory reports, electronic documents and industry extensions",
+      "acceptance": "Country availability, certifications, external authorities, add-ons and business-owner acceptance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-01",
+      "name": "ECC custom code → target S/4HANA-compatible custom code",
+      "output": "Object-level impact list and reviewed remediations for changed interfaces, data access and behavior",
+      "acceptance": "Target-specific ATC/simplification findings, activation, regression and affected business-process tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-02",
+      "name": "Broad custom estate → retain/retire/replace/refactor portfolio",
+      "output": "Usage-backed disposition for programs, transactions, classes, enhancements and jobs",
+      "acceptance": "Representative usage period, seasonal/exception processing and dependency checks before removal",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-03",
+      "name": "Procedural reports, forms and function groups → maintainable OO ABAP",
+      "output": "Bounded component extraction, typed contracts and test seams",
+      "acceptance": "Preserve report variants, locks, update tasks, LUWs, exceptions and user-visible outputs",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-04",
+      "name": "Eligible classic ABAP extensions → ABAP Cloud development model",
+      "output": "API eligibility report, package/language-version plan and remediation backlog",
+      "acceptance": "Released APIs and extension points in the exact target; syntax, ATC, authorization and runtime verification",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-05",
+      "name": "In-core custom capability → side-by-side extension on BTP",
+      "output": "Boundary design and CAP, ABAP environment or other supported runtime implementation plan",
+      "acceptance": "Stable APIs/events, transaction boundaries, latency, identity propagation and data ownership",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-06",
+      "name": "Modifications, implicit enhancements or copied standard code → supported extensibility or standard capability",
+      "output": "Modification register, replacement options, exception decisions and removal sequence",
+      "acceptance": "Actual enhancement usage, available extension points, upgrade behavior and business equivalence",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-07",
+      "name": "Partner, generated or source-unavailable objects → compatible upgrade, replacement or isolation",
+      "output": "Vendor dependency and compatibility matrix with ownership and blockers",
+      "acceptance": "Vendor confirmation, licensed support, generated-object provenance and target activation/runtime checks",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ABAP-08",
+      "name": "Slow or fragile ABAP → measured performance and testability improvements",
+      "output": "Hotspot report, reviewed SQL/code changes and repeatable benchmark suite",
+      "acceptance": "Runtime traces, realistic volumes, authorization behavior, transaction semantics and measured improvement",
+      "demonstrationState": "executed-local-subset",
+      "evidence": [
+        "validation/abap/test",
+        "enterprise/test/business-processes.test.js"
+      ],
+      "boundary": "Typed business policies and pure reducers; native ATC remains required."
+    },
+    {
+      "id": "MODEL-01",
+      "name": "Custom tables, structures, domains and append structures → target-compatible data model",
+      "output": "Field/key/type mapping, extension ownership and data-conversion plan",
+      "acceptance": "Domain values, conversion exits, units/currencies, client dependency, constraints and activated DDIC definitions",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "MODEL-02",
+      "name": "Classic views or existing CDS → target-supported CDS/view-entity design",
+      "output": "Dependency-aware model changes, annotation and consumer impact report",
+      "acceptance": "Release compatibility, access controls, null/aggregation behavior, extraction semantics and consumer tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "MODEL-03",
+      "name": "Gateway/SEGW or custom OData services → RAP or another approved service model",
+      "output": "Endpoint and operation mapping, contract changes and staged consumer migration",
+      "acceptance": "OData version, payloads, batch/change sets, ETags, errors, authorizations and compatibility tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "MODEL-04",
+      "name": "BOPF or bespoke transactional framework → RAP where suitable",
+      "output": "Business-object mapping, behavior design and implementation plan",
+      "acceptance": "Determinations, validations, actions, locking, save sequence and transaction behavior; no assumed automatic conversion",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "MODEL-05",
+      "name": "Existing RAP → revised managed/unmanaged, draft or service design",
+      "output": "Behavior/persistence changes and compatible service rollout",
+      "acceptance": "Existing persistence semantics, draft lifecycle, concurrency, authorization and target-release feature support",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "MODEL-06",
+      "name": "Shared-table or tightly coupled services → explicit API/event contracts",
+      "output": "Ownership boundaries, versioned schemas and consumer transition plan",
+      "acceptance": "Consumer inventory, contract compatibility, read/write ownership and consistency guarantees",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-01",
+      "name": "SAP GUI transactions, Dynpro or ALV → standard Fiori app or custom web experience",
+      "output": "Task/screen mapping and standard-versus-custom decision",
+      "acceptance": "Screen exits, variants, keyboard workflows, authorizations, printing and backend behavior",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-02",
+      "name": "Web Dynpro ABAP/Java or BSP → target web application",
+      "output": "Controller/model dependency map, navigation and replacement backlog",
+      "acceptance": "Stateful interactions, session handling, file operations, integrations and role-based task completion",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-03",
+      "name": "Older SAPUI5/OpenUI5 application → supported target UI5 version",
+      "output": "Deprecated API/control inventory, dependency changes and visual/behavior regression plan",
+      "acceptance": "Exact runtime support, custom controls, browser/device behavior, accessibility and performance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-04",
+      "name": "Freestyle UI5 → Fiori elements where the application fits",
+      "output": "Annotation/model plan, extension inventory and rebuilt screens",
+      "acceptance": "Required floorplans, nonstandard interactions, OData compatibility and business-user acceptance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-05",
+      "name": "Existing Fiori application → changed backend, service version or application architecture",
+      "output": "Service-consumer impact and compatible rollout sequence",
+      "acceptance": "Binding behavior, annotations, draft, batch requests, authorization and error handling",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-06",
+      "name": "Existing launchpad or enterprise portal → target launchpad/workspace; Build Work Zone where suitable",
+      "output": "Content/navigation mapping, federation and role plan",
+      "acceptance": "App hosting, supported content types, intent navigation, identity, personalization and role visibility",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "UX-07",
+      "name": "Legacy mobile, offline or hybrid application → supported mobile/PWA/native design",
+      "output": "Device capability and synchronization design with migration backlog",
+      "acceptance": "Offline conflict handling, device policies, push, scanning, attachments and interrupted connectivity",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-01",
+      "name": "Eligible SAP application on another database → SAP HANA",
+      "output": "Supported database-migration assessment and application/database remediation backlog",
+      "acceptance": "SAP-certified source/target combination, sizing, native SQL, data types and supported migration tooling",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-02",
+      "name": "Existing HANA platform database → supported release or infrastructure",
+      "output": "Compatibility assessment, dependency changes and upgrade/move runbook",
+      "acceptance": "Plugins, clients, backup/restore, replication, resource sizing and workload performance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-03",
+      "name": "Eligible native HANA database/application → SAP HANA Cloud",
+      "output": "Feature-gap report and separate database, security, connection and application migration plans",
+      "acceptance": "Supported migration path, catalog compatibility, privileges, unsupported features and measured workload results",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-04",
+      "name": "XS classic application → supported modern application design",
+      "output": "XS artifact inventory and staged migration or rebuild decision",
+      "acceptance": "XSJS/XSOData behavior, authentication, jobs, repository content and target service parity",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-05",
+      "name": "XS advanced application → CAP and HANA Cloud where suitable",
+      "output": "Module/service mapping, model and handler changes, deployment and data transition",
+      "acceptance": "Tool/scenario limitations, tenancy, XSJS/XSOData semantics, HDI dependencies and regression tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-06",
+      "name": "Classic repository/schema objects → HDI-managed design",
+      "output": "Artifact conversion, schema ownership, synonym and grant plan",
+      "acceptance": "Cross-container dependencies, generated names, deployment order and existing-data preservation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "HANA-07",
+      "name": "SQLScript, calculation views and database logic → compatible optimized target implementation",
+      "output": "Routine/model refactoring plan and dependency/lineage report",
+      "acceptance": "Parameters, result schemas, numerical semantics, dynamic SQL, security and query-plan benchmarks",
+      "demonstrationState": "executable-repository-recipe",
+      "evidence": [
+        "migration/modernization.json",
+        "enterprise/abap/analytics"
+      ],
+      "boundary": "Ten pure reducers compiled to SQLScript; 620 source-versus-SQL cases. Native HANA qualification required."
+    },
+    {
+      "id": "HANA-08",
+      "name": "Remote sources, replication and specialized HANA workloads → eligible cloud or revised architecture",
+      "output": "Feature/service mapping for federation, ingestion, spatial/text/graph/vector or other used capabilities",
+      "acceptance": "Exact target availability, connectors, consistency, latency, network paths and workload-specific validation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-01",
+      "name": "Neo-hosted application/scenario → eligible multi-cloud BTP services and runtime",
+      "output": "App-and-service inventory, replacement mappings and coordinated move plan",
+      "acceptance": "Service availability, identity, destinations, data, integrations, operations and licensing/entitlements",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-02",
+      "name": "Eligible application on Cloud Foundry → Kyma, or the reverse",
+      "output": "Runtime-fit assessment and container/build/deployment changes",
+      "acceptance": "Service parity, state, scaling, networking, lifecycle operations and support responsibilities",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-03",
+      "name": "Existing CAP Java or Node.js application → supported CAP/runtime dependencies",
+      "output": "Compiler/model/handler compatibility report and dependency upgrade backlog",
+      "acceptance": "Generated schemas, database migrations, plugins, authentication and request/event regression tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-04",
+      "name": "Custom Java/Node.js service → CAP where beneficial",
+      "output": "Domain/service model and incremental implementation plan",
+      "acceptance": "Behavioral fit, transaction semantics, performance, API compatibility and team operating model",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-05",
+      "name": "Eligible custom ABAP capability → BTP ABAP environment",
+      "output": "Released-interface boundary, code adaptation, communication and deployment plan",
+      "acceptance": "Target language restrictions, available APIs, integration latency and separation from ERP-local transactions",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-06",
+      "name": "Single-tenant extension → multitenant SaaS, or revised tenancy design",
+      "output": "Tenant isolation, onboarding, schema/data migration and upgrade strategy",
+      "acceptance": "Tenant identity, subscription lifecycle, isolation, extensibility and failure recovery",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-07",
+      "name": "Existing BTP account/region → another eligible subaccount, region or landscape",
+      "output": "Resource/binding/destination map, service recreation and data transition sequence",
+      "acceptance": "Region/service availability, endpoint/certificate changes, quotas, subscriptions and connectivity",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "BTP-08",
+      "name": "Legacy/changed BTP service dependencies → supported target services",
+      "output": "Service-by-service replacement decision, adapter changes and contract tests",
+      "acceptance": "API and feature parity, service plans, persistence, identity and target operating characteristics",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-01",
+      "name": "PI/PO interfaces → Integration Suite where supported",
+      "output": "Interface disposition, mapping/adapter worklist and migration waves",
+      "acceptance": "ESR/directory and scenario exports, adapters, Java mappings/UDFs, BPM/BRM dependencies and message regression",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-02",
+      "name": "Existing Cloud Integration tenant/runtime → target tenant or eligible environment",
+      "output": "Package/configuration inventory, endpoint/credential changes and transport plan",
+      "acceptance": "Externalized parameters, certificates, value mappings, persisted messages and operating procedures",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-03",
+      "name": "RFC/BAPI/IDoc point-to-point integration → retained compatible interface, released API or mediated integration",
+      "output": "Interface contract comparison and consumer migration plan",
+      "acceptance": "Required semantics, transactional RFC/queues, ordering, delivery guarantees, errors and reconciliation",
+      "demonstrationState": "executed-local-subset",
+      "evidence": [
+        "enterprise/integration/runtime",
+        "enterprise/integration/contracts"
+      ],
+      "boundary": "Bounded IDoc/SOAP/CloudEvent adapters; Integration Suite transport deployment remains external."
+    },
+    {
+      "id": "INT-04",
+      "name": "Existing APIs/proxies → governed API platform or revised service endpoints",
+      "output": "OpenAPI/contract inventory, policies, version strategy and consumer rollout",
+      "acceptance": "Authentication, throttling, transformations, error contracts, latency and backward compatibility",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-05",
+      "name": "Polling/batch or synchronous coupling → event-driven integration",
+      "output": "Event/schema design, producer/consumer changes and recovery procedures",
+      "acceptance": "Event availability, ordering, deduplication, retries, replay, consistency and dead-letter handling",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-06",
+      "name": "EDI/B2B/custom partner integrations → target B2B integration design",
+      "output": "Partner/message/mapping inventory and onboarding/migration waves",
+      "acceptance": "Trading-partner agreements, message standards, acknowledgments, certificates and partner certification",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-07",
+      "name": "Legacy ETL, SLT, Data Services or custom feeds → suitable ingestion/replication pipeline",
+      "output": "Source-target lineage, connector mapping and batch/CDC transition plan",
+      "acceptance": "Extraction rights, supported connectors, delta semantics, initial-load coordination and data reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "INT-08",
+      "name": "Third-party middleware or bespoke integration hub → SAP, non-SAP or hybrid target",
+      "output": "Platform fit-gap and per-interface retain/rebuild/replace decisions",
+      "acceptance": "Platform-specific behavior, operational ownership, cost assumptions and representative failure/replay tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-01",
+      "name": "Inconsistent source data → migration-ready data",
+      "output": "Profiling rules, defect ownership, cleansing and reconciliation backlog",
+      "acceptance": "Representative extracts, completeness/uniqueness rules, code lists and business-approved tolerances",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-02",
+      "name": "Customer/vendor master model → required Business Partner/CVI design",
+      "output": "Role/grouping/number-range mapping, duplicate strategy and readiness findings",
+      "acceptance": "Target prerequisites, contacts/relationships, cross-system identifiers and application process validation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-03",
+      "name": "Legacy master data → target material/product, organization and reference data",
+      "output": "Object mappings, load dependencies and transformation specifications",
+      "acceptance": "Units, currencies, valuation, hierarchies, number ranges and referential integrity",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-04",
+      "name": "Open business transactions and balances → new target",
+      "output": "Object selection, staging/load sequence, reject handling and control totals",
+      "acceptance": "Supported migration objects, open-document states, financial/stock reconciliation and business sign-off",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-05",
+      "name": "Historical transactions/documents → selected target history or accessible archive",
+      "output": "History-selection and access design, reconciliation and provenance",
+      "acceptance": "Supported transfer scope, relationships, audit retrieval, legal retention and historical reporting needs",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-06",
+      "name": "Initial copy → synchronized target at cutover",
+      "output": "Delta capture, freeze, replay, idempotency and final reconciliation plan",
+      "acceptance": "Change sources, consistent snapshots, clock/ordering issues, deleted records and restart behavior",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-07",
+      "name": "Distributed master data/MDG → target governance and distribution",
+      "output": "Ownership, golden-record, workflow and replication design",
+      "acceptance": "Stewardship, validation rules, key mapping, change requests and downstream acknowledgments",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "DATA-08",
+      "name": "Excess, sensitive or obsolete data → reduced, archived or masked estate",
+      "output": "Retention/archival and nonproduction masking plan with dependency checks",
+      "acceptance": "Approved retention rules, referential integrity, archive retrieval and inability to reconstruct protected test values",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-01",
+      "name": "Eligible BW/BW on HANA → BW/4HANA",
+      "output": "Object compatibility inventory and route-specific conversion/rebuild backlog",
+      "acceptance": "Supported source release, transfer approach, custom transformations, extractors, authorizations and query reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-02",
+      "name": "Eligible BW content → Datasphere BW bridge",
+      "output": "Shell-versus-remote transition assessment and model/data transfer plan",
+      "acceptance": "Supported object/source scope, custom routines, data retention and downstream reporting semantics",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-03",
+      "name": "Existing BW estate → BW within Business Data Cloud strategy",
+      "output": "Hosting/modernization options, reuse boundaries and data-product plan",
+      "acceptance": "Eligible offering, prerequisites, retained BW operation and downstream consumption contracts",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-04",
+      "name": "BW/HANA/custom warehouse models → native Datasphere models",
+      "output": "Semantic/lineage mapping and selective rebuild plan",
+      "acceptance": "Transformation logic, extraction/deltas, analytic privileges, query semantics and operating costs",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-05",
+      "name": "BusinessObjects reports/universes or legacy dashboards → retained upgraded BO, SAC or another BI target",
+      "output": "Usage-based portfolio and per-report conversion/rebuild/retire decision",
+      "acceptance": "Scheduling, bursting, pixel-perfect output, formulas, row-level security and business acceptance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-06",
+      "name": "Classic reports/extracts → S/4HANA embedded analytics where appropriate",
+      "output": "KPI/query mapping and CDS/authorization worklist",
+      "acceptance": "Live versus historical requirements, released models, analytical semantics and ERP workload impact",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-07",
+      "name": "Existing planning/BPC/spreadsheets → SAC Planning or another suitable planning target",
+      "output": "Model, rule, workflow and writeback redesign",
+      "acceptance": "Allocations, currency conversion, consolidation scope, calendars, versions and approved plan reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "ANA-08",
+      "name": "SAP analytics data → governed hybrid data products, lakehouse or external analytics",
+      "output": "Extraction/replication and semantic-contract design",
+      "acceptance": "Rights, supported APIs/connectors, metadata, ownership, delta fidelity, security and cross-platform reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-01",
+      "name": "Classic/custom workflow → target flexible workflow or redesigned process",
+      "output": "Process/task/rule mapping and in-flight-instance transition decision",
+      "acceptance": "Target business-object support, agent determination, deadlines, substitutions, escalations and audit trails",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-02",
+      "name": "Neo/Cloud Foundry Workflow Management assets → Build Process Automation where supported",
+      "output": "Supported model/package migration and endpoint/task-UI changes",
+      "acceptance": "Documented scope, destinations, roles and separate completion strategy for existing instances",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-03",
+      "name": "BRFplus, custom rule code or cloud Business Rules → retained supported rules or redesigned decision service",
+      "output": "Decision-table/logic inventory, equivalence tests and target choice",
+      "acceptance": "Rule functions, context types, invocation semantics and explainability; distinguish BRFplus from cloud Business Rules",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-04",
+      "name": "SAP/background jobs or external schedules → target scheduler/automation design",
+      "output": "Job dependency graph, variants, calendars and move sequence",
+      "acceptance": "Factory calendars, event triggers, identities, restartability, spool/output and duplicate-execution prevention",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-05",
+      "name": "Existing RPA/bots → supported automation or API-based replacement",
+      "output": "Automation disposition and revised process implementation",
+      "acceptance": "UI/API availability, credentials, unattended execution, exception handling and operator recovery",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-06",
+      "name": "SAPscript, Smart Forms, Adobe forms or custom output → target form/output design",
+      "output": "Form-field mapping, rendering and output-routing backlog",
+      "acceptance": "Print/email channels, languages, barcodes, legal layouts, archive links and visual/content comparison",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "AUTO-07",
+      "name": "Attachments, ArchiveLink/content repositories or document services → target document platform",
+      "output": "Document/link inventory, metadata mapping and staged transfer",
+      "acceptance": "Object links, versions, signatures, retrieval permissions, retention and document integrity",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "SEC-01",
+      "name": "Existing identity providers/user stores → target federated identity/provisioning",
+      "output": "Identity mapping, trust, provisioning and account-transition plan",
+      "acceptance": "Users/groups, lifecycle rules, federation protocols, service identities and joiner/mover/leaver tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "SEC-02",
+      "name": "Existing SAP roles → target PFCG/Fiori/business roles and catalogs",
+      "output": "Role-to-process mapping and remediation worklist",
+      "acceptance": "Effective authorizations, organizational restrictions, role derivation and positive/negative access tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "SEC-03",
+      "name": "Existing application permissions → target BTP scopes, role collections or service authorization",
+      "output": "Permission mapping and implementation changes",
+      "acceptance": "Tenant boundaries, token claims, principal propagation and least-privilege contract tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "SEC-04",
+      "name": "Existing certificates, secrets and network trust → target connectivity",
+      "output": "Dependency/expiry inventory, rotation and transition sequence",
+      "acceptance": "RFC/HTTP trust, Cloud Connector/proxies, mTLS, destinations, key custody and connectivity tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "SEC-05",
+      "name": "Legacy identity governance/access controls → selected target governance tooling",
+      "output": "Capability fit-gap, access-request and review-process migration plan",
+      "acceptance": "Provisioning connectors, emergency access, segregation rules, evidence retention and control-owner acceptance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "SEC-06",
+      "name": "Existing audit/privacy/security controls → target operational controls",
+      "output": "Logging, retention, data-access and security regression requirements",
+      "acceptance": "Applicable policies, effective audit events, incident investigation and verified privacy/retention behavior",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-01",
+      "name": "Existing SAP infrastructure → eligible OS, database, platform or hyperscaler target",
+      "output": "Certified-stack comparison and system-move dependency plan",
+      "acceptance": "Product support, Unicode/stack prerequisites where relevant, sizing, interfaces and technical validation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-02",
+      "name": "Existing topology → target HA/DR and backup architecture",
+      "output": "Availability, replication, backup and recovery runbooks",
+      "acceptance": "Agreed RPO/RTO, failover/failback tests, consistency and verified restore on the target",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-03",
+      "name": "Manual/inconsistent delivery → controlled CI/CD and transport process",
+      "output": "Build/quality gates, transport/deployment model and release traceability",
+      "acceptance": "CTS/gCTS/abapGit or cloud transport suitability, configuration transports, sequencing and environment segregation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-04",
+      "name": "Existing Solution Manager processes → suitable Cloud ALM and complementary capabilities",
+      "output": "Capability comparison and selected content/process transition plan",
+      "acceptance": "Required lifecycle/monitoring features, integrations, historical evidence and operational acceptance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-05",
+      "name": "Fragmented monitoring → end-to-end observability and support",
+      "output": "Correlation model, health signals, alerts and incident runbooks",
+      "acceptance": "ERP jobs, interfaces, cloud apps, business KPIs, actionable thresholds and incident simulations",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-06",
+      "name": "Existing routing/connectivity → target network and entry-point architecture",
+      "output": "DNS, load-balancer, Web Dispatcher, proxy and hybrid connectivity changes",
+      "acceptance": "Session behavior, certificates, firewall routes, remote integrations and failover tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "OPS-07",
+      "name": "Existing estate → right-sized managed operations and cost governance",
+      "output": "Capacity/usage baseline, service-responsibility map and operating model",
+      "acceptance": "Measured load, scaling limits, agreed SLAs, entitlements and validated cost assumptions",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-01",
+      "name": "SAP CRM/custom customer applications → selected S/4HANA, Sales Cloud, Service Cloud or other CRM capabilities",
+      "output": "Capability split, customer/interaction model and integration plan",
+      "acceptance": "Sales/service/marketing scope, industry features, history, extensions and target fit-gap",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-02",
+      "name": "SRM/custom procurement → selected S/4HANA procurement, Ariba or hybrid processes",
+      "output": "Sourcing/procurement split and supplier/catalog/integration transition",
+      "acceptance": "Contracts, catalogs, approvals, network partners, invoices and target scope",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-03",
+      "name": "APO/SCM planning → selected IBP, S/4HANA planning/PP-DS or other capabilities",
+      "output": "Planning-function decomposition and model/interface migration backlog",
+      "acceptance": "Demand/supply/detail-planning scope, planning logic, master data, horizons and result comparison",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-04",
+      "name": "LE-WM, existing EWM or custom warehouse solution → eligible embedded/decentralized EWM or other target",
+      "output": "Warehouse fit-gap, configuration/data transition and cutover plan",
+      "acceptance": "Automation interfaces, RF devices, stock/handling units, queues and physical operations",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-05",
+      "name": "Existing transportation/logistics solution → eligible TM or other target",
+      "output": "Freight/process and integration mapping",
+      "acceptance": "Planning, execution, carrier connections, settlement and logistics reconciliation",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-06",
+      "name": "Existing GTS/trade compliance → supported target trade solution",
+      "output": "Process, data and interface migration assessment",
+      "acceptance": "Customs/localization scope, screening, licenses, government interfaces and audit requirements",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-07",
+      "name": "SAP HCM/payroll or custom HR → retained supported HCM, SuccessFactors or hybrid target",
+      "output": "HR capability split, employee-data and integration transition",
+      "acceptance": "Country payroll, time, benefits, historical access, privacy and parallel payroll verification",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-08",
+      "name": "Commerce, Sales/Service Cloud or other SAP customer applications → supported edition/release or redesigned platform",
+      "output": "Extension/API/data compatibility assessment and upgrade/rebuild decisions",
+      "acceptance": "Exact product/version, customizations, checkout/service behavior, integrations and operational constraints",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-09",
+      "name": "Ariba, Concur, Fieldglass or other SAP SaaS → revised tenant, integration or replacement scope",
+      "output": "Exposed configuration/data/API inventory and transition backlog",
+      "acceptance": "Vendor export/import limits, partner connectivity, business workflows, retention and entitlements",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "APP-10",
+      "name": "Business One, Business ByDesign, industry solution or partner add-on → upgraded, replaced or newly implemented target",
+      "output": "Product-specific fit-gap and migration program",
+      "acceptance": "Product-specific objects/tools, statutory/industry requirements and vendor support; do not apply ECC conversion assumptions",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "COMP-01",
+      "name": "Existing functional modules such as FI/CO, MM, SD, PP, QM, PM or PS → target release/process scope",
+      "output": "Module impact map, configuration and process changes, affected custom code and regression scope",
+      "acceptance": "Installed business functions, configuration, usage and representative end-to-end process tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "COMP-02",
+      "name": "Installed SAP software components → target product or release",
+      "output": "Component inventory, required versions, upgrade order and incompatibility blockers",
+      "acceptance": "System component levels, maintenance planner results, target compatibility and successful technical validation",
+      "demonstrationState": "executed-local-simulation",
+      "evidence": [
+        "operations/maintenance/results/summary.json"
+      ],
+      "boundary": "Feature/support stack scenarios exercise existing maintenance playbook with synthetic stack evidence."
+    },
+    {
+      "id": "COMP-03",
+      "name": "SAP or partner add-ons → compatible version, replacement, isolation or removal",
+      "output": "Per-add-on disposition, vendor dependency and transition plan",
+      "acceptance": "Vendor support statement, target certification, licenses, activation dependencies and regression evidence",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "COMP-04",
+      "name": "Industry solution or industry-specific extension → supported target capability",
+      "output": "Industry fit-gap, retained functions and replacement/remediation backlog",
+      "acceptance": "Exact industry scope, localization, regulatory requirements, target availability and business-owner acceptance",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "COMP-05",
+      "name": "Activated business functions, switches or compatibility-pack usage → supported target features",
+      "output": "Activation and simplification impact report with required process changes",
+      "acceptance": "Active switch state, actual usage, target restrictions, successor capability and regression results",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "COMP-06",
+      "name": "Custom, marketplace or BTP extension dependency → upgraded extension or supported alternative",
+      "output": "Extension inventory, API/service compatibility and deployment changes",
+      "acceptance": "Exact version and service plan, released contracts, entitlements, effective permissions and integration tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "POLY-01",
+      "name": "Java/JEE, NetWeaver Java or SAP-connected Spring application → supported Java/runtime/hosting",
+      "output": "Runtime/framework and SAP dependency upgrade plan",
+      "acceptance": "JCo/JDBC compatibility, app-server services, security, transactions and end-to-end process tests",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "POLY-02",
+      "name": ".NET Framework or older .NET SAP-connected application → supported .NET/runtime/hosting",
+      "output": "Framework/API/connector compatibility assessment and migration changes",
+      "acceptance": "SAP .NET Connector or API support, native dependencies, platform architecture and integration tests",
+      "demonstrationState": "executable-repository-recipe",
+      "evidence": [
+        "external/settlement"
+      ],
+      "boundary": "Actual .NET 9 SQL worker becomes .NET 10 OAuth/OData worker with regression tests."
+    },
+    {
+      "id": "POLY-03",
+      "name": "Node.js, Python, JavaScript/TypeScript or other SAP client → updated runtime and SAP contracts",
+      "output": "Dependency, API and data-contract migration backlog",
+      "acceptance": "Actual connector support, authentication, encodings, precision, dates/time zones and retry behavior",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "POLY-04",
+      "name": "SAP-connected monolith → modular application or selected services",
+      "output": "Cross-stack capability boundaries, extraction sequence and coexistence design",
+      "acceptance": "Database/transaction ownership, SAP call volume, latency, failure handling and business equivalence",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "POLY-05",
+      "name": "Shared SAP/non-SAP business process → coordinated modernization",
+      "output": "Source-to-service-to-data flow and sequence report across all participating systems",
+      "acceptance": "Correlated traces/contracts, asynchronous boundaries, credentials, ownership and exception paths",
+      "demonstrationState": "executed-local-subset",
+      "evidence": [
+        "enterprise/integration/runtime",
+        "enterprise/test/business-processes.test.js"
+      ],
+      "boundary": "Order, delivery, invoice and payment workflow with explicit cross-system identifiers."
+    },
+    {
+      "id": "POLY-06",
+      "name": "SAP custom capability, integration or application → non-SAP replacement/open platform where selected",
+      "output": "Replace/rebuild business case, contract/data mapping and staged retirement plan",
+      "acceptance": "Functional parity, extraction rights, retained SAP dependencies, operating model and reconciled transition",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "RUN-01",
+      "name": "Existing behavior → independently specified regression baseline",
+      "output": "Process scenarios, data fixtures, expected results and acceptance matrix",
+      "acceptance": "Happy paths, exceptions, authorizations, interfaces, batch/period-end and representative volumes",
+      "demonstrationState": "executed-local-subset",
+      "evidence": [
+        "enterprise/test",
+        "validation/abap/test",
+        "external/settlement/tests"
+      ],
+      "boundary": "Business, integration, reducer and worker baselines."
+    },
+    {
+      "id": "RUN-02",
+      "name": "Migration design → rehearsed execution",
+      "output": "Repeatable runbook, timing/dependency record and resolved rehearsal defects",
+      "acceptance": "Production-like volumes/topology, restore/restart testing, owners and feasible downtime",
+      "demonstrationState": "executed-local-simulation",
+      "evidence": [
+        "operations/maintenance/results/summary.json"
+      ],
+      "boundary": "Nine rehearsal/guard/recovery scenarios; native SUM not invoked."
+    },
+    {
+      "id": "RUN-03",
+      "name": "Source active → target active with agreed fallback",
+      "output": "Freeze/delta/switch sequence, decision checkpoints and point-of-no-return rules",
+      "acceptance": "Write ownership, interface draining, user access, recovery and explicit treatment of post-cutover writes",
+      "demonstrationState": "executed-local-simulation",
+      "evidence": [
+        "operations/maintenance/results/summary.json"
+      ],
+      "boundary": "Post-execution failure restores the local system model; native rollback not proven."
+    },
+    {
+      "id": "RUN-04",
+      "name": "Migrated data/processes → reconciled business operation",
+      "output": "Record/control-total comparison, financial/stock checks and exception closure",
+      "acceptance": "Independently approved expected results, document chains and traceable business sign-off",
+      "demonstrationState": "executed-local-subset",
+      "evidence": [
+        "external/settlement/tests"
+      ],
+      "boundary": "Exact-decimal company-scoped financial reconciliation and immutable reports."
+    },
+    {
+      "id": "RUN-05",
+      "name": "Newly live target → stable operations",
+      "output": "Hypercare dashboard, performance comparison, incidents and exit criteria",
+      "acceptance": "Business KPIs, job/message health, support readiness, permissions and recovery procedures",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    },
+    {
+      "id": "RUN-06",
+      "name": "Superseded system or capability → controlled retirement",
+      "output": "Dependency closure, archive/retrieval plan and decommission checklist",
+      "acceptance": "Usage evidence, legal/business retention, interface shutdown, credential removal and recovered infrastructure",
+      "demonstrationState": "assessment-and-specialist-handoff",
+      "evidence": [],
+      "boundary": "Requires scenario-specific system evidence and acceptance; no execution claim."
+    }
+  ]
+}

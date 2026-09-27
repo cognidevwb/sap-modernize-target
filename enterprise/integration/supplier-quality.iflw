@@ -1,0 +1,12 @@
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="urn:enterprise:design"><bpmn:process id="supplier-quality" isExecutable="false"><bpmn:startEvent id="start" name="Supplier inspection result"/>
+<bpmn:serviceTask id="validate" name="Validate lot and material"/>
+<bpmn:exclusiveGateway id="decision" name="Quality disposition"/>
+<bpmn:serviceTask id="release" name="Release stock after quality approval"/>
+<bpmn:serviceTask id="block" name="Block batch and notify purchasing"/>
+<bpmn:endEvent id="end" name="Disposition recorded"/>
+<bpmn:sequenceFlow id="supplier-quality-0" sourceRef="start" targetRef="validate"/>
+<bpmn:sequenceFlow id="supplier-quality-1" sourceRef="validate" targetRef="decision"/>
+<bpmn:sequenceFlow id="supplier-quality-2" sourceRef="decision" targetRef="release"/>
+<bpmn:sequenceFlow id="supplier-quality-3" sourceRef="decision" targetRef="block"/>
+<bpmn:sequenceFlow id="supplier-quality-4" sourceRef="release" targetRef="end"/>
+<bpmn:sequenceFlow id="supplier-quality-5" sourceRef="block" targetRef="end"/></bpmn:process></bpmn:definitions>

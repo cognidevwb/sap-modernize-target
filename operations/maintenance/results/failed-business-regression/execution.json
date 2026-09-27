@@ -1,0 +1,88 @@
+{
+  "approval": {
+    "detail": "Local rehearsal checkpoints are automatically acknowledged.",
+    "path": ".cognidev/sap-maintenance/approvals/execute-update.json",
+    "state": "simulated"
+  },
+  "assessment": {
+    "digest": "d3d32227035e711084489e66611f2b783d95ae261373aaf2048458f4e1e99e0c",
+    "path": ".cognidev/sap-maintenance/assessment.json",
+    "schemaVersion": "sap-maintenance-assessment/v2"
+  },
+  "environment": "LOCAL",
+  "executionDigest": "3fe27613e8866ea0f69d4add02abc044be375e8c5618d42b0cfc4c7cfba8ecd4",
+  "foundation": {
+    "inputDigest": "e59fc4ce3739e795ac96fab2faa639d436cbc898c3d57b826ed67f1f771d3d0a",
+    "path": ".cognidev/sap-modernization/assessment-bundle.json",
+    "schemaVersion": "sap-modernization-assessment/v1",
+    "state": "consumed"
+  },
+  "media": {
+    "failures": [],
+    "packages": [],
+    "stackXml": {
+      "path": ".cognidev/sap-maintenance/evidence/stack.xml",
+      "sha256": "missing",
+      "state": "missing"
+    },
+    "state": "verified"
+  },
+  "mode": "local-simulation",
+  "phases": [
+    {
+      "id": "PREPARE",
+      "message": "All assessment gates must pass before execution.",
+      "mutating": false,
+      "name": "Stage stack and media",
+      "state": "blocked"
+    },
+    {
+      "id": "CONFIGURATION",
+      "message": "Not started.",
+      "mutating": false,
+      "name": "Configure the update procedure",
+      "state": "pending"
+    },
+    {
+      "id": "CHECKS",
+      "message": "Not started.",
+      "mutating": false,
+      "name": "Run prerequisite and consistency checks",
+      "state": "pending"
+    },
+    {
+      "id": "PREPROCESSING",
+      "message": "Not started.",
+      "mutating": false,
+      "name": "Prepare repository and shadow operations",
+      "state": "pending"
+    },
+    {
+      "id": "EXECUTION",
+      "message": "Not started.",
+      "mutating": true,
+      "name": "Apply the target software component stack",
+      "state": "pending"
+    },
+    {
+      "id": "POSTPROCESSING",
+      "message": "Not started.",
+      "mutating": true,
+      "name": "Complete technical follow-up processing",
+      "state": "pending"
+    },
+    {
+      "id": "FINALIZATION",
+      "message": "Not started.",
+      "mutating": true,
+      "name": "Finalize, validate and release the system",
+      "state": "pending"
+    }
+  ],
+  "producer": "sap-maintenance-cycle",
+  "producerVersion": "1.1.0",
+  "sapSystemMutation": "simulated-locally",
+  "schemaVersion": "sap-maintenance-execution/v1",
+  "state": "blocked-by-assessment",
+  "systemId": "DEMO"
+}

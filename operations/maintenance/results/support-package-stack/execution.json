@@ -1,0 +1,131 @@
+{
+  "approval": {
+    "detail": "Local rehearsal checkpoints are automatically acknowledged.",
+    "path": ".cognidev/sap-maintenance/approvals/execute-update.json",
+    "state": "simulated"
+  },
+  "assessment": {
+    "digest": "8a1fdc4ddd6ef1017afa9b906e2c4bb9ff03b9411fcc859bdfa71793a504296e",
+    "path": ".cognidev/sap-maintenance/assessment.json",
+    "schemaVersion": "sap-maintenance-assessment/v2"
+  },
+  "environment": "LOCAL",
+  "executionDigest": "e820ab4d363e5956c53eecfad52b131cfb213cdab7438eeb383f9a8e80e364e0",
+  "foundation": {
+    "inputDigest": "e59fc4ce3739e795ac96fab2faa639d436cbc898c3d57b826ed67f1f771d3d0a",
+    "path": ".cognidev/sap-modernization/assessment-bundle.json",
+    "schemaVersion": "sap-modernization-assessment/v1",
+    "state": "consumed"
+  },
+  "media": {
+    "failures": [],
+    "packages": [],
+    "stackXml": {
+      "path": ".cognidev/sap-maintenance/evidence/stack.xml",
+      "sha256": "missing",
+      "state": "missing"
+    },
+    "state": "verified"
+  },
+  "mode": "local-simulation",
+  "phases": [
+    {
+      "evidence": [],
+      "id": "PREPARE",
+      "message": "Local SUM emulator completed PREPARE.",
+      "mutating": false,
+      "name": "Stage stack and media",
+      "state": "completed"
+    },
+    {
+      "evidence": [],
+      "id": "CONFIGURATION",
+      "message": "Local SUM emulator completed CONFIGURATION.",
+      "mutating": false,
+      "name": "Configure the update procedure",
+      "state": "completed"
+    },
+    {
+      "evidence": [],
+      "id": "CHECKS",
+      "message": "Local SUM emulator completed CHECKS.",
+      "mutating": false,
+      "name": "Run prerequisite and consistency checks",
+      "state": "completed"
+    },
+    {
+      "evidence": [],
+      "id": "PREPROCESSING",
+      "message": "Local SUM emulator completed PREPROCESSING.",
+      "mutating": false,
+      "name": "Prepare repository and shadow operations",
+      "state": "completed"
+    },
+    {
+      "evidence": [
+        ".cognidev/sap-maintenance/local-sap-system.json"
+      ],
+      "id": "EXECUTION",
+      "message": "Local SUM emulator completed EXECUTION.",
+      "mutating": true,
+      "name": "Apply the target software component stack",
+      "state": "completed",
+      "systemState": {
+        "components": [
+          {
+            "level": "108 / 03",
+            "name": "S4CORE"
+          },
+          {
+            "level": "758 / 03",
+            "name": "SAP_BASIS"
+          }
+        ],
+        "lastAppliedAssessmentDigest": "8a1fdc4ddd6ef1017afa9b906e2c4bb9ff03b9411fcc859bdfa71793a504296e",
+        "release": "2023",
+        "schemaVersion": "sap-local-system/v1",
+        "stack": "SPS03",
+        "systemId": "DEMO"
+      }
+    },
+    {
+      "evidence": [],
+      "id": "POSTPROCESSING",
+      "message": "Local SUM emulator completed POSTPROCESSING.",
+      "mutating": true,
+      "name": "Complete technical follow-up processing",
+      "state": "completed"
+    },
+    {
+      "evidence": [],
+      "id": "FINALIZATION",
+      "message": "Local SUM emulator completed FINALIZATION.",
+      "mutating": true,
+      "name": "Finalize, validate and release the system",
+      "state": "completed",
+      "systemState": {
+        "components": [
+          {
+            "level": "108 / 03",
+            "name": "S4CORE"
+          },
+          {
+            "level": "758 / 03",
+            "name": "SAP_BASIS"
+          }
+        ],
+        "lastAppliedAssessmentDigest": "8a1fdc4ddd6ef1017afa9b906e2c4bb9ff03b9411fcc859bdfa71793a504296e",
+        "release": "2023",
+        "schemaVersion": "sap-local-system/v1",
+        "stack": "SPS03",
+        "systemId": "DEMO"
+      }
+    }
+  ],
+  "producer": "sap-maintenance-cycle",
+  "producerVersion": "1.1.0",
+  "sapSystemMutation": "simulated-locally",
+  "schemaVersion": "sap-maintenance-execution/v1",
+  "state": "simulated-complete",
+  "systemId": "DEMO"
+}

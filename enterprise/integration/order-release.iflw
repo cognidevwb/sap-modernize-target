@@ -1,0 +1,12 @@
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" targetNamespace="urn:enterprise:design"><bpmn:process id="order-release" isExecutable="false"><bpmn:startEvent id="start" name="Order released"/>
+<bpmn:serviceTask id="validate" name="Validate event schema and deduplicate ID"/>
+<bpmn:exclusiveGateway id="route" name="Order company route"/>
+<bpmn:serviceTask id="s4" name="Create outbound delivery using configured S4 destination"/>
+<bpmn:serviceTask id="exception" name="Create normalized monitoring event"/>
+<bpmn:endEvent id="end" name="Delivery accepted"/>
+<bpmn:sequenceFlow id="order-release-0" sourceRef="start" targetRef="validate"/>
+<bpmn:sequenceFlow id="order-release-1" sourceRef="validate" targetRef="route"/>
+<bpmn:sequenceFlow id="order-release-2" sourceRef="route" targetRef="s4"/>
+<bpmn:sequenceFlow id="order-release-3" sourceRef="route" targetRef="exception"/>
+<bpmn:sequenceFlow id="order-release-4" sourceRef="s4" targetRef="end"/>
+<bpmn:sequenceFlow id="order-release-5" sourceRef="exception" targetRef="end"/></bpmn:process></bpmn:definitions>

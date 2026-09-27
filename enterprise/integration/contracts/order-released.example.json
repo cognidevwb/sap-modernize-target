@@ -1,0 +1,10 @@
+{
+  "id": "f2957977-3171-4ab1-a87a-a9a935e7c161",
+  "type": "enterprise.order.released.v1",
+  "data": {
+    "ID": "22222222-2222-4222-8222-222222222222",
+    "companyCode": "1000",
+    "status": "RELEASED",
+    "revision": 1
+  }
+}

@@ -1,7 +1,7 @@
 {
  "version": 1,
  "prompt_version": 1,
- "generated_from_merkle": "f3cfecde8503d5ba6c8b3ea6671ca7214bd5019de54442e034781eecb6c411f9",
+ "generated_from_merkle": "168e860df27d0a7c98d0cf7795aa03dd3536bd2fa5c1af5528efec79874fd1a8",
  "chapters": [
   {
    "id": "orientation",
@@ -14,29 +14,23 @@
    "id": "entry",
    "label": "Where execution starts",
    "steps": [
-    2
-   ]
-  },
-  {
-   "id": "data",
-   "label": "The data model",
-   "steps": [
+    2,
     3,
     4,
     5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12
+    6
    ]
   },
   {
    "id": "logic",
    "label": "The core logic",
    "steps": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
     13,
     14,
     15,
@@ -52,17 +46,23 @@
     25,
     26,
     27,
-    28
+    28,
+    29
+   ]
+  },
+  {
+   "id": "api",
+   "label": "The API surface",
+   "steps": [
+    30,
+    31,
+    32
    ]
   },
   {
    "id": "supporting",
    "label": "Supporting cast",
    "steps": [
-    29,
-    30,
-    31,
-    32,
     33,
     34,
     35,
@@ -89,430 +89,575 @@
   },
   {
    "n": 2,
-   "path": "README.md",
+   "path": "external/settlement/src/SapSettlement.Batch/Operations/SettlementJob.cs",
    "chapter": "entry",
    "role": "entry",
-   "one_liner": "SAP S/4HANA modernization demo fixture - 90 ABAP files + 10 CDS views across ten business areas",
+   "one_liner": "Orchestrates the monthly settlement reconciliation workflow from bank statement upload to mismatch report",
    "teaches": [
-    "CogniDev Understand workflow for SAP structural analysis",
-    "Clean Core migration target structure with CDS views and BAPI patterns",
-    "Demo fixture scope boundaries - static analysis vs runtime compliance"
+    "settlement batch job entry point",
+    "reconciliation scope validation (company code + currency)",
+    "CSV bank statement parsing + ledger invoice matching",
+    "cancellation token propagation in async workflows"
    ],
    "why_now": "Execution starts here. Everything else hangs off this file.",
-   "depends_on": [],
-   "imported_by": 0,
+   "depends_on": [
+    "external/settlement/src/SapSettlement.Batch/Domain/Reconciler.cs"
+   ],
+   "imported_by": 3,
    "loc": 19
   },
   {
    "n": 3,
-   "path": "cds/zi_entity_1.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS view exposing Entity 1 with authorization check, selecting key and two fields from standard table",
+   "path": "enterprise/integration/runtime/security.js",
+   "chapter": "entry",
+   "role": "wiring",
+   "one_liner": "HMAC-SHA256 envelope verification for integration messages with timestamp window validation and role-based access control",
    "teaches": [
-    "CDS view entity syntax with @AccessControl annotation",
-    "Projection from SAP standard table I_StandardTable1",
-    "Key field and additional field selection pattern"
+    "Timing-safe HMAC signature verification for webhook-style integrations",
+    "Combining role-based and company-scoped authorization checks",
+    "Rejection pattern for configuration/payload/timing/signature failures"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 1,
+   "loc": 13
   },
   {
    "n": 4,
-   "path": "cds/zi_entity_10.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS entity view wrapping I_StandardTable10 with access control enabled",
+   "path": "enterprise/srv/billing.js",
+   "chapter": "entry",
+   "role": "wiring",
+   "one_liner": "CAP service registration that wires invoiceOrder and settlePayment operations to the Billing ApplicationService",
    "teaches": [
-    "CDS view entity syntax for SAP Clean Core",
-    "Authorization check enforcement via @AccessControl",
-    "Standard table projection pattern"
+    "CAP ApplicationService lifecycle hook pattern",
+    "Event handler registration with this.on()",
+    "Transaction context forwarding via cds.tx(req)"
    ],
    "why_now": "Next in this chapter's dependency order.",
    "depends_on": [],
    "imported_by": 0,
-   "loc": 9
+   "loc": 10
   },
   {
    "n": 5,
-   "path": "cds/zi_entity_2.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS entity view exposing selected fields from I_StandardTable2 with authorization checks",
+   "path": "enterprise/srv/master-data.js",
+   "chapter": "entry",
+   "role": "wiring",
+   "one_liner": "CAP service handler binding master-data CDS actions to business operations with transaction context",
    "teaches": [
-    "CDS view entity syntax",
-    "Field projection from standard SAP table",
-    "Authorization check enforcement"
+    "CAP ApplicationService extension pattern",
+    "Action handler registration with cds.tx for managed transactions",
+    "Separation of service wiring from business logic"
    ],
    "why_now": "Next in this chapter's dependency order.",
    "depends_on": [],
    "imported_by": 0,
-   "loc": 9
+   "loc": 11
   },
   {
    "n": 6,
-   "path": "cds/zi_entity_3.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS view ZI_ENTITY_3 exposing three fields from I_StandardTable3 with authorization checks enabled",
+   "path": "enterprise/srv/pricing.js",
+   "chapter": "entry",
+   "role": "wiring",
+   "one_liner": "SAP CAP service binding that wires pricing operations (maintainPrice, quotePrice) to the CDS runtime event bus",
    "teaches": [
-    "CDS entity view definition syntax",
-    "Authorization check annotation usage",
-    "Projection pattern from standard table"
+    "CAP ApplicationService subclass pattern for domain event handlers",
+    "Transaction propagation via cds.tx(req) into business operations",
+    "Separation: routing layer (this) vs business logic (./lib/business/pricing)"
    ],
    "why_now": "Next in this chapter's dependency order.",
    "depends_on": [],
    "imported_by": 0,
-   "loc": 9
+   "loc": 10
   },
   {
    "n": 7,
-   "path": "cds/zi_entity_4.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS entity view exposing fields from I_StandardTable4 with authorization check enabled",
+   "path": "enterprise/srv/lib/order-workflow.js",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Implements the transactional order-release workflow: validation, idempotency, credit check, stock allocation, and event/audit logging.",
    "teaches": [
-    "CDS view entity syntax",
-    "Access control annotation usage",
-    "Standard table consumption pattern"
+    "idempotent command handling via request ID",
+    "optimistic concurrency with atomic conditional updates",
+    "credit limit enforcement pattern",
+    "outbox/audit event emission within a single transaction"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 82,
+   "loc": 43
   },
   {
    "n": 8,
-   "path": "cds/zi_entity_5.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS entity view exposing selected fields from I_StandardTable5 with authorization check",
+   "path": "external/settlement/src/SapSettlement.Batch/Domain/Reconciler.cs",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Core reconciliation engine matching ledger invoices against bank payments within a scope",
    "teaches": [
-    "CDS view entity syntax and projection pattern",
-    "SAP authorization check integration (#CHECK)",
-    "Standard table wrapper view structure"
+    "Three-way reconciliation logic (ledger \u00d7 bank \u00d7 tolerance)",
+    "Scope validation and boundary enforcement (company/currency/date filters)",
+    "Outcome classification (MATCHED, UNDERPAID, OVERPAID, UNMATCHED_BANK, MISSING_PAYMENT)"
    ],
-   "why_now": "Next in this chapter's dependency order.",
+   "why_now": "A load-bearing file \u2014 12 files import it.",
    "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "imported_by": 12,
+   "loc": 69
   },
   {
    "n": 9,
-   "path": "cds/zi_entity_6.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS view entity wrapping I_StandardTable6 with access control for EntityKey and two fields",
+   "path": "enterprise/integration/runtime/identifiers.js",
+   "chapter": "logic",
+   "role": "service",
+   "one_liner": "Bidirectional identifier mapping service bridging external system IDs to internal entity keys",
    "teaches": [
-    "CDS view entity definition with #CHECK authorization",
-    "Direct pass-through projection from SAP standard table",
-    "Key field and simple field selection pattern"
+    "CDS query builder patterns (SELECT.one.from, INSERT.into.entries)",
+    "External system integration contract (companyCode+sourceSystem+objectType+externalID \u2192 int",
+    "Idempotent registration with conflict detection (409 on mismatch, silent on duplicate)"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 2,
+   "loc": 15
   },
   {
    "n": 10,
-   "path": "cds/zi_entity_7.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS view exposing three fields from I_StandardTable7 with authorization check enabled",
+   "path": "enterprise/integration/runtime/inbound.js",
+   "chapter": "logic",
+   "role": "service",
+   "one_liner": "Unified inbound integration router that verifies envelopes, validates source systems, and dispatches to channel-specific handlers (IDoc/SOAP/EventMesh).",
    "teaches": [
-    "Basic CDS view projection pattern",
-    "Standard table access with key field selection",
-    "Authorization check declaration at view level"
+    "envelope-based message routing pattern",
+    "security verification at integration boundary",
+    "channel-agnostic inbound orchestration"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/integration/runtime/security.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 1,
+   "loc": 14
   },
   {
    "n": 11,
-   "path": "cds/zi_entity_8.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS view exposing a simplified projection of I_StandardTable8 with key field and two entity attributes",
+   "path": "enterprise/srv/lib/business/inventory.js",
+   "chapter": "logic",
+   "role": "service",
+   "one_liner": "Stock transfer and physical count operations with optimistic locking and cross-plant validation",
    "teaches": [
-    "CDS entity view definition with authorization check",
-    "Direct projection from SAP standard table",
-    "Clean Core pattern: consuming released SAP APIs (I_* views)"
+    "Optimistic concurrency control using revision counters",
+    "Multi-step database transactions with rollback semantics via command wrapper",
+    "Cross-plant stock movement audit trail through StockMovements entity"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js"
+   ],
    "imported_by": 0,
-   "loc": 9
+   "loc": 32
   },
   {
    "n": 12,
-   "path": "cds/zi_entity_9.ddls.asddls",
-   "chapter": "data",
-   "role": "data",
-   "one_liner": "CDS view ZI_ENTITY_9 exposing entity fields from I_StandardTable9 with authorization check enabled",
+   "path": "enterprise/srv/lib/business/logistics.js",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Warehouse shipping orchestration with reservation-to-delivery promotion and atomic stock adjustment",
    "teaches": [
-    "CDS view entity syntax for direct table projection",
-    "SAP authorization check integration pattern",
-    "Key field and attribute selection from standard table"
+    "multi-entity transaction pattern (order \u2192 reservations \u2192 stock \u2192 delivery)",
+    "command/transition domain wrappers for audit",
+    "quantity-match validation across entities before state change",
+    "pessimistic concurrency (revision counter + range check)"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
+   "imported_by": 1,
+   "loc": 30
   },
   {
    "n": 13,
-   "path": "src/inventory/zcl_inventory_s4_1.abap",
+   "path": "enterprise/srv/lib/business/manufacturing.js",
    "chapter": "logic",
    "role": "domain",
-   "one_liner": "Clean Core inventory processing class - domain logic for S/4HANA inventory management",
+   "one_liner": "Manufacturing production-order lifecycle: schedule with BOM expansion, component reservation, completion reconciliation with scrap/good split",
    "teaches": [
-    "S/4HANA Clean Core compliant class structure",
-    "Domain-driven inventory processing pattern",
-    "Minimal public interface design"
+    "Production orders consume materials via bill-of-material explosion and stock reservation",
+    "Integral component quantity enforcement (no fractional BOM rounding)",
+    "Two-phase production: SCHEDULED \u2192 COMPLETED with good/scrap reconciliation",
+    "Transactional stock movements (available \u2194 reserved) for component locking"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 48
   },
   {
    "n": 14,
-   "path": "src/inventory/zcl_inventory_s4_10.abap",
+   "path": "enterprise/srv/lib/business/quality.js",
    "chapter": "logic",
    "role": "domain",
-   "one_liner": "Inventory processing domain logic implementing Clean Core S/4HANA compliance pattern",
+   "one_liner": "Quality inspection workflow: validates sampled lots against policies, records characteristics, and updates stock for accepted goods",
    "teaches": [
-    "Clean Core architectural compliance in ABAP OO",
-    "Domain-driven inventory processing method structure",
-    "S/4HANA class definition and implementation pattern"
+    "Multi-level validation (sample bounds, policy thresholds, characteristic ranges)",
+    "Event-sourced state transition (OPEN \u2192 ACCEPTED/REJECTED) with disposition routing",
+    "Conditional stock availability unlock only after quality approval"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 30
   },
   {
    "n": 15,
-   "path": "src/finance/zcl_finance_s4_1.abap",
+   "path": "enterprise/srv/lib/finance.js",
    "chapter": "logic",
    "role": "domain",
-   "one_liner": "Finance domain class placeholder with Clean Core compliant structure",
+   "one_liner": "Business logic for posting balanced accounting journal entries with integer-cent math and audit logging",
    "teaches": [
-    "S/4HANA Clean Core finance module skeleton",
-    "Basic ABAP OO class definition and implementation pattern",
-    "Empty process method as extension point"
+    "converting decimal amounts to safe integer minor units",
+    "double-entry journal validation rules",
+    "role/company authorization checks before mutation",
+    "audit event recording pattern"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 10
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 30,
+   "loc": 30
   },
   {
    "n": 16,
-   "path": "src/finance/zcl_finance_s4_10.abap",
+   "path": "enterprise/srv/lib/business/billing.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Clean Core finance business logic placeholder \u2013 S/4HANA compliant processing hook for finance operations",
+   "role": "service",
+   "one_liner": "Orchestrates invoice creation from shipped orders and payment settlement with double-entry journal postings",
    "teaches": [
-    "S/4HANA Clean Core compliance pattern",
-    "Domain-driven finance processing boundary",
-    "Minimal class template for extensible finance logic"
+    "command pattern wrapping business transactions",
+    "multi-currency tax calculation from policy basis points",
+    "double-entry accounting journal generation",
+    "optimistic-lock concurrency guards on invoice payment"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 10
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/finance.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
+   "imported_by": 1,
+   "loc": 50
   },
   {
    "n": 17,
-   "path": "src/finance/zcl_finance_s4_2.abap",
+   "path": "enterprise/srv/lib/business/pricing.js",
    "chapter": "logic",
    "role": "domain",
-   "one_liner": "Finance domain processor stub with Clean Core placeholder logic",
+   "one_liner": "Price-condition lifecycle: validate intervals, enforce exclusivity, quote unit + total pricing for orders",
    "teaches": [
-    "S/4HANA Clean Core finance domain pattern",
-    "Empty process method template for extension",
-    "Class-based domain service structure"
+    "Temporal non-overlap constraint (interval intersection check)",
+    "Bigint-based money arithmetic (unit \u00d7 quantity)",
+    "Command-pattern audit trail for pricing changes"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/finance.js",
+    "enterprise/srv/lib/errors.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 30
   },
   {
    "n": 18,
-   "path": "src/finance/zcl_finance_s4_3.abap",
+   "path": "enterprise/srv/lib/business/procurement.js",
    "chapter": "logic",
    "role": "domain",
-   "one_liner": "Finance domain logic placeholder implementing Clean Core SAP S/4HANA standards",
+   "one_liner": "Purchase order lifecycle: creation, approval, and goods receipt orchestration with state transitions and multi-step validation",
    "teaches": [
-    "Clean Core compliance pattern in finance module",
-    "Minimal ABAP class structure for S/4HANA",
-    "Domain layer separation for financial processing"
+    "Purchase order creation with line-item validation and cost aggregation",
+    "Approval workflow with separation-of-duty checks",
+    "Goods receipt posting with quality inspection lot creation",
+    "Event-sourced state transitions (DRAFT\u2192APPROVED\u2192RECEIVED)"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js",
+    "enterprise/srv/lib/finance.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 50
   },
   {
    "n": 19,
-   "path": "src/finance/zcl_finance_s4_4.abap",
+   "path": "enterprise/srv/lib/business/sales.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Finance domain class 4 - Clean Core compliant processing logic placeholder",
+   "role": "service",
+   "one_liner": "Sales order creation and cancellation orchestration with inventory reservation and credit exposure management",
    "teaches": [
-    "Clean Core finance processing pattern",
-    "Minimal ABAP OO class structure",
-    "S/4HANA domain layer separation"
+    "Command pattern for business transactions with event sourcing",
+    "Optimistic concurrency via revision counter and exposure consistency checks",
+    "Reversing reserved stock and credit exposure on order cancellation"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 10
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/order-workflow.js",
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 1,
+   "loc": 45
   },
   {
    "n": 20,
-   "path": "src/finance/zcl_finance_s4_5.abap",
+   "path": "enterprise/integration/runtime/orders05.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Finance business logic processor #5 in S/4HANA Clean Core compliant implementation",
+   "role": "service",
+   "one_liner": "SAP ORDERS05 IDoc inbound parser and sales-order creation orchestrator with identity resolution",
    "teaches": [
-    "Clean Core finance domain pattern",
-    "Minimal ABAP class structure for business rules",
-    "S/4HANA finance module organization"
+    "How SAP EDI_DC40 control-record validation gates IDoc acceptance",
+    "Bi-directional ID mapping (IDoc partner/material numbers \u2194 internal UUIDs)",
+    "Idempotency via requestID hashing (sender:company:docnum)",
+    "XML\u2192domain transformation with strict position/quantity/partner cardinality"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/integration/runtime/xml.js",
+    "enterprise/srv/lib/business/sales.js",
+    "enterprise/srv/lib/business/validation.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 36
   },
   {
    "n": 21,
-   "path": "src/finance/zcl_finance_s4_6.abap",
+   "path": "enterprise/srv/lib/outbox.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Finance domain class #6 implementing Clean Core-compliant business logic",
+   "role": "service",
+   "one_liner": "At-least-once outbox delivery engine with lease-based concurrency and exponential backoff retry logic",
    "teaches": [
-    "Clean Core design pattern in finance domain",
-    "S/4HANA finance processing structure",
-    "Minimal domain class skeleton"
+    "Lease-based distributed locking to prevent double-delivery (leaseToken + leaseExpiresAt)",
+    "Exponential backoff retry with budget (attempts < maxAttempts, delay = 2^attempts)",
+    "Optimistic concurrency via claim-check UPDATE (match status+attempts+leaseToken before pro",
+    "Dead-letter queue pattern when retry budget exhausted"
    ],
-   "why_now": "Next in this chapter's dependency order.",
+   "why_now": "A load-bearing file \u2014 11 files import it.",
    "depends_on": [],
-   "imported_by": 0,
-   "loc": 10
+   "imported_by": 11,
+   "loc": 29
   },
   {
    "n": 22,
-   "path": "src/finance/zcl_finance_s4_9.abap",
+   "path": "external/settlement/src/SapSettlement.Batch/Connectors/OAuthTokenProvider.cs",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Clean Core finance domain class for S/4HANA migration - minimal process method stub",
+   "role": "service",
+   "one_liner": "Thread-safe OAuth 2.0 client-credentials token provider with automatic refresh and in-memory caching.",
    "teaches": [
-    "S/4HANA Clean Core compliance pattern",
-    "Domain layer class structure in ABAP OO",
-    "Placeholder method implementation for future finance logic"
+    "OAuth 2.0 client credentials flow with Basic auth",
+    "Thread-safe token caching with SemaphoreSlim to prevent concurrent refresh storms",
+    "Defensive token endpoint validation (HTTPS-only, no embedded secrets in URI)",
+    "30-second expiry buffer to avoid race conditions near token expiration"
    ],
-   "why_now": "Next in this chapter's dependency order.",
+   "why_now": "A load-bearing file \u2014 1 files import it.",
    "depends_on": [],
-   "imported_by": 0,
-   "loc": 10
+   "imported_by": 1,
+   "loc": 44
   },
   {
    "n": 23,
-   "path": "src/inventory/zcl_inventory_s4_2.abap",
+   "path": "enterprise/integration/runtime/delivery-soap.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "S/4HANA Clean Core inventory processing class - secondary inventory handler",
+   "role": "service",
+   "one_liner": "SOAP endpoint handler that parses ConfirmDelivery XML requests, validates scoping, resolves order IDs, and orchestrates shipment confirmation",
    "teaches": [
-    "Clean Core compliant inventory domain logic",
-    "S/4HANA inventory processing pattern",
-    "Minimal single-method service structure"
+    "SOAP envelope parsing and validation for delivery confirmation",
+    "Cross-system order ID resolution via runtime identifiers",
+    "Request deduplication using SHA-256 hashing of source+company+message",
+    "Integration layer authentication scoping (companyCode boundary)"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/integration/runtime/xml.js",
+    "enterprise/integration/runtime/identifiers.js",
+    "enterprise/srv/lib/business/logistics.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 16
   },
   {
    "n": 24,
-   "path": "src/inventory/zcl_inventory_s4_3.abap",
+   "path": "enterprise/integration/runtime/payment-event.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Inventory processing service implementing Clean Core logic (variant 3)",
+   "role": "service",
+   "one_liner": "CloudEvents 1.0 payment-received webhook \u2192 resolve external invoice \u2192 settlePayment call, with strict validation and idempotency key",
    "teaches": [
-    "Clean Core compliant inventory processing",
-    "S/4HANA domain service pattern",
-    "Minimal implementation placeholder"
+    "CloudEvents 1.0 contract enforcement (spec version, type, source)",
+    "Cross-system identifier resolution (invoice number \u2192 internal ID)",
+    "Idempotency key generation from event source/company/ID digest"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/integration/runtime/identifiers.js",
+    "enterprise/srv/lib/business/billing.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 15
   },
   {
    "n": 25,
-   "path": "src/inventory/zcl_inventory_s4_4.abap",
+   "path": "enterprise/srv/lib/business/master-data.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Inventory processing domain class #4, part of S/4HANA Clean Core compliant inventory layer",
+   "role": "service",
+   "one_liner": "Master data orchestration for partner registration, credit limit management, and blocking workflow",
    "teaches": [
-    "Clean Core inventory processing pattern",
-    "Domain method structure for inventory operations",
-    "S/4HANA compliant class design"
+    "command-based master data mutations with role gates",
+    "optimistic concurrency control via WHERE predicates on exposure + limit",
+    "partner entity lifecycle: REGISTERED \u2192 ACTIVE/BLOCKED with credit guard rails"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/errors.js",
+    "enterprise/srv/lib/finance.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 32
   },
   {
    "n": 26,
-   "path": "src/inventory/zcl_inventory_s4_5.abap",
+   "path": "enterprise/srv/lib/business/returns.js",
    "chapter": "logic",
    "role": "domain",
-   "one_liner": "Inventory processing domain class (S/4HANA Clean Core stub #5)",
+   "one_liner": "Business logic for customer returns: authorization against invoices, quantity tracking, refund calculation, and warehouse disposition (restock/scrap)",
    "teaches": [
-    "S/4HANA Clean Core class structure",
-    "Inventory domain processing entry point",
-    "ABAP OO minimal implementation pattern"
+    "Return authorization validates invoice status and calculates prorated credit using bigint ",
+    "Optimistic concurrency on invoice credited amounts prevents double-crediting",
+    "Disposition routing (RESTOCK updates stock, SCRAP does not) and credit note generation"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/finance.js",
+    "enterprise/srv/lib/errors.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 47
   },
   {
    "n": 27,
-   "path": "src/finance/zcl_finance_s4_7.abap",
+   "path": "enterprise/srv/lib/business/warehouse.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Finance domain class 7 \u2014 Clean Core compliant business logic placeholder",
+   "role": "service",
+   "one_liner": "Warehouse picking workflow: assigns tasks to pickers and confirms completed picks against reserved inventory.",
    "teaches": [
-    "S/4HANA Clean Core compliance marker",
-    "Finance domain object pattern",
-    "Minimal method stub structure"
+    "command pattern with owned() for multi-tenant warehouse actions",
+    "reservation \u2192 warehouse task lifecycle (ASSIGNED \u2192 CONFIRMED)",
+    "role-based authorization (WarehouseSupervisor assigns, Warehouse confirms)"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/business/transaction.js",
+    "enterprise/srv/lib/order-workflow.js"
+   ],
    "imported_by": 0,
-   "loc": 10
+   "loc": 27
   },
   {
    "n": 28,
-   "path": "src/finance/zcl_finance_s4_8.abap",
+   "path": "enterprise/srv/lib/monitoring.js",
    "chapter": "logic",
-   "role": "domain",
-   "one_liner": "Clean Core finance domain class (S/4HANA module 8) with process method stub",
+   "role": "service",
+   "one_liner": "Ingests normalized monitoring events into incidents and handles incident acknowledgement with auth/validation checks.",
    "teaches": [
-    "S/4HANA Clean Core class structure",
-    "Empty finance process method pattern",
-    "Minimal ABAP OO class definition"
+    "turning external monitoring events into internal incidents",
+    "idempotent ingestion via externalEventID dedup",
+    "role/company authorization checks before mutations",
+    "audit trail logging on state changes"
+   ],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 7,
+   "loc": 32
+  },
+  {
+   "n": 29,
+   "path": "external/settlement/src/SapSettlement.Batch/Operations/ReportStore.cs",
+   "chapter": "logic",
+   "role": "service",
+   "one_liner": "Content-addressed storage for immutable reconciliation reports with SHA256 collision detection",
+   "teaches": [
+    "Content-addressed file naming (SHA256 digest prevents silent overwrites)",
+    "Atomic file writes via temp-then-move pattern",
+    "Custom JSON converter for decimal money formatting"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 6,
+   "loc": 39
+  },
+  {
+   "n": 30,
+   "path": "enterprise/srv/control-tower.js",
+   "chapter": "api",
+   "role": "api",
+   "one_liner": "CAP application service exposing order release and monitoring/incident event handlers.",
+   "teaches": [
+    "CDS ApplicationService event wiring",
+    "delegating request handling to lib workflow/monitoring modules",
+    "using cds.tx for transactional context"
+   ],
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/order-workflow.js",
+    "enterprise/srv/lib/monitoring.js"
+   ],
+   "imported_by": 0,
+   "loc": 12
+  },
+  {
+   "n": 31,
+   "path": "enterprise/srv/inventory.js",
+   "chapter": "api",
+   "role": "api",
+   "one_liner": "CAP ApplicationService registering OData actions for inventory stock transfer and counting",
+   "teaches": [
+    "CAP service class extension pattern",
+    "OData custom action handlers",
+    "Transaction propagation via cds.tx(req)"
+   ],
+   "why_now": "A load-bearing file \u2014 0 files import it.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 32,
+   "path": "enterprise/srv/manufacturing.js",
+   "chapter": "api",
+   "role": "api",
+   "one_liner": "CDS service endpoint that exposes scheduleProduction and completeProduction manufacturing operations",
+   "teaches": [
+    "CDS ApplicationService subclass pattern",
+    "Event handler registration with this.on()",
+    "Transaction context passing with cds.tx(req)"
    ],
    "why_now": "Next in this chapter's dependency order.",
    "depends_on": [],
@@ -520,150 +665,97 @@
    "loc": 10
   },
   {
-   "n": 29,
-   "path": "generate_s4.sh",
-   "chapter": "supporting",
-   "role": "util",
-   "one_liner": "Shell script that generates 100 S/4HANA Clean Core compliant ABAP class files across multiple business domains",
-   "teaches": [
-    "S/4HANA Clean Core compliance patterns (BAPI usage, CDS views)",
-    "Mass file generation via bash heredocs",
-    "SAP business domain structure (O2C, P2P, Finance, Inventory)"
-   ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 183
-  },
-  {
-   "n": 30,
-   "path": "src/cross_cutting/zcl_util_s4_1.abap",
-   "chapter": "supporting",
-   "role": "util",
-   "one_liner": "Empty utility class scaffolded for S/4HANA Clean Core cross-cutting concerns",
-   "teaches": [
-    "Clean Core utility placeholder pattern",
-    "ABAP OO class boilerplate structure"
-   ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
-  },
-  {
-   "n": 31,
-   "path": "src/cross_cutting/zcl_util_s4_2.abap",
-   "chapter": "supporting",
-   "role": "util",
-   "one_liner": "Empty helper utility class with no implemented behavior",
-   "teaches": [
-    "Class definition and implementation skeleton",
-    "Public method declaration pattern"
-   ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
-  },
-  {
-   "n": 32,
-   "path": "src/cross_cutting/zcl_util_s4_3.abap",
-   "chapter": "supporting",
-   "role": "util",
-   "one_liner": "Stub utility class providing a single helper method placeholder",
-   "teaches": [
-    "Minimal ABAP class structure",
-    "Clean Core utility pattern",
-    "Public helper method placeholder"
-   ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
-  },
-  {
    "n": 33,
-   "path": "src/cross_cutting/zcl_util_s4_4.abap",
+   "path": "enterprise/srv/lib/errors.js",
    "chapter": "supporting",
    "role": "util",
-   "one_liner": "Stub utility class providing a single helper method placeholder with no implementation",
+   "one_liner": "Shared helper functions for throwing HTTP errors and enforcing role/company authorization checks.",
    "teaches": [
-    "S/4HANA utility class structure",
-    "ABAP class definition and implementation skeleton",
-    "Clean Core compliance marker (\u2705)"
+    "how to reject requests with status codes",
+    "role-based access control pattern",
+    "company-scoped authorization pattern"
    ],
-   "why_now": "Next in this chapter's dependency order.",
+   "why_now": "A load-bearing file \u2014 151 files import it.",
    "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "imported_by": 151,
+   "loc": 5
   },
   {
    "n": 34,
-   "path": "src/cross_cutting/zcl_util_s4_5.abap",
+   "path": "enterprise/srv/lib/business/transaction.js",
    "chapter": "supporting",
    "role": "util",
-   "one_liner": "Utility class 5 placeholder \u2013 empty helper method, no current business logic",
+   "one_liner": "Shared business-transaction primitives: ownership, state transitions, audit, idempotent commands, and validation helpers.",
    "teaches": [
-    "Template utility class structure",
-    "Clean Core compliant utility naming (ZCL_ namespace)",
-    "Minimal ABAP OO class skeleton"
+    "Idempotent command pattern with request-ID deduplication and fingerprint comparison",
+    "Optimistic locking for state transitions via status-predicate UPDATE",
+    "Dual-write audit + outbox pattern for domain events",
+    "Canonical value digests for change detection"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 65,
+   "loc": 43
   },
   {
    "n": 35,
-   "path": "src/cross_cutting/zcl_util_s4_6.abap",
+   "path": "validation/abap/lib/execute.mjs",
    "chapter": "supporting",
    "role": "util",
-   "one_liner": "Minimal utility class 6 with single empty helper method, placeholder or deprecated",
+   "one_liner": "Runtime bridge that loads transpiled ABAP classes via abap-runtime, instantiates their typed parameters from JSON rows/parameters, and executes the CALCULATE method",
    "teaches": [
-    "Empty utility pattern",
-    "Clean Core class skeleton"
+    "ABAP-to-JS runtime contract: dynamically resolve ZCL_ENT_* classes and their method signat",
+    "Type marshalling: map JSON inputs to ABAP runtime primitives (Character, table types) usin",
+    "Table construction: iterate rows, clone row types, set fields, append to ABAP table instan"
    ],
-   "why_now": "Next in this chapter's dependency order.",
+   "why_now": "A load-bearing file \u2014 8 files import it.",
    "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "imported_by": 8,
+   "loc": 31
   },
   {
    "n": 36,
-   "path": "src/cross_cutting/zcl_util_s4_7.abap",
+   "path": "enterprise/integration/runtime/xml.js",
    "chapter": "supporting",
    "role": "util",
-   "one_liner": "Empty placeholder utility class with no implementation",
+   "one_liner": "Safe XML parsing utility with DTD/entity injection guards and type coercion helpers",
    "teaches": [
-    "S/4HANA utility naming convention (zcl_util_s4_*)",
-    "Minimal ABAP class structure (definition + implementation)",
-    "Clean Core compliance marker (\u2705)"
+    "XML security: blocking DTD and ENTITY attacks before parsing",
+    "Defensive validation pattern: XMLValidator \u2192 parse \u2192 scalar checks",
+    "Type normalization: list() forces arrays, scalar() enforces strings with length caps"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
-   "loc": 9
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 18,
+   "loc": 15
   },
   {
    "n": 37,
-   "path": "src/cross_cutting/zcl_util_s4_8.abap",
+   "path": "enterprise/srv/lib/business/validation.js",
    "chapter": "supporting",
    "role": "util",
-   "one_liner": "Minimal utility helper class (S/4HANA utility 8) with no defined behavior",
+   "one_liner": "ISO 8601 date validation with strict calendar-date checking",
    "teaches": [
-    "Empty helper method pattern",
-    "Minimal Clean Core utility structure"
+    "Regex pre-flight before Date parse (fail fast)",
+    "Round-trip ISO slice comparison to catch Feb 30 / leap year lies",
+    "Throwing custom 422 errors via imported reject helper"
    ],
-   "why_now": "Next in this chapter's dependency order.",
-   "depends_on": [],
-   "imported_by": 0,
+   "why_now": "Builds directly on what you just read \u2014 its dependencies are behind you now.",
+   "depends_on": [
+    "enterprise/srv/lib/errors.js"
+   ],
+   "imported_by": 5,
    "loc": 9
   }
  ],
  "stats": {
   "candidates": 36,
-  "llm_calls": 1,
-  "cache_hits": 35,
+  "llm_calls": 0,
+  "cache_hits": 36,
   "fallbacks": 0
  }
 }
