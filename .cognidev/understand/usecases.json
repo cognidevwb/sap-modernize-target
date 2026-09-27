@@ -1,0 +1,500 @@
+{
+  "domain": "Enterprise Resource Planning (ERP) \u2014 SAP S/4HANA business application",
+  "summary": "This is a comprehensive SAP S/4HANA enterprise resource planning system that manages end-to-end business processes for a mid-to-large sized organization. The application serves business users across procurement, sales, finance, manufacturing, logistics, and quality management functions, enabling them to execute and track critical business transactions from initial requisition through final payment and delivery. The system is built on SAP's Clean Core architecture principles, leveraging Core Data Services (CDS) for a semantic data layer and ABAP classes organized by business process domains. It provides integrated workflows across the procure-to-pay cycle (vendor management, purchasing, accounts payable), order-to-cash cycle (sales orders, billing, revenue recognition), financial accounting (general ledger, accounts receivable/payable), inventory management (warehouse operations, stock movements), master data governance (customers, vendors, materials, business partners), production planning and execution, quality inspections, pricing and discount calculations, and logistics coordination\u2014all underpinning business intelligence and operational decision-making.",
+  "useCases": [
+    {
+      "id": "create-sales-order",
+      "title": "Create a sales order",
+      "actor": "Sales Representative",
+      "description": "Sales representative creates a new sales order for a customer, capturing order details, line items, pricing, and delivery requirements to initiate the order-to-cash process.",
+      "steps": [
+        "Sales representative enters customer information and order header data",
+        "System validates customer creditworthiness and availability",
+        "Sales representative adds order line items with materials and quantities",
+        "Pricing engine calculates prices, discounts, and taxes",
+        "System reserves inventory for the order",
+        "Sales order is saved and confirmed with an order number"
+      ],
+      "evidence": "CREATE_ORDER method in zcl_sales_order_s4.abap",
+      "files": [
+        "src/order_to_cash/zcl_sales_order_s4.abap",
+        "src/order_to_cash/zcl_o2c_s4_1.abap",
+        "src/order_to_cash/zcl_o2c_s4_2.abap",
+        "src/order_to_cash/zcl_o2c_s4_3.abap",
+        "src/pricing/zcl_pricing_s4_1.abap"
+      ],
+      "folders": [
+        "src/order_to_cash",
+        "src/pricing"
+      ]
+    },
+    {
+      "id": "generate-customer-invoice",
+      "title": "Generate customer invoice",
+      "actor": "Billing Clerk",
+      "description": "Billing clerk generates an invoice for a completed sales order or delivery, posting revenue and accounts receivable entries to the financial system.",
+      "steps": [
+        "Billing clerk selects delivered sales orders ready for invoicing",
+        "System retrieves order data, pricing, and delivery confirmation",
+        "Invoice document is generated with line items and totals",
+        "Financial postings are created in accounts receivable and revenue accounts",
+        "Invoice document is saved and transmitted to the customer",
+        "Payment terms and due dates are set based on customer agreement"
+      ],
+      "evidence": "CREATE_INVOICE method in zcl_billing_s4.abap",
+      "files": [
+        "src/order_to_cash/zcl_billing_s4.abap",
+        "src/order_to_cash/zcl_o2c_s4_10.abap",
+        "src/order_to_cash/zcl_o2c_s4_11.abap",
+        "src/finance/zcl_finance_s4_1.abap"
+      ],
+      "folders": [
+        "src/finance",
+        "src/order_to_cash"
+      ]
+    },
+    {
+      "id": "track-sales-order-status",
+      "title": "Track sales order status",
+      "actor": "Sales Manager",
+      "description": "Sales manager monitors the status and progress of sales orders through the order-to-cash lifecycle, from creation through delivery and invoicing.",
+      "steps": [
+        "Sales manager queries sales order by number or customer",
+        "System retrieves order header and line item details from database",
+        "Current status is displayed (created, confirmed, delivered, invoiced, paid)",
+        "Order fulfillment progress and open items are shown",
+        "Manager reviews delivery dates and payment status"
+      ],
+      "evidence": "GET_STATUS method in zcl_sales_order_s4.abap",
+      "files": [
+        "src/order_to_cash/zcl_sales_order_s4.abap",
+        "src/order_to_cash/zcl_o2c_s4_12.abap",
+        "src/order_to_cash/zcl_o2c_s4_13.abap"
+      ],
+      "folders": [
+        "src/order_to_cash"
+      ]
+    },
+    {
+      "id": "create-purchase-order",
+      "title": "Create a purchase order",
+      "actor": "Purchasing Agent",
+      "description": "Purchasing agent creates a purchase order from an approved requisition, selecting vendor, negotiating terms, and initiating the procurement process.",
+      "steps": [
+        "Purchasing agent reviews and selects approved purchase requisitions",
+        "Vendor is selected based on pricing, terms, and availability",
+        "Purchase order header and line items are created with delivery dates",
+        "Pricing and payment terms are confirmed with the vendor",
+        "Purchase order is released and transmitted to the vendor",
+        "Commitment accounting entry is posted to reserve budget"
+      ],
+      "evidence": "CREATE_PO method in zcl_purchase_s4.abap",
+      "files": [
+        "src/procure_to_pay/zcl_purchase_s4.abap",
+        "src/procure_to_pay/zcl_p2p_s4_1.abap",
+        "src/procure_to_pay/zcl_p2p_s4_2.abap",
+        "src/procure_to_pay/zcl_p2p_s4_3.abap"
+      ],
+      "folders": [
+        "src/procure_to_pay"
+      ]
+    },
+    {
+      "id": "receive-goods",
+      "title": "Receive goods from vendor",
+      "actor": "Warehouse Operator",
+      "description": "Warehouse operator records the physical receipt of goods from a vendor, updates inventory levels, and triggers the invoice verification process.",
+      "steps": [
+        "Warehouse operator scans or enters purchase order number",
+        "Delivered goods are verified against purchase order quantities",
+        "Goods receipt document is created for received items",
+        "Inventory stock levels are updated in the warehouse",
+        "Material valuation is posted to inventory and GR/IR accounts",
+        "Invoice verification is triggered for payment processing"
+      ],
+      "evidence": "PROCESS methods in procure-to-pay and inventory classes",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_10.abap",
+        "src/procure_to_pay/zcl_p2p_s4_11.abap",
+        "src/inventory/zcl_inventory_s4_1.abap",
+        "src/inventory/zcl_inventory_s4_2.abap"
+      ],
+      "folders": [
+        "src/inventory",
+        "src/procure_to_pay"
+      ]
+    },
+    {
+      "id": "process-vendor-payment",
+      "title": "Process vendor payment",
+      "actor": "Accounts Payable Clerk",
+      "description": "Accounts payable clerk processes payment to a vendor for verified invoices, creating payment documents and clearing open payables.",
+      "steps": [
+        "AP clerk selects vendor invoices due for payment",
+        "Payment method and bank details are confirmed",
+        "Payment run is executed for selected invoices",
+        "Payment documents are created and posted to accounts payable",
+        "Bank transfer or check is generated and transmitted",
+        "Open invoices are cleared and payment status is updated"
+      ],
+      "evidence": "PROCESS methods in procure-to-pay and finance classes",
+      "files": [
+        "src/procure_to_pay/zcl_p2p_s4_12.abap",
+        "src/procure_to_pay/zcl_p2p_s4_13.abap",
+        "src/procure_to_pay/zcl_p2p_s4_14.abap",
+        "src/finance/zcl_finance_s4_2.abap"
+      ],
+      "folders": [
+        "src/finance",
+        "src/procure_to_pay"
+      ]
+    },
+    {
+      "id": "post-financial-transactions",
+      "title": "Post financial journal entries",
+      "actor": "Accountant",
+      "description": "Accountant posts manual journal entries to the general ledger for adjustments, accruals, reclassifications, and period-end closing activities.",
+      "steps": [
+        "Accountant creates journal entry header with document date and posting period",
+        "Debit and credit line items are entered with GL accounts and amounts",
+        "Cost center, profit center, or other dimensions are assigned",
+        "System validates balanced debit/credit totals",
+        "Journal entry is posted to the general ledger",
+        "Financial balances and reports are updated in real-time"
+      ],
+      "evidence": "PROCESS method in zcl_finance_s4_1.abap",
+      "files": [
+        "src/finance/zcl_finance_s4_1.abap",
+        "src/finance/zcl_finance_s4_3.abap",
+        "src/finance/zcl_finance_s4_4.abap"
+      ],
+      "folders": [
+        "src/finance"
+      ]
+    },
+    {
+      "id": "generate-financial-reports",
+      "title": "Generate financial reports",
+      "actor": "Financial Controller",
+      "description": "Financial controller generates balance sheets, income statements, and analytical reports for management review and regulatory compliance.",
+      "steps": [
+        "Controller selects report type and reporting period",
+        "System retrieves general ledger balances and transaction data",
+        "Financial statements are generated with comparative periods",
+        "Cost center, profit center, and segment breakdowns are displayed",
+        "Reports are formatted for internal and external stakeholders",
+        "Controller exports or distributes reports to management"
+      ],
+      "evidence": "PROCESS methods in finance reporting classes",
+      "files": [
+        "src/finance/zcl_finance_s4_5.abap",
+        "src/finance/zcl_finance_s4_6.abap",
+        "src/finance/zcl_finance_s4_7.abap",
+        "src/finance/zcl_finance_s4_10.abap"
+      ],
+      "folders": [
+        "src/finance"
+      ]
+    },
+    {
+      "id": "process-inventory-movement",
+      "title": "Process inventory stock movements",
+      "actor": "Warehouse Operator",
+      "description": "Warehouse operator records physical movements of materials between storage locations, plants, or reservation for production and sales orders.",
+      "steps": [
+        "Operator selects movement type (transfer, issue, receipt, reservation)",
+        "Material, quantity, and source/target locations are entered",
+        "System validates stock availability and location capacity",
+        "Inventory movement document is created and posted",
+        "Stock quantities are updated in source and target locations",
+        "Material valuation and accounting entries are posted"
+      ],
+      "evidence": "PROCESS method in zcl_inventory_s4_1.abap",
+      "files": [
+        "src/inventory/zcl_inventory_s4_1.abap",
+        "src/inventory/zcl_inventory_s4_3.abap",
+        "src/inventory/zcl_inventory_s4_4.abap"
+      ],
+      "folders": [
+        "src/inventory"
+      ]
+    },
+    {
+      "id": "perform-stock-count",
+      "title": "Perform physical inventory count",
+      "actor": "Warehouse Supervisor",
+      "description": "Warehouse supervisor conducts periodic physical inventory counts to verify system stock quantities and identify discrepancies for adjustment.",
+      "steps": [
+        "Supervisor creates physical inventory document for storage locations",
+        "Warehouse staff counts physical materials on hand",
+        "Counted quantities are entered into the system",
+        "System compares counted quantities to book inventory",
+        "Discrepancies are reviewed and approved for posting",
+        "Inventory adjustments are posted and stock balances corrected"
+      ],
+      "evidence": "PROCESS methods in inventory management classes",
+      "files": [
+        "src/inventory/zcl_inventory_s4_5.abap",
+        "src/inventory/zcl_inventory_s4_6.abap",
+        "src/inventory/zcl_inventory_s4_7.abap",
+        "src/inventory/zcl_inventory_s4_10.abap"
+      ],
+      "folders": [
+        "src/inventory"
+      ]
+    },
+    {
+      "id": "maintain-customer-master",
+      "title": "Maintain customer master data",
+      "actor": "Master Data Administrator",
+      "description": "Master data administrator creates and updates customer master records with contact information, credit limits, payment terms, and organizational assignments.",
+      "steps": [
+        "Administrator creates new customer record or opens existing record",
+        "General data (name, address, contact details) is entered or updated",
+        "Sales area data (pricing, delivery terms, payment terms) is configured",
+        "Credit limit and risk category are assigned",
+        "System validates required fields and data consistency",
+        "Customer master record is saved and activated for transactions"
+      ],
+      "evidence": "MAINTAIN method in master data classes",
+      "files": [
+        "src/master_data/zcl_md_s4_1.abap",
+        "src/master_data/zcl_md_s4_3.abap",
+        "src/master_data/zcl_md_s4_4.abap"
+      ],
+      "folders": [
+        "src/master_data"
+      ]
+    },
+    {
+      "id": "maintain-vendor-master",
+      "title": "Maintain vendor master data",
+      "actor": "Master Data Administrator",
+      "description": "Master data administrator creates and updates vendor master records with banking information, payment terms, purchasing organization assignments, and qualification status.",
+      "steps": [
+        "Administrator creates new vendor record or opens existing record",
+        "General data (name, address, contact, tax ID) is entered or updated",
+        "Purchasing data (order currency, delivery terms, incoterms) is configured",
+        "Bank details and payment methods are maintained",
+        "System validates vendor qualification and compliance requirements",
+        "Vendor master record is saved and activated for procurement"
+      ],
+      "evidence": "MAINTAIN method in master data classes",
+      "files": [
+        "src/master_data/zcl_md_s4_2.abap",
+        "src/master_data/zcl_md_s4_5.abap",
+        "src/master_data/zcl_md_s4_6.abap"
+      ],
+      "folders": [
+        "src/master_data"
+      ]
+    },
+    {
+      "id": "maintain-material-master",
+      "title": "Maintain material master data",
+      "actor": "Master Data Administrator",
+      "description": "Master data administrator creates and updates material master records with specifications, units of measure, valuation, and planning parameters across procurement, sales, and production views.",
+      "steps": [
+        "Administrator creates new material record or opens existing record",
+        "Basic data (description, material type, units of measure) is entered",
+        "Purchasing data (order unit, vendor lead time, minimum order) is configured",
+        "Sales data (sales unit, availability check, delivery plant) is maintained",
+        "Inventory and accounting data (valuation, stock management) is set",
+        "Material master record is saved and activated across all views"
+      ],
+      "evidence": "MAINTAIN method in master data classes",
+      "files": [
+        "src/master_data/zcl_md_s4_7.abap",
+        "src/master_data/zcl_md_s4_8.abap"
+      ],
+      "folders": [
+        "src/master_data"
+      ]
+    },
+    {
+      "id": "plan-shipment",
+      "title": "Plan and execute shipment",
+      "actor": "Logistics Coordinator",
+      "description": "Logistics coordinator plans shipments for sales orders, selects carriers, routes, and schedules deliveries to customers while optimizing transportation costs.",
+      "steps": [
+        "Coordinator selects sales orders ready for shipment",
+        "Shipping point and route are determined based on delivery address",
+        "Carrier and transportation mode are selected",
+        "Shipment document is created with delivery dates and tracking",
+        "Picking and packing tasks are assigned to warehouse",
+        "Goods issue is posted and shipment is dispatched to customer"
+      ],
+      "evidence": "EXECUTE method in logistics classes",
+      "files": [
+        "src/logistics/zcl_logistics_s4_1.abap",
+        "src/logistics/zcl_logistics_s4_2.abap",
+        "src/logistics/zcl_logistics_s4_3.abap"
+      ],
+      "folders": [
+        "src/logistics"
+      ]
+    },
+    {
+      "id": "manage-inbound-delivery",
+      "title": "Manage inbound delivery",
+      "actor": "Logistics Coordinator",
+      "description": "Logistics coordinator manages inbound deliveries from vendors, coordinating receipt appointments, unloading, and warehouse put-away activities.",
+      "steps": [
+        "Coordinator receives advance shipping notice from vendor",
+        "Inbound delivery document is created from purchase order",
+        "Receiving dock appointment is scheduled",
+        "Goods are received, inspected, and unloaded at dock",
+        "Put-away tasks are created for warehouse placement",
+        "Goods receipt is confirmed and inventory is updated"
+      ],
+      "evidence": "EXECUTE method in logistics classes",
+      "files": [
+        "src/logistics/zcl_logistics_s4_4.abap",
+        "src/logistics/zcl_logistics_s4_5.abap",
+        "src/logistics/zcl_logistics_s4_6.abap",
+        "src/logistics/zcl_logistics_s4_7.abap"
+      ],
+      "folders": [
+        "src/logistics"
+      ]
+    },
+    {
+      "id": "calculate-pricing",
+      "title": "Calculate sales pricing and discounts",
+      "actor": "Sales Representative",
+      "description": "System automatically calculates pricing for sales orders based on customer agreements, volume discounts, promotional campaigns, and condition records maintained by pricing administrators.",
+      "steps": [
+        "Sales order is created with customer and material selection",
+        "Pricing engine retrieves base price from material master or agreement",
+        "Customer-specific discounts and surcharges are applied",
+        "Volume-based discounts are calculated from order quantities",
+        "Taxes, freight charges, and additional conditions are added",
+        "Final net price and total order value are determined and displayed"
+      ],
+      "evidence": "EXECUTE method in pricing classes",
+      "files": [
+        "src/pricing/zcl_pricing_s4_1.abap",
+        "src/pricing/zcl_pricing_s4_2.abap",
+        "src/pricing/zcl_pricing_s4_3.abap",
+        "src/pricing/zcl_pricing_s4_4.abap"
+      ],
+      "folders": [
+        "src/pricing"
+      ]
+    },
+    {
+      "id": "maintain-pricing-conditions",
+      "title": "Maintain pricing conditions",
+      "actor": "Pricing Administrator",
+      "description": "Pricing administrator configures and maintains pricing condition records for base prices, discounts, surcharges, freight, and taxes used in sales and procurement calculations.",
+      "steps": [
+        "Administrator selects condition type (price, discount, surcharge, tax)",
+        "Validity period and organizational level are defined",
+        "Condition records are created for materials, customers, or vendor combinations",
+        "Pricing scales and volume breaks are configured",
+        "System validates condition logic and precedence",
+        "Condition records are activated for pricing determination"
+      ],
+      "evidence": "EXECUTE method in pricing classes",
+      "files": [
+        "src/pricing/zcl_pricing_s4_5.abap",
+        "src/pricing/zcl_pricing_s4_6.abap",
+        "src/pricing/zcl_pricing_s4_7.abap"
+      ],
+      "folders": [
+        "src/pricing"
+      ]
+    },
+    {
+      "id": "plan-production-order",
+      "title": "Plan and create production order",
+      "actor": "Production Planner",
+      "description": "Production planner creates production orders from demand forecasts or sales orders, scheduling manufacturing operations and reserving materials for production.",
+      "steps": [
+        "Planner reviews material requirements from MRP or sales orders",
+        "Production order is created for finished good with target quantity",
+        "Bill of materials (BOM) is exploded to determine component requirements",
+        "Routing operations and work centers are scheduled",
+        "Material reservations are created for required components",
+        "Production order is released for execution on the shop floor"
+      ],
+      "evidence": "RUN method in production classes",
+      "files": [
+        "src/production/zcl_production_s4_1.abap",
+        "src/production/zcl_production_s4_2.abap",
+        "src/production/zcl_production_s4_3.abap"
+      ],
+      "folders": [
+        "src/production"
+      ]
+    },
+    {
+      "id": "confirm-production",
+      "title": "Confirm production operations",
+      "actor": "Production Operator",
+      "description": "Production operator confirms completed manufacturing operations, recording actual quantities produced, labor hours consumed, and material usage on the shop floor.",
+      "steps": [
+        "Operator selects production order and operation to confirm",
+        "Actual quantities produced are entered (yield and scrap)",
+        "Labor hours and machine time are recorded",
+        "Actual material consumption is confirmed or backflushed",
+        "Operation status is updated to completed",
+        "Costs are calculated and posted to the production order"
+      ],
+      "evidence": "RUN method in production classes",
+      "files": [
+        "src/production/zcl_production_s4_4.abap",
+        "src/production/zcl_production_s4_5.abap"
+      ],
+      "folders": [
+        "src/production"
+      ]
+    },
+    {
+      "id": "create-quality-inspection",
+      "title": "Create quality inspection lot",
+      "actor": "Quality Inspector",
+      "description": "Quality inspector creates inspection lots for incoming materials, in-process production, or finished goods to verify conformance to specifications and quality standards.",
+      "steps": [
+        "Inspection lot is automatically triggered from goods receipt or production",
+        "Inspector selects inspection plan and characteristics to test",
+        "Sample size and sampling procedure are determined",
+        "Inspection lot is created with batch and material details",
+        "Usage decision is set to blocked pending inspection results",
+        "Inspector is notified to perform inspection tasks"
+      ],
+      "evidence": "RUN method in quality classes",
+      "files": [
+        "src/quality/zcl_quality_s4_1.abap",
+        "src/quality/zcl_quality_s4_2.abap",
+        "src/quality/zcl_quality_s4_3.abap"
+      ],
+      "folders": [
+        "src/quality"
+      ]
+    },
+    {
+      "id": "record-inspection-results",
+      "title": "Record inspection results and usage decision",
+      "actor": "Quality Inspector",
+      "description": "Quality inspector records inspection results against quality specifications, makes accept/reject usage decisions, and releases or blocks materials based on test outcomes.",
+      "steps": [
+        "Inspector retrieves open inspection lot and test specifications",
+        "Inspection characteristics are measured and results are recorded",
+        "System validates results against specification limits and tolerances",
+        "Defects and non-conformances are documented if found",
+        "Usage decision is made (accept, reject, or conditional release)",
+        "Stock status is updated to unrestricted, blocked, or quality inspection",
+        "Inspection lot is completed and quality certificate is generated if required"
+      ],
+      "evidence": "RUN method in quality classes",
+      "files": [
+        "src/quality/zcl_quality_s4_4.abap",
+        "src/quality/zcl_quality_s4_5.abap"
+      ],
+      "folders": [
+        "src/quality"
+      ]
+    }
+  ]
+}

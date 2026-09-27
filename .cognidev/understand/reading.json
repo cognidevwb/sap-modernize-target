@@ -1,0 +1,669 @@
+{
+ "version": 1,
+ "prompt_version": 1,
+ "generated_from_merkle": "f3cfecde8503d5ba6c8b3ea6671ca7214bd5019de54442e034781eecb6c411f9",
+ "chapters": [
+  {
+   "id": "orientation",
+   "label": "Get oriented",
+   "steps": [
+    1
+   ]
+  },
+  {
+   "id": "entry",
+   "label": "Where execution starts",
+   "steps": [
+    2
+   ]
+  },
+  {
+   "id": "data",
+   "label": "The data model",
+   "steps": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "id": "logic",
+   "label": "The core logic",
+   "steps": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ]
+  },
+  {
+   "id": "supporting",
+   "label": "Supporting cast",
+   "steps": [
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37
+   ]
+  }
+ ],
+ "steps": [
+  {
+   "n": 1,
+   "path": "README.md",
+   "chapter": "orientation",
+   "role": "config",
+   "one_liner": "The project's own introduction \u2014 what it is and how to run it.",
+   "teaches": [
+    "what the project does",
+    "how to run it locally"
+   ],
+   "why_now": "Always start with what the authors wanted you to know.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 0
+  },
+  {
+   "n": 2,
+   "path": "README.md",
+   "chapter": "entry",
+   "role": "entry",
+   "one_liner": "SAP S/4HANA modernization demo fixture - 90 ABAP files + 10 CDS views across ten business areas",
+   "teaches": [
+    "CogniDev Understand workflow for SAP structural analysis",
+    "Clean Core migration target structure with CDS views and BAPI patterns",
+    "Demo fixture scope boundaries - static analysis vs runtime compliance"
+   ],
+   "why_now": "Execution starts here. Everything else hangs off this file.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 19
+  },
+  {
+   "n": 3,
+   "path": "cds/zi_entity_1.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS view exposing Entity 1 with authorization check, selecting key and two fields from standard table",
+   "teaches": [
+    "CDS view entity syntax with @AccessControl annotation",
+    "Projection from SAP standard table I_StandardTable1",
+    "Key field and additional field selection pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 4,
+   "path": "cds/zi_entity_10.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS entity view wrapping I_StandardTable10 with access control enabled",
+   "teaches": [
+    "CDS view entity syntax for SAP Clean Core",
+    "Authorization check enforcement via @AccessControl",
+    "Standard table projection pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 5,
+   "path": "cds/zi_entity_2.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS entity view exposing selected fields from I_StandardTable2 with authorization checks",
+   "teaches": [
+    "CDS view entity syntax",
+    "Field projection from standard SAP table",
+    "Authorization check enforcement"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 6,
+   "path": "cds/zi_entity_3.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS view ZI_ENTITY_3 exposing three fields from I_StandardTable3 with authorization checks enabled",
+   "teaches": [
+    "CDS entity view definition syntax",
+    "Authorization check annotation usage",
+    "Projection pattern from standard table"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 7,
+   "path": "cds/zi_entity_4.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS entity view exposing fields from I_StandardTable4 with authorization check enabled",
+   "teaches": [
+    "CDS view entity syntax",
+    "Access control annotation usage",
+    "Standard table consumption pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 8,
+   "path": "cds/zi_entity_5.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS entity view exposing selected fields from I_StandardTable5 with authorization check",
+   "teaches": [
+    "CDS view entity syntax and projection pattern",
+    "SAP authorization check integration (#CHECK)",
+    "Standard table wrapper view structure"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 9,
+   "path": "cds/zi_entity_6.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS view entity wrapping I_StandardTable6 with access control for EntityKey and two fields",
+   "teaches": [
+    "CDS view entity definition with #CHECK authorization",
+    "Direct pass-through projection from SAP standard table",
+    "Key field and simple field selection pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 10,
+   "path": "cds/zi_entity_7.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS view exposing three fields from I_StandardTable7 with authorization check enabled",
+   "teaches": [
+    "Basic CDS view projection pattern",
+    "Standard table access with key field selection",
+    "Authorization check declaration at view level"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 11,
+   "path": "cds/zi_entity_8.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS view exposing a simplified projection of I_StandardTable8 with key field and two entity attributes",
+   "teaches": [
+    "CDS entity view definition with authorization check",
+    "Direct projection from SAP standard table",
+    "Clean Core pattern: consuming released SAP APIs (I_* views)"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 12,
+   "path": "cds/zi_entity_9.ddls.asddls",
+   "chapter": "data",
+   "role": "data",
+   "one_liner": "CDS view ZI_ENTITY_9 exposing entity fields from I_StandardTable9 with authorization check enabled",
+   "teaches": [
+    "CDS view entity syntax for direct table projection",
+    "SAP authorization check integration pattern",
+    "Key field and attribute selection from standard table"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 13,
+   "path": "src/inventory/zcl_inventory_s4_1.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Clean Core inventory processing class - domain logic for S/4HANA inventory management",
+   "teaches": [
+    "S/4HANA Clean Core compliant class structure",
+    "Domain-driven inventory processing pattern",
+    "Minimal public interface design"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 14,
+   "path": "src/inventory/zcl_inventory_s4_10.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Inventory processing domain logic implementing Clean Core S/4HANA compliance pattern",
+   "teaches": [
+    "Clean Core architectural compliance in ABAP OO",
+    "Domain-driven inventory processing method structure",
+    "S/4HANA class definition and implementation pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 15,
+   "path": "src/finance/zcl_finance_s4_1.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance domain class placeholder with Clean Core compliant structure",
+   "teaches": [
+    "S/4HANA Clean Core finance module skeleton",
+    "Basic ABAP OO class definition and implementation pattern",
+    "Empty process method as extension point"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 16,
+   "path": "src/finance/zcl_finance_s4_10.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Clean Core finance business logic placeholder \u2013 S/4HANA compliant processing hook for finance operations",
+   "teaches": [
+    "S/4HANA Clean Core compliance pattern",
+    "Domain-driven finance processing boundary",
+    "Minimal class template for extensible finance logic"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 17,
+   "path": "src/finance/zcl_finance_s4_2.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance domain processor stub with Clean Core placeholder logic",
+   "teaches": [
+    "S/4HANA Clean Core finance domain pattern",
+    "Empty process method template for extension",
+    "Class-based domain service structure"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 18,
+   "path": "src/finance/zcl_finance_s4_3.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance domain logic placeholder implementing Clean Core SAP S/4HANA standards",
+   "teaches": [
+    "Clean Core compliance pattern in finance module",
+    "Minimal ABAP class structure for S/4HANA",
+    "Domain layer separation for financial processing"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 19,
+   "path": "src/finance/zcl_finance_s4_4.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance domain class 4 - Clean Core compliant processing logic placeholder",
+   "teaches": [
+    "Clean Core finance processing pattern",
+    "Minimal ABAP OO class structure",
+    "S/4HANA domain layer separation"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 20,
+   "path": "src/finance/zcl_finance_s4_5.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance business logic processor #5 in S/4HANA Clean Core compliant implementation",
+   "teaches": [
+    "Clean Core finance domain pattern",
+    "Minimal ABAP class structure for business rules",
+    "S/4HANA finance module organization"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 21,
+   "path": "src/finance/zcl_finance_s4_6.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance domain class #6 implementing Clean Core-compliant business logic",
+   "teaches": [
+    "Clean Core design pattern in finance domain",
+    "S/4HANA finance processing structure",
+    "Minimal domain class skeleton"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 22,
+   "path": "src/finance/zcl_finance_s4_9.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Clean Core finance domain class for S/4HANA migration - minimal process method stub",
+   "teaches": [
+    "S/4HANA Clean Core compliance pattern",
+    "Domain layer class structure in ABAP OO",
+    "Placeholder method implementation for future finance logic"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 23,
+   "path": "src/inventory/zcl_inventory_s4_2.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "S/4HANA Clean Core inventory processing class - secondary inventory handler",
+   "teaches": [
+    "Clean Core compliant inventory domain logic",
+    "S/4HANA inventory processing pattern",
+    "Minimal single-method service structure"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 24,
+   "path": "src/inventory/zcl_inventory_s4_3.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Inventory processing service implementing Clean Core logic (variant 3)",
+   "teaches": [
+    "Clean Core compliant inventory processing",
+    "S/4HANA domain service pattern",
+    "Minimal implementation placeholder"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 25,
+   "path": "src/inventory/zcl_inventory_s4_4.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Inventory processing domain class #4, part of S/4HANA Clean Core compliant inventory layer",
+   "teaches": [
+    "Clean Core inventory processing pattern",
+    "Domain method structure for inventory operations",
+    "S/4HANA compliant class design"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 26,
+   "path": "src/inventory/zcl_inventory_s4_5.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Inventory processing domain class (S/4HANA Clean Core stub #5)",
+   "teaches": [
+    "S/4HANA Clean Core class structure",
+    "Inventory domain processing entry point",
+    "ABAP OO minimal implementation pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 27,
+   "path": "src/finance/zcl_finance_s4_7.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Finance domain class 7 \u2014 Clean Core compliant business logic placeholder",
+   "teaches": [
+    "S/4HANA Clean Core compliance marker",
+    "Finance domain object pattern",
+    "Minimal method stub structure"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 28,
+   "path": "src/finance/zcl_finance_s4_8.abap",
+   "chapter": "logic",
+   "role": "domain",
+   "one_liner": "Clean Core finance domain class (S/4HANA module 8) with process method stub",
+   "teaches": [
+    "S/4HANA Clean Core class structure",
+    "Empty finance process method pattern",
+    "Minimal ABAP OO class definition"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 10
+  },
+  {
+   "n": 29,
+   "path": "generate_s4.sh",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Shell script that generates 100 S/4HANA Clean Core compliant ABAP class files across multiple business domains",
+   "teaches": [
+    "S/4HANA Clean Core compliance patterns (BAPI usage, CDS views)",
+    "Mass file generation via bash heredocs",
+    "SAP business domain structure (O2C, P2P, Finance, Inventory)"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 183
+  },
+  {
+   "n": 30,
+   "path": "src/cross_cutting/zcl_util_s4_1.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Empty utility class scaffolded for S/4HANA Clean Core cross-cutting concerns",
+   "teaches": [
+    "Clean Core utility placeholder pattern",
+    "ABAP OO class boilerplate structure"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 31,
+   "path": "src/cross_cutting/zcl_util_s4_2.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Empty helper utility class with no implemented behavior",
+   "teaches": [
+    "Class definition and implementation skeleton",
+    "Public method declaration pattern"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 32,
+   "path": "src/cross_cutting/zcl_util_s4_3.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Stub utility class providing a single helper method placeholder",
+   "teaches": [
+    "Minimal ABAP class structure",
+    "Clean Core utility pattern",
+    "Public helper method placeholder"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 33,
+   "path": "src/cross_cutting/zcl_util_s4_4.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Stub utility class providing a single helper method placeholder with no implementation",
+   "teaches": [
+    "S/4HANA utility class structure",
+    "ABAP class definition and implementation skeleton",
+    "Clean Core compliance marker (\u2705)"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 34,
+   "path": "src/cross_cutting/zcl_util_s4_5.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Utility class 5 placeholder \u2013 empty helper method, no current business logic",
+   "teaches": [
+    "Template utility class structure",
+    "Clean Core compliant utility naming (ZCL_ namespace)",
+    "Minimal ABAP OO class skeleton"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 35,
+   "path": "src/cross_cutting/zcl_util_s4_6.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Minimal utility class 6 with single empty helper method, placeholder or deprecated",
+   "teaches": [
+    "Empty utility pattern",
+    "Clean Core class skeleton"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 36,
+   "path": "src/cross_cutting/zcl_util_s4_7.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Empty placeholder utility class with no implementation",
+   "teaches": [
+    "S/4HANA utility naming convention (zcl_util_s4_*)",
+    "Minimal ABAP class structure (definition + implementation)",
+    "Clean Core compliance marker (\u2705)"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  },
+  {
+   "n": 37,
+   "path": "src/cross_cutting/zcl_util_s4_8.abap",
+   "chapter": "supporting",
+   "role": "util",
+   "one_liner": "Minimal utility helper class (S/4HANA utility 8) with no defined behavior",
+   "teaches": [
+    "Empty helper method pattern",
+    "Minimal Clean Core utility structure"
+   ],
+   "why_now": "Next in this chapter's dependency order.",
+   "depends_on": [],
+   "imported_by": 0,
+   "loc": 9
+  }
+ ],
+ "stats": {
+  "candidates": 36,
+  "llm_calls": 1,
+  "cache_hits": 35,
+  "fallbacks": 0
+ }
+}

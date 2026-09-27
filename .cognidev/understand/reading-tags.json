@@ -1,0 +1,538 @@
+{
+ "README.md": {
+  "sha": "10f562423547263a85dfa35968594fc88e23d88249b03c67336ccf29ac634f2f",
+  "pv": 1,
+  "tag": {
+   "role": "entry",
+   "one_liner": "SAP S/4HANA modernization demo fixture - 90 ABAP files + 10 CDS views across ten business areas",
+   "teaches": [
+    "CogniDev Understand workflow for SAP structural analysis",
+    "Clean Core migration target structure with CDS views and BAPI patterns",
+    "Demo fixture scope boundaries - static analysis vs runtime compliance"
+   ],
+   "read_before": [],
+   "centrality": 5
+  }
+ },
+ "cds/zi_entity_1.ddls.asddls": {
+  "sha": "ebf535198b181c0d7f65827c191c04ab1ac166c47692796a51ac9d350c2fb829",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS view exposing Entity 1 with authorization check, selecting key and two fields from standard table",
+   "teaches": [
+    "CDS view entity syntax with @AccessControl annotation",
+    "Projection from SAP standard table I_StandardTable1",
+    "Key field and additional field selection pattern"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_10.ddls.asddls": {
+  "sha": "35b30ae399cb18636c26418ad9966bb7f58278cc23dbff307f1e5ec3a35fa527",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS entity view wrapping I_StandardTable10 with access control enabled",
+   "teaches": [
+    "CDS view entity syntax for SAP Clean Core",
+    "Authorization check enforcement via @AccessControl",
+    "Standard table projection pattern"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_2.ddls.asddls": {
+  "sha": "55f02683efb11eff2e79225b7322ee03d79daf75607196412d3cb89d987b91bc",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS entity view exposing selected fields from I_StandardTable2 with authorization checks",
+   "teaches": [
+    "CDS view entity syntax",
+    "Field projection from standard SAP table",
+    "Authorization check enforcement"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_3.ddls.asddls": {
+  "sha": "07f12109642cca49d2dbfcfdd1a81d0a1d848d915fbadcedcbaac9bf4dc682d6",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS view ZI_ENTITY_3 exposing three fields from I_StandardTable3 with authorization checks enabled",
+   "teaches": [
+    "CDS entity view definition syntax",
+    "Authorization check annotation usage",
+    "Projection pattern from standard table"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_4.ddls.asddls": {
+  "sha": "eee5176a67d6979fd27f368f50ac7c5495fc7ea36b1301f56c25585542a63946",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS entity view exposing fields from I_StandardTable4 with authorization check enabled",
+   "teaches": [
+    "CDS view entity syntax",
+    "Access control annotation usage",
+    "Standard table consumption pattern"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_5.ddls.asddls": {
+  "sha": "1a4038c6fb9ff23da03416aa85e99a7b4f40cbb242045cd417a8f652392fa862",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS entity view exposing selected fields from I_StandardTable5 with authorization check",
+   "teaches": [
+    "CDS view entity syntax and projection pattern",
+    "SAP authorization check integration (#CHECK)",
+    "Standard table wrapper view structure"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_6.ddls.asddls": {
+  "sha": "81c365fb7762bfc3111248e220235c12440652f5ae11905aa2912e344e5b3e2e",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS view entity wrapping I_StandardTable6 with access control for EntityKey and two fields",
+   "teaches": [
+    "CDS view entity definition with #CHECK authorization",
+    "Direct pass-through projection from SAP standard table",
+    "Key field and simple field selection pattern"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_7.ddls.asddls": {
+  "sha": "035899932a39e9ee27f186e4ad70c4683467d45179e0f795d35c456899b960cc",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS view exposing three fields from I_StandardTable7 with authorization check enabled",
+   "teaches": [
+    "Basic CDS view projection pattern",
+    "Standard table access with key field selection",
+    "Authorization check declaration at view level"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_8.ddls.asddls": {
+  "sha": "e215246e0df015ed3fe504fdee63330924b5085ccd2f981c696542cfaf90e5dc",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS view exposing a simplified projection of I_StandardTable8 with key field and two entity attributes",
+   "teaches": [
+    "CDS entity view definition with authorization check",
+    "Direct projection from SAP standard table",
+    "Clean Core pattern: consuming released SAP APIs (I_* views)"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "cds/zi_entity_9.ddls.asddls": {
+  "sha": "778aa600cee517849ffa6a3c51ed045bb715c253984251c9aaaf04dc74b2d13e",
+  "pv": 1,
+  "tag": {
+   "role": "data",
+   "one_liner": "CDS view ZI_ENTITY_9 exposing entity fields from I_StandardTable9 with authorization check enabled",
+   "teaches": [
+    "CDS view entity syntax for direct table projection",
+    "SAP authorization check integration pattern",
+    "Key field and attribute selection from standard table"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "generate_s4.sh": {
+  "sha": "52999fb6df93e1df4b8071fa32232c95199c624f2bc7eb4fffe502f90ea8fea8",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Shell script that generates 100 S/4HANA Clean Core compliant ABAP class files across multiple business domains",
+   "teaches": [
+    "S/4HANA Clean Core compliance patterns (BAPI usage, CDS views)",
+    "Mass file generation via bash heredocs",
+    "SAP business domain structure (O2C, P2P, Finance, Inventory)"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_1.abap": {
+  "sha": "8c59b15fbb4929f6649386d4817d089c934f7c6db8b6ca037fec0ff4bac27714",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Empty utility class scaffolded for S/4HANA Clean Core cross-cutting concerns",
+   "teaches": [
+    "Clean Core utility placeholder pattern",
+    "ABAP OO class boilerplate structure"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_2.abap": {
+  "sha": "befba80f911b2ce3ccb661a51b8ecf8217ee80bcb7be335d5eb54f5b08e96d85",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Empty helper utility class with no implemented behavior",
+   "teaches": [
+    "Class definition and implementation skeleton",
+    "Public method declaration pattern"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_3.abap": {
+  "sha": "913a22ad1da9e74626efce8ac477262eb66d956d52d95761ddea3743c7060ef8",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Stub utility class providing a single helper method placeholder",
+   "teaches": [
+    "Minimal ABAP class structure",
+    "Clean Core utility pattern",
+    "Public helper method placeholder"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_4.abap": {
+  "sha": "638e3a80cf2eb65a89fc3af6f915bb2825b9ec8bc6ef251dc493aa1a1312f5a2",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Stub utility class providing a single helper method placeholder with no implementation",
+   "teaches": [
+    "S/4HANA utility class structure",
+    "ABAP class definition and implementation skeleton",
+    "Clean Core compliance marker (\u2705)"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_5.abap": {
+  "sha": "9138a86c3fbc86ef752ae77cc05d68761c6e8fb62a04f25083df8191a26a1066",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Utility class 5 placeholder \u2013 empty helper method, no current business logic",
+   "teaches": [
+    "Template utility class structure",
+    "Clean Core compliant utility naming (ZCL_ namespace)",
+    "Minimal ABAP OO class skeleton"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_6.abap": {
+  "sha": "9ca228ac349268119a4d2efb95ef08eda22013f3bb16932cd7499e9bc920a475",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Minimal utility class 6 with single empty helper method, placeholder or deprecated",
+   "teaches": [
+    "Empty utility pattern",
+    "Clean Core class skeleton"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_7.abap": {
+  "sha": "07b634b18991cdd1e4d5c40522ec792b39d02e7c3f1418500e532f35456454e5",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Empty placeholder utility class with no implementation",
+   "teaches": [
+    "S/4HANA utility naming convention (zcl_util_s4_*)",
+    "Minimal ABAP class structure (definition + implementation)",
+    "Clean Core compliance marker (\u2705)"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/cross_cutting/zcl_util_s4_8.abap": {
+  "sha": "b5e78ea26c0e47e5360c831a32953de2b55a728c1ca00488505b45b7d415f5cc",
+  "pv": 1,
+  "tag": {
+   "role": "util",
+   "one_liner": "Minimal utility helper class (S/4HANA utility 8) with no defined behavior",
+   "teaches": [
+    "Empty helper method pattern",
+    "Minimal Clean Core utility structure"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/finance/zcl_finance_s4_1.abap": {
+  "sha": "678f383f5191b6c3f727f439582060d89cc2a393ca8a65dda9256777e48d0740",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance domain class placeholder with Clean Core compliant structure",
+   "teaches": [
+    "S/4HANA Clean Core finance module skeleton",
+    "Basic ABAP OO class definition and implementation pattern",
+    "Empty process method as extension point"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_10.abap": {
+  "sha": "f27a672629920041c18594b3ea04b83be698db1df19c82d51a8878bae2dddd8b",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Clean Core finance business logic placeholder \u2013 S/4HANA compliant processing hook for finance operations",
+   "teaches": [
+    "S/4HANA Clean Core compliance pattern",
+    "Domain-driven finance processing boundary",
+    "Minimal class template for extensible finance logic"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_2.abap": {
+  "sha": "aa1a33ad8264d0e042eb4beeb75d3041979c1ab4e896d7459d16e4915321e7bd",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance domain processor stub with Clean Core placeholder logic",
+   "teaches": [
+    "S/4HANA Clean Core finance domain pattern",
+    "Empty process method template for extension",
+    "Class-based domain service structure"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_3.abap": {
+  "sha": "feca5209aa273c491198444905ee2c3c3d4742e10b0df1855e93f82c4e985fcc",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance domain logic placeholder implementing Clean Core SAP S/4HANA standards",
+   "teaches": [
+    "Clean Core compliance pattern in finance module",
+    "Minimal ABAP class structure for S/4HANA",
+    "Domain layer separation for financial processing"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_4.abap": {
+  "sha": "ffa2f6686a0904673d4bafd8ea9ed79b2a1235b52c4400b4d0db76f5862a2119",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance domain class 4 - Clean Core compliant processing logic placeholder",
+   "teaches": [
+    "Clean Core finance processing pattern",
+    "Minimal ABAP OO class structure",
+    "S/4HANA domain layer separation"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_5.abap": {
+  "sha": "c38c28a1e40960f0a7463283236d5ebdcf391627f33c5bf1aee55f446347db71",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance business logic processor #5 in S/4HANA Clean Core compliant implementation",
+   "teaches": [
+    "Clean Core finance domain pattern",
+    "Minimal ABAP class structure for business rules",
+    "S/4HANA finance module organization"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_6.abap": {
+  "sha": "3b8fc453bf2f98111a330ca0f2c7861c787a1f085e630c44976508c01f40beaa",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance domain class #6 implementing Clean Core-compliant business logic",
+   "teaches": [
+    "Clean Core design pattern in finance domain",
+    "S/4HANA finance processing structure",
+    "Minimal domain class skeleton"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/finance/zcl_finance_s4_7.abap": {
+  "sha": "eef21b6b363486b1f7c162ea0084b437e772bda894ab4e2781e72abd4de3e959",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Finance domain class 7 \u2014 Clean Core compliant business logic placeholder",
+   "teaches": [
+    "S/4HANA Clean Core compliance marker",
+    "Finance domain object pattern",
+    "Minimal method stub structure"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/finance/zcl_finance_s4_8.abap": {
+  "sha": "eb79a3f13b824a5b07312ec8dc2625d6b1c6546d5f265729b1f583cccfda0ed1",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Clean Core finance domain class (S/4HANA module 8) with process method stub",
+   "teaches": [
+    "S/4HANA Clean Core class structure",
+    "Empty finance process method pattern",
+    "Minimal ABAP OO class definition"
+   ],
+   "read_before": [],
+   "centrality": 1
+  }
+ },
+ "src/finance/zcl_finance_s4_9.abap": {
+  "sha": "14ced0208b7679f246821bcfcb106023cba23079762537351da782b9bc700973",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Clean Core finance domain class for S/4HANA migration - minimal process method stub",
+   "teaches": [
+    "S/4HANA Clean Core compliance pattern",
+    "Domain layer class structure in ABAP OO",
+    "Placeholder method implementation for future finance logic"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/inventory/zcl_inventory_s4_1.abap": {
+  "sha": "bf80f60c94b39d20e21867e6f71386a2915073255eb768dc038dc5c3bf8d922c",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Clean Core inventory processing class - domain logic for S/4HANA inventory management",
+   "teaches": [
+    "S/4HANA Clean Core compliant class structure",
+    "Domain-driven inventory processing pattern",
+    "Minimal public interface design"
+   ],
+   "read_before": [],
+   "centrality": 3
+  }
+ },
+ "src/inventory/zcl_inventory_s4_10.abap": {
+  "sha": "0ff707f105e0f5361a6780906bda83974437763170d458ee97296d803baeb464",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Inventory processing domain logic implementing Clean Core S/4HANA compliance pattern",
+   "teaches": [
+    "Clean Core architectural compliance in ABAP OO",
+    "Domain-driven inventory processing method structure",
+    "S/4HANA class definition and implementation pattern"
+   ],
+   "read_before": [],
+   "centrality": 3
+  }
+ },
+ "src/inventory/zcl_inventory_s4_2.abap": {
+  "sha": "4833b2bf3a4d7e881d85a361ca3bf3f46f3611fcc82f8a084f3a32941d86c626",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "S/4HANA Clean Core inventory processing class - secondary inventory handler",
+   "teaches": [
+    "Clean Core compliant inventory domain logic",
+    "S/4HANA inventory processing pattern",
+    "Minimal single-method service structure"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/inventory/zcl_inventory_s4_3.abap": {
+  "sha": "d8d0b803c3a7e018c17cbb1649dc0eb0136304b513af1b8ff029c433b5799fa4",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Inventory processing service implementing Clean Core logic (variant 3)",
+   "teaches": [
+    "Clean Core compliant inventory processing",
+    "S/4HANA domain service pattern",
+    "Minimal implementation placeholder"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/inventory/zcl_inventory_s4_4.abap": {
+  "sha": "5fc1b27953115e69905e664f0fb1648370c3d7bb3078b3ac565b18619e8d3ed7",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Inventory processing domain class #4, part of S/4HANA Clean Core compliant inventory layer",
+   "teaches": [
+    "Clean Core inventory processing pattern",
+    "Domain method structure for inventory operations",
+    "S/4HANA compliant class design"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ },
+ "src/inventory/zcl_inventory_s4_5.abap": {
+  "sha": "650669446566078286d7a8a1ebb3838e43eb00377a1e696a4ec8e62a87b31378",
+  "pv": 1,
+  "tag": {
+   "role": "domain",
+   "one_liner": "Inventory processing domain class (S/4HANA Clean Core stub #5)",
+   "teaches": [
+    "S/4HANA Clean Core class structure",
+    "Inventory domain processing entry point",
+    "ABAP OO minimal implementation pattern"
+   ],
+   "read_before": [],
+   "centrality": 2
+  }
+ }
+}
